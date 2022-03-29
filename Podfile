@@ -7,4 +7,6 @@ target 'Garden_App' do
 
   pod 'Alamofire'
   pod 'SnapKit'
+  pod 'FSCalendar'
+
 end
