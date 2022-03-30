@@ -15,6 +15,12 @@
 		7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */; };
 		7C47DD1B27F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1927F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift */; };
 		7C47DD1C27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1A27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift */; };
+		7C47DD1E27F3ADC60087F5D7 /* PersistableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */; };
+		7C47DD2227F448840087F5D7 /* NotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2127F448840087F5D7 /* NotesService.swift */; };
+		7C47DD2527F449240087F5D7 /* ReminderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2427F449240087F5D7 /* ReminderStruct.swift */; };
+		7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2627F4493F0087F5D7 /* TagStruct.swift */; };
+		7C47DD2927F4494F0087F5D7 /* PlantStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2827F4494F0087F5D7 /* PlantStruct.swift */; };
+		7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */; };
 		7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E627CBED0800DCF978 /* AppDelegate.swift */; };
 		7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E827CBED0800DCF978 /* SceneDelegate.swift */; };
 		7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EA27CBED0800DCF978 /* ViewController.swift */; };
@@ -33,6 +39,12 @@
 		7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C47DD1927F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C47DD1A27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableService.swift; sourceTree = "<group>"; };
+		7C47DD2127F448840087F5D7 /* NotesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesService.swift; sourceTree = "<group>"; };
+		7C47DD2427F449240087F5D7 /* ReminderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStruct.swift; sourceTree = "<group>"; };
+		7C47DD2627F4493F0087F5D7 /* TagStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStruct.swift; sourceTree = "<group>"; };
+		7C47DD2827F4494F0087F5D7 /* PlantStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantStruct.swift; sourceTree = "<group>"; };
+		7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStruct.swift; sourceTree = "<group>"; };
 		7CC212E327CBED0800DCF978 /* Garden_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC212E627CBED0800DCF978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CC212E827CBED0800DCF978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +70,35 @@
 		7C47DCC327F399450087F5D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7C47DD2C27F44AC20087F5D7 /* Entities */,
+				7C47DD2327F449000087F5D7 /* Structs */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7C47DD1627F3A2E20087F5D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */,
+				7C47DD2127F448840087F5D7 /* NotesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7C47DD2327F449000087F5D7 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				7C47DD2427F449240087F5D7 /* ReminderStruct.swift */,
+				7C47DD2627F4493F0087F5D7 /* TagStruct.swift */,
+				7C47DD2827F4494F0087F5D7 /* PlantStruct.swift */,
+				7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		7C47DD2C27F44AC20087F5D7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
 				7C47DD1927F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift */,
 				7C47DD1A27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift */,
 				7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */,
@@ -67,14 +108,7 @@
 				7C47DD0E27F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift */,
 				7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */,
 			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		7C47DD1627F3A2E20087F5D7 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		7CC212DA27CBED0700DCF978 = {
@@ -188,11 +222,17 @@
 				7C47DD1C27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift in Sources */,
 				7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */,
 				7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */,
+				7C47DD2227F448840087F5D7 /* NotesService.swift in Sources */,
 				7C47DD1B27F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift in Sources */,
 				7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */,
 				7C47DD1427F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift in Sources */,
+				7C47DD2927F4494F0087F5D7 /* PlantStruct.swift in Sources */,
+				7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */,
+				7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */,
+				7C47DD1E27F3ADC60087F5D7 /* PersistableService.swift in Sources */,
 				7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */,
 				7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */,
+				7C47DD2527F449240087F5D7 /* ReminderStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
