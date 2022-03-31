@@ -2,7 +2,7 @@
 //  PlantEntity+CoreDataProperties.swift
 //  Garden_App
 //
-//  Created by Alina Bikkinina on 29.03.2022.
+//  Created by Alina Bikkinina on 30.03.2022.
 //
 //
 
@@ -19,6 +19,7 @@ extension PlantEntity {
     @NSManaged public var plantDate: Date?
     @NSManaged public var plantName: String
     @NSManaged public var plantTags: Set<TagEntity>?
+    @NSManaged public var plantsReminders: Set<ReminderEntity>?
 
 }
 
@@ -36,6 +37,23 @@ extension PlantEntity {
 
     @objc(removePlantTags:)
     @NSManaged public func removeFromPlantTags(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for plantReminders
+extension PlantEntity {
+
+    @objc(addPlantRemindersObject:)
+    @NSManaged public func addToPlantReminders(_ value: ReminderEntity)
+
+    @objc(removePlantRemindersObject:)
+    @NSManaged public func removeFromPlantReminders(_ value: ReminderEntity)
+
+    @objc(addPlantReminders:)
+    @NSManaged public func addToPlantReminders(_ values: NSSet)
+
+    @objc(removePlantReminders:)
+    @NSManaged public func removeFromPlantReminders(_ values: NSSet)
 
 }
 

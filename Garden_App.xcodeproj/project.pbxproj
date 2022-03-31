@@ -13,6 +13,14 @@
 		7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0D27F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift */; };
 		7C47DD1427F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0E27F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift */; };
 		7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */; };
+		7C47DD1B27F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1927F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift */; };
+		7C47DD1C27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1A27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift */; };
+		7C47DD1E27F3ADC60087F5D7 /* PersistableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */; };
+		7C47DD2227F448840087F5D7 /* NotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2127F448840087F5D7 /* NotesService.swift */; };
+		7C47DD2527F449240087F5D7 /* ReminderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2427F449240087F5D7 /* ReminderStruct.swift */; };
+		7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2627F4493F0087F5D7 /* TagStruct.swift */; };
+		7C47DD2927F4494F0087F5D7 /* PlantStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2827F4494F0087F5D7 /* PlantStruct.swift */; };
+		7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */; };
 		7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E627CBED0800DCF978 /* AppDelegate.swift */; };
 		7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E827CBED0800DCF978 /* SceneDelegate.swift */; };
 		7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EA27CBED0800DCF978 /* ViewController.swift */; };
@@ -20,15 +28,26 @@
 		7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EF27CBED0800DCF978 /* Garden_App.xcdatamodeld */; };
 		7CC212F327CBED0900DCF978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC212F227CBED0900DCF978 /* Assets.xcassets */; };
 		7CC212F627CBED0900DCF978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC212F427CBED0900DCF978 /* LaunchScreen.storyboard */; };
+		E88E40D2CFD1B8FDD585909A /* Pods_Garden_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6286231C81B228318D732A7D /* Pods_Garden_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36929F991DE5833188C6318E /* Pods-Garden_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.release.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.release.xcconfig"; sourceTree = "<group>"; };
+		6286231C81B228318D732A7D /* Pods_Garden_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garden_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C47DD0D27F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C47DD0E27F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7C47DD1927F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7C47DD1A27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableService.swift; sourceTree = "<group>"; };
+		7C47DD2127F448840087F5D7 /* NotesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesService.swift; sourceTree = "<group>"; };
+		7C47DD2427F449240087F5D7 /* ReminderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStruct.swift; sourceTree = "<group>"; };
+		7C47DD2627F4493F0087F5D7 /* TagStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStruct.swift; sourceTree = "<group>"; };
+		7C47DD2827F4494F0087F5D7 /* PlantStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantStruct.swift; sourceTree = "<group>"; };
+		7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStruct.swift; sourceTree = "<group>"; };
 		7CC212E327CBED0800DCF978 /* Garden_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC212E627CBED0800DCF978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CC212E827CBED0800DCF978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +57,7 @@
 		7CC212F227CBED0900DCF978 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CC212F527CBED0900DCF978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CC212F727CBED0900DCF978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B649471A75255ACE9C7D68D8 /* Pods-Garden_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.debug.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,21 +65,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E88E40D2CFD1B8FDD585909A /* Pods_Garden_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0659958BD155C865589DE62E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B649471A75255ACE9C7D68D8 /* Pods-Garden_App.debug.xcconfig */,
+				36929F991DE5833188C6318E /* Pods-Garden_App.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7C47DCC327F399450087F5D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */,
-				7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */,
-				7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */,
-				7C47DD0D27F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift */,
-				7C47DD0E27F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift */,
-				7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */,
+				7C47DD2C27F44AC20087F5D7 /* Entities */,
+				7C47DD2327F449000087F5D7 /* Structs */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -67,8 +94,36 @@
 		7C47DD1627F3A2E20087F5D7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */,
+				7C47DD2127F448840087F5D7 /* NotesService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		7C47DD2327F449000087F5D7 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				7C47DD2427F449240087F5D7 /* ReminderStruct.swift */,
+				7C47DD2627F4493F0087F5D7 /* TagStruct.swift */,
+				7C47DD2827F4494F0087F5D7 /* PlantStruct.swift */,
+				7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		7C47DD2C27F44AC20087F5D7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7C47DD1927F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift */,
+				7C47DD1A27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift */,
+				7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */,
+				7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */,
+				7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */,
+				7C47DD0D27F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift */,
+				7C47DD0E27F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift */,
+				7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		7CC212DA27CBED0700DCF978 = {
@@ -76,6 +131,8 @@
 			children = (
 				7CC212E527CBED0800DCF978 /* Garden_App */,
 				7CC212E427CBED0800DCF978 /* Products */,
+				0659958BD155C865589DE62E /* Pods */,
+				84393A06CD1522133AEEC411 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +161,14 @@
 			path = Garden_App;
 			sourceTree = "<group>";
 		};
+		84393A06CD1522133AEEC411 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6286231C81B228318D732A7D /* Pods_Garden_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CC212FA27CBED0900DCF978 /* Build configuration list for PBXNativeTarget "Garden_App" */;
 			buildPhases = (
+				BAFDC1BC2B52E7D3AB5D9ED9 /* [CP] Check Pods Manifest.lock */,
 				7CC212DF27CBED0800DCF978 /* Sources */,
 				7CC212E027CBED0800DCF978 /* Frameworks */,
 				7CC212E127CBED0800DCF978 /* Resources */,
+				D8297397F3E0558BDA7A8683 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +237,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BAFDC1BC2B52E7D3AB5D9ED9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Garden_App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8297397F3E0558BDA7A8683 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Garden_App/Pods-Garden_App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Garden_App/Pods-Garden_App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Garden_App/Pods-Garden_App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7CC212DF27CBED0800DCF978 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -179,12 +288,20 @@
 				7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */,
 				7C47DD1027F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift in Sources */,
 				7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */,
+				7C47DD1C27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift in Sources */,
 				7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */,
 				7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */,
+				7C47DD2227F448840087F5D7 /* NotesService.swift in Sources */,
+				7C47DD1B27F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift in Sources */,
 				7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */,
 				7C47DD1427F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift in Sources */,
+				7C47DD2927F4494F0087F5D7 /* PlantStruct.swift in Sources */,
+				7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */,
+				7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */,
+				7C47DD1E27F3ADC60087F5D7 /* PersistableService.swift in Sources */,
 				7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */,
 				7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */,
+				7C47DD2527F449240087F5D7 /* ReminderStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +445,7 @@
 		};
 		7CC212FB27CBED0900DCF978 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B649471A75255ACE9C7D68D8 /* Pods-Garden_App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -355,6 +473,7 @@
 		};
 		7CC212FC27CBED0900DCF978 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36929F991DE5833188C6318E /* Pods-Garden_App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
