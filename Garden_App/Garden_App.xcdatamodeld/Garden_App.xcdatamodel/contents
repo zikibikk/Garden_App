@@ -9,7 +9,13 @@
     <entity name="PlantEntity" representedClassName="PlantEntity" syncable="YES">
         <attribute name="plantDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="plantName" attributeType="String"/>
+        <relationship name="plantsReminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReminderEntity" inverseName="remindersPlants" inverseEntity="ReminderEntity"/>
         <relationship name="plantTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="tagPlant" inverseEntity="TagEntity"/>
+    </entity>
+    <entity name="ReminderEntity" representedClassName="ReminderEntity" syncable="YES">
+        <attribute name="reminderDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="reminderText" attributeType="String"/>
+        <relationship name="remindersPlants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlantEntity" inverseName="plantsReminders" inverseEntity="PlantEntity"/>
     </entity>
     <entity name="TagEntity" representedClassName="TagEntity" syncable="YES">
         <attribute name="tagColor" optional="YES" attributeType="String"/>
@@ -18,8 +24,9 @@
         <relationship name="tagPlant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlantEntity" inverseName="plantTags" inverseEntity="PlantEntity"/>
     </entity>
     <elements>
-        <element name="NoteEntity" positionX="-63" positionY="-18" width="128" height="89"/>
-        <element name="PlantEntity" positionX="-54" positionY="-9" width="128" height="74"/>
-        <element name="TagEntity" positionX="-36" positionY="9" width="128" height="89"/>
+        <element name="NoteEntity" positionX="-383.65625" positionY="-85.06640625" width="128" height="103"/>
+        <element name="PlantEntity" positionX="-4.80859375" positionY="-69.3828125" width="128" height="103"/>
+        <element name="TagEntity" positionX="-228.96484375" positionY="53.77734375" width="128" height="103"/>
+        <element name="ReminderEntity" positionX="-171" positionY="54" width="128" height="74"/>
     </elements>
 </model>
