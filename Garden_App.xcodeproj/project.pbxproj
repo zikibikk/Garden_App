@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1AC418A958EB80079A1F877E /* Pods_Garden_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96964A7D222CD7F196C4B766 /* Pods_Garden_App.framework */; };
+		7C47DD1027F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */; };
+		7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */; };
+		7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */; };
+		7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0D27F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift */; };
+		7C47DD1427F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0E27F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift */; };
+		7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */; };
+    
 		7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E627CBED0800DCF978 /* AppDelegate.swift */; };
 		7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E827CBED0800DCF978 /* SceneDelegate.swift */; };
 		7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EA27CBED0800DCF978 /* ViewController.swift */; };
@@ -19,6 +26,12 @@
 
 /* Begin PBXFileReference section */
 		0455187B4ACD4AE603D76671 /* Pods-Garden_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.debug.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.debug.xcconfig"; sourceTree = "<group>"; };
+		7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7C47DD0D27F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7C47DD0E27F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7CC212E327CBED0800DCF978 /* Garden_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC212E627CBED0800DCF978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CC212E827CBED0800DCF978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +64,24 @@
 				C35C8F24314FD98E301C5967 /* Pods-Garden_App.release.xcconfig */,
 			);
 			path = Pods;
+		7C47DCC327F399450087F5D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */,
+				7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */,
+				7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */,
+				7C47DD0D27F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift */,
+				7C47DD0E27F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift */,
+				7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7C47DD1627F3A2E20087F5D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		7CC212DA27CBED0700DCF978 = {
@@ -74,6 +105,8 @@
 		7CC212E527CBED0800DCF978 /* Garden_App */ = {
 			isa = PBXGroup;
 			children = (
+				7C47DD1627F3A2E20087F5D7 /* Services */,
+				7C47DCC327F399450087F5D7 /* Models */,
 				7CC212E627CBED0800DCF978 /* AppDelegate.swift */,
 				7CC212E827CBED0800DCF978 /* SceneDelegate.swift */,
 				7CC212EA27CBED0800DCF978 /* ViewController.swift */,
@@ -209,9 +242,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */,
 				7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */,
+				7C47DD1027F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift in Sources */,
 				7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */,
+				7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */,
+				7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */,
 				7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */,
+				7C47DD1427F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift in Sources */,
+				7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */,
 				7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="NoteEntity" representedClassName="NoteEntity" syncable="YES">
+        <attribute name="noteDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="noteName" optional="YES" attributeType="String"/>
+        <attribute name="noteText" attributeType="String"/>
+        <relationship name="noteTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="tagNote" inverseEntity="TagEntity"/>
+    </entity>
+    <entity name="PlantEntity" representedClassName="PlantEntity" syncable="YES">
+        <attribute name="plantDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="plantName" attributeType="String"/>
+        <relationship name="plantTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="tagPlant" inverseEntity="TagEntity"/>
+    </entity>
+    <entity name="TagEntity" representedClassName="TagEntity" syncable="YES">
+        <attribute name="tagColor" optional="YES" attributeType="String"/>
+        <attribute name="tagText" attributeType="String"/>
+        <relationship name="tagNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteEntity" inverseName="noteTags" inverseEntity="NoteEntity"/>
+        <relationship name="tagPlant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlantEntity" inverseName="plantTags" inverseEntity="PlantEntity"/>
+    </entity>
+    <elements>
+        <element name="NoteEntity" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="PlantEntity" positionX="-54" positionY="-9" width="128" height="74"/>
+        <element name="TagEntity" positionX="-36" positionY="9" width="128" height="89"/>
+    </elements>
 </model>
