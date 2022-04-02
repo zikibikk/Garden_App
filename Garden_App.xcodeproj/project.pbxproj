@@ -21,6 +21,13 @@
 		7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2627F4493F0087F5D7 /* TagStruct.swift */; };
 		7C47DD2927F4494F0087F5D7 /* PlantStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2827F4494F0087F5D7 /* PlantStruct.swift */; };
 		7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */; };
+		7CB2305527F74D1300528A48 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2305427F74D1300528A48 /* DayViewController.swift */; };
+		7CB2305727F7505000528A48 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2305627F7505000528A48 /* Colors.swift */; };
+		7CB2305927F7652100528A48 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2305827F7652100528A48 /* Fonts.swift */; };
+		7CB2305B27F76C2D00528A48 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2305A27F76C2D00528A48 /* Roboto.ttf */; };
+		7CB2306127F7728800528A48 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2306027F7728800528A48 /* Roboto-Bold.ttf */; };
+		7CB2306327F7A21B00528A48 /* RobotoFlex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */; };
+		7CB2306527F7A4E800528A48 /* ViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2306427F7A4E800528A48 /* ViewService.swift */; };
 		7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E627CBED0800DCF978 /* AppDelegate.swift */; };
 		7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E827CBED0800DCF978 /* SceneDelegate.swift */; };
 		7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EA27CBED0800DCF978 /* ViewController.swift */; };
@@ -48,6 +55,13 @@
 		7C47DD2627F4493F0087F5D7 /* TagStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStruct.swift; sourceTree = "<group>"; };
 		7C47DD2827F4494F0087F5D7 /* PlantStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantStruct.swift; sourceTree = "<group>"; };
 		7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStruct.swift; sourceTree = "<group>"; };
+		7CB2305427F74D1300528A48 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		7CB2305627F7505000528A48 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7CB2305827F7652100528A48 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		7CB2305A27F76C2D00528A48 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Roboto.ttf; path = Garden_App/Source/Fonts/Roboto.ttf; sourceTree = SOURCE_ROOT; };
+		7CB2306027F7728800528A48 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RobotoFlex.ttf; sourceTree = "<group>"; };
+		7CB2306427F7A4E800528A48 /* ViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewService.swift; sourceTree = "<group>"; };
 		7CC212E327CBED0800DCF978 /* Garden_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC212E627CBED0800DCF978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CC212E827CBED0800DCF978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +92,6 @@
 				B649471A75255ACE9C7D68D8 /* Pods-Garden_App.debug.xcconfig */,
 				36929F991DE5833188C6318E /* Pods-Garden_App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -96,6 +109,7 @@
 			children = (
 				7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */,
 				7C47DD2127F448840087F5D7 /* NotesService.swift */,
+				7CB2306427F7A4E800528A48 /* ViewService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -126,6 +140,34 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		7C47DD2F27F74B320087F5D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7CB2305427F74D1300528A48 /* DayViewController.swift */,
+				7CB2305627F7505000528A48 /* Colors.swift */,
+				7CB2305827F7652100528A48 /* Fonts.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7CB2305E27F7721C00528A48 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */,
+				7CB2306027F7728800528A48 /* Roboto-Bold.ttf */,
+				7CB2305A27F76C2D00528A48 /* Roboto.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7CB2305F27F7722B00528A48 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7CB2305E27F7721C00528A48 /* Fonts */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		7CC212DA27CBED0700DCF978 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +189,8 @@
 		7CC212E527CBED0800DCF978 /* Garden_App */ = {
 			isa = PBXGroup;
 			children = (
+				7CB2305F27F7722B00528A48 /* Source */,
+				7C47DD2F27F74B320087F5D7 /* Views */,
 				7C47DD1627F3A2E20087F5D7 /* Services */,
 				7C47DCC327F399450087F5D7 /* Models */,
 				7CC212E627CBED0800DCF978 /* AppDelegate.swift */,
@@ -231,7 +275,10 @@
 			files = (
 				7CC212F627CBED0900DCF978 /* LaunchScreen.storyboard in Resources */,
 				7CC212F327CBED0900DCF978 /* Assets.xcassets in Resources */,
+				7CB2306127F7728800528A48 /* Roboto-Bold.ttf in Resources */,
+				7CB2306327F7A21B00528A48 /* RobotoFlex.ttf in Resources */,
 				7CC212EE27CBED0800DCF978 /* Main.storyboard in Resources */,
+				7CB2305B27F76C2D00528A48 /* Roboto.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,10 +332,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */,
+				7CB2305727F7505000528A48 /* Colors.swift in Sources */,
 				7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */,
 				7C47DD1027F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift in Sources */,
+				7CB2305527F74D1300528A48 /* DayViewController.swift in Sources */,
 				7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */,
 				7C47DD1C27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift in Sources */,
+				7CB2305927F7652100528A48 /* Fonts.swift in Sources */,
 				7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */,
 				7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */,
 				7C47DD2227F448840087F5D7 /* NotesService.swift in Sources */,
@@ -298,6 +348,7 @@
 				7C47DD2927F4494F0087F5D7 /* PlantStruct.swift in Sources */,
 				7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */,
 				7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */,
+				7CB2306527F7A4E800528A48 /* ViewService.swift in Sources */,
 				7C47DD1E27F3ADC60087F5D7 /* PersistableService.swift in Sources */,
 				7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */,
 				7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */,
@@ -451,6 +502,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Z8LTRZ8C4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Garden_App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -479,6 +531,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4Z8LTRZ8C4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Garden_App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
