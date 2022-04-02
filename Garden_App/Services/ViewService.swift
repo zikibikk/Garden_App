@@ -24,6 +24,7 @@ class ViewService {
         resultLabel.text = text
         resultLabel.font = font
         resultLabel.textColor = color
+        
         resultLabel.backgroundColor = backgroundColor
         resultLabel.layer.masksToBounds = true
         resultLabel.layer.cornerRadius = 15.0
