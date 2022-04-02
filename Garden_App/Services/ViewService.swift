@@ -41,3 +41,75 @@ class ViewService {
     }
     
 }
+
+class AdviceView: UIView {
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        return label
+    }()
+
+    private lazy var backgroundView: UIView = UIView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        addSubview(backgroundView)
+        backgroundView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+
+        addSubview(titleLabel)
+    }
+
+    func configure(text: String) {
+        titleLabel.text = text
+    }
+
+    func configure(font: UIFont) {
+        titleLabel.font = font
+    }
+}
+
+
+protocol ICalculationService {
+    func getValue() -> Int
+}
+
+class CalculationService: ICalculationService {
+    private let value: Int
+
+    init(value: Int) {
+        self.value = value
+    }
+
+    func getValue() -> Int {
+        value
+    }
+}
+
+class TestableService {
+    private let service: ICalculationService
+
+    init(service: ICalculationService) {
+        self.service = service
+    }
+
+    func calculate(value: Int) -> Int {
+        service.getValue() + value
+    }
+}
+
+func test() {
+    let calculationService = CalculationService(value: 8)
+    let testableService = TestableService(service: calculationService)
+    let result = testableService.calculate(value: 4)
+    assert(result == 12)
+}

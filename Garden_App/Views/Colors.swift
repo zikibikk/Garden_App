@@ -19,3 +19,7 @@ class Colors {
     static let grayText = UIColor(red: devide(a: 67), green: devide(a: 67), blue: devide(a: 67), alpha: 1)
     
 }
+
+extension UIColor {
+
+}

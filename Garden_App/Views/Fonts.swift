@@ -8,10 +8,16 @@
 import Foundation
 import UIKit
 
-class Fonts {
+enum Fonts {
     
     static let title = UIFont(name: "Roboto-Bold", size: 35)
     
     static let text = UIFont(name: "RobotoFlex", size: 17)
     
+}
+
+extension UIFont {
+    static var title: UIFont {
+        UIFont(name: "", size: 45)!
+    }
 }
