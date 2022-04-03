@@ -15,8 +15,8 @@ final class DayPresenter: IDayPresenter {}
 class DayViewController: UIViewController {
     private let presenter: IDayPresenter
 
-    private lazy var dateLabel: UILabel = UILabel()
-    private lazy var infoView: UIView = DeepGreenView()
+    private lazy var dateLabel: UILabel = ViewService.configureLabel(text: "", font: .systemFont(ofSize: 14), color: .gray)
+    private lazy var infoLabel = UILabel()
     private lazy var addNoteButton: UIButton = .roundedButton()
     private lazy var addReminderButton = UIButton()
 
@@ -45,11 +45,19 @@ extension DayViewController {
         
         view.backgroundColor = .white
         
+        dateLabel = ViewService.configureLabel(text: "Сегодня", font: .title, color: Colors.grayText)
+        infoLabel = ViewService.configureNoteLabel(text: "Наиболее благоприятный день месяца для работы с растениями. В саду можно обработать деревья и кустарники медьсодержащими препаратами по спящим почкам", font: Fonts.text!, color: .white, backgroundColor: Colors.green)
+        
         view.addSubview(dateLabel)
         
-        view.addSubview(infoView)
+        view.addSubview(infoLabel)
         
-        infoView.snp.makeConstraints { maker in
+        dateLabel.snp.makeConstraints { maker in
+            maker.left.equalToSuperview().inset(100)
+            maker.top.equalToSuperview().inset(100)
+        }
+        
+        infoLabel.snp.makeConstraints { maker in
             maker.left.equalToSuperview().inset(100)
             maker.right.equalToSuperview().inset(100)
             maker.top.equalToSuperview().inset(200)

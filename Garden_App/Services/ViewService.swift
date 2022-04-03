@@ -5,24 +5,51 @@
 //  Created by Alina Bikkinina on 02.04.2022.
 //
 
-import SnapKit
+import UIKit
+import Foundation
 
-class DeepGreenView: UIView {
-    private lazy var label: UILabel = {
+class ViewService {
+    
+    static func configureLabel(text: String, font: UIFont, color: UIColor) -> UILabel {
+        let resultLabel = UILabel()
+        resultLabel.text = text
+        resultLabel.font = font
+        resultLabel.textColor = color
+        return resultLabel
+    }
+    
+    //TODO: рамки по периметру текста, чтобы граница цета начиналась раньше, чем текст
+    static func configureNoteLabel(text: String, font: UIFont, color: UIColor, backgroundColor: UIColor) -> UILabel {
+        let resultLabel = UILabel()
+        resultLabel.text = text
+        resultLabel.font = font
+        resultLabel.textColor = color
+        
+        resultLabel.backgroundColor = backgroundColor
+        resultLabel.layer.masksToBounds = true
+        resultLabel.layer.cornerRadius = 15.0
+        resultLabel.numberOfLines = 0
+        return resultLabel
+    }
+    
+    static func configureTextView(text: String, font: UIFont, color: UIColor) -> UITextView {
+        let resultTextView = UITextView()
+        resultTextView.text = text
+        resultTextView.font = font
+        resultTextView.textColor = color
+        return resultTextView
+    }
+    
+}
+
+class AdviceView: UIView {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
-        label.font = .title
-        label.textColor = .white
+        label.font = .systemFont(ofSize: 14)
         return label
     }()
 
-    private lazy var backgroundView: UIView = {
-        let view = UIView()
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 15.0
-        view.backgroundColor = .deepGreen
-        return view
-    }()
+    private lazy var backgroundView: UIView = UIView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,37 +62,21 @@ class DeepGreenView: UIView {
 
     private func setup() {
         addSubview(backgroundView)
-        /*backgroundView.snp.makeConstraints {
-            $0.edges.equalTo(label)
-        }*/
-        
-        addSubview(label)
-        /*label.snp.makeConstraints {
+        backgroundView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-        }*/
+        }
+
+        addSubview(titleLabel)
     }
 
     func configure(text: String) {
-        label.text = text
+        titleLabel.text = text
     }
 
     func configure(font: UIFont) {
-        label.font = font
+        titleLabel.font = font
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 protocol ICalculationService {
