@@ -56,13 +56,3 @@ extension DayViewController {
         }
     }
 }
-
-extension UIButton {
-
-    static func roundedButton() -> UIButton {
-        let button = UIButton()
-        // configure
-
-        return button
-    }
-}
