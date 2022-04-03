@@ -7,8 +7,8 @@
 
 import Foundation
 import CoreData
+
 class PersistableService {
-    
     
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {

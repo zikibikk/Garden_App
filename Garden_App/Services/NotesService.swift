@@ -6,12 +6,11 @@
 //
 
 import Foundation
+
 class NotesService {
     var persistableService: PersistableService
     
     init(persistableService: PersistableService) {
         self.persistableService = persistableService
     }
-    
-    
 }

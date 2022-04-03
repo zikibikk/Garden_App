@@ -6,53 +6,34 @@
 //
 
 import SnapKit
-import UIKit
-
-protocol IDayPresenter {}
-
-final class DayPresenter: IDayPresenter {}
 
 class DayViewController: UIViewController {
-    private let presenter: IDayPresenter
-
+    
     private lazy var dateLabel: UILabel = UILabel()
-    private lazy var infoView: UIView = DeepGreenView()
-    private lazy var addNoteButton: UIButton = .roundedButton()
+    private lazy var infoView: UIView = {
+        let view = DeepGreenView()
+        view.text = "Наиболее благоприятный день месяца для работы с растениями. В саду можно обработать деревья и кустарники медьсодержащими препаратами по спящим почкам"
+        return view
+    }()
+    private lazy var addNoteButton: UIButton = UIButton()
     private lazy var addReminderButton = UIButton()
-
-    init(presenter: IDayPresenter) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        // Do any additional setup after loading the view.
     }
-
 }
-
-//TODO: дописать приколюхи с констрейнтами и текст убрать хардкод. для шаблонных фраз можно завести файл, длинные сводки пока доставать каким-нибудь сервисом
 
 extension DayViewController {
     
     private func initialize() {
-        
         view.backgroundColor = .white
-        
-        view.addSubview(dateLabel)
-        
         view.addSubview(infoView)
         
         infoView.snp.makeConstraints { maker in
-            maker.left.equalToSuperview().inset(100)
-            maker.right.equalToSuperview().inset(100)
-            maker.top.equalToSuperview().inset(200)
+            maker.left.equalToSuperview().inset(Constraints.side)
+            maker.right.equalToSuperview().inset(Constraints.side)
+            maker.top.equalToSuperview().inset(100)
         }
     }
 }

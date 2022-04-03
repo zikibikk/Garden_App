@@ -14,6 +14,6 @@ extension UIFont {
     }
     
     static var text: UIFont {
-        return UIFont(name: "Roboto-Bold", size: 17)!
+        return UIFont(name: "RobotoFlex", size: 17)!
     }
 }

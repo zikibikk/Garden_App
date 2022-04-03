@@ -8,11 +8,13 @@
 import SnapKit
 
 class DeepGreenView: UIView {
+    
     private lazy var label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .title
+        label.font = .text
         label.textColor = .white
+        label.textAlignment = .left
         return label
     }()
 
@@ -23,6 +25,11 @@ class DeepGreenView: UIView {
         view.backgroundColor = .deepGreen
         return view
     }()
+    
+    var text: String? {
+        set { label.text = newValue }
+        get { return label.text }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,24 +39,25 @@ class DeepGreenView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
+extension DeepGreenView {
     private func setup() {
         addSubview(backgroundView)
-        /*backgroundView.snp.makeConstraints {
-            $0.edges.equalTo(label)
-        }*/
+        backgroundView.addSubview(label)
         
-        addSubview(label)
-        /*label.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }*/
-    }
-
-    func configure(text: String) {
-        label.text = text
-    }
-
-    func configure(font: UIFont) {
-        label.font = font
+        backgroundView.snp.makeConstraints {maker in
+            maker.top.equalToSuperview()
+            maker.trailing.equalToSuperview()
+            maker.leading.equalToSuperview()
+            maker.bottom.equalTo(label).offset(15)
+        }
+        
+        label.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().inset(15)
+            maker.trailing.equalToSuperview().inset(15)
+            maker.leading.equalToSuperview().inset(15)
+            maker.centerX.equalToSuperview()
+        }
     }
 }
