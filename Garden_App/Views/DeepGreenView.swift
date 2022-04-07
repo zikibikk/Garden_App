@@ -6,6 +6,11 @@
 //
 
 import SnapKit
+import CoreGraphics
+
+protocol AddNoteScreen {
+    func addNote(note: NoteStruct)
+}
 
 class DeepGreenView: UIView {
     
@@ -21,7 +26,7 @@ class DeepGreenView: UIView {
     private lazy var backgroundView: UIView = {
         let view = UIView()
         view.layer.masksToBounds = true
-        view.layer.cornerRadius = 15.0
+        view.layer.cornerRadius = 15
         view.backgroundColor = .deepGreen
         return view
     }()
@@ -30,6 +35,8 @@ class DeepGreenView: UIView {
         set { label.text = newValue }
         get { return label.text }
     }
+    
+    weak var addNoteToCDDelegate: SaveNoteDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,18 +53,30 @@ extension DeepGreenView {
         addSubview(backgroundView)
         backgroundView.addSubview(label)
         
-        backgroundView.snp.makeConstraints {maker in
-            maker.top.equalToSuperview()
-            maker.trailing.equalToSuperview()
-            maker.leading.equalToSuperview()
+        backgroundView.snp.makeConstraints{ maker in
+            maker.top
+                .trailing
+                .leading
+                .equalToSuperview()
             maker.bottom.equalTo(label).offset(15)
         }
         
         label.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(15)
-            maker.trailing.equalToSuperview().inset(15)
-            maker.leading.equalToSuperview().inset(15)
-            maker.centerX.equalToSuperview()
+            maker.top
+                .trailing
+                .leading
+                .equalToSuperview()
+                .inset(15)
         }
+        
+        self.snp.makeConstraints {
+            $0.bottom.equalTo(backgroundView)
+        }
+    }
+}
+
+extension DeepGreenView: AddNoteScreen {
+    func addNote(note: NoteStruct) {
+        addNoteToCDDelegate?.saveNote(note: note)
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C391C6727FF93160041AD83 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6627FF93160041AD83 /* Repository.swift */; };
+		7C391C6927FF955E0041AD83 /* AdviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6827FF955E0041AD83 /* AdviceService.swift */; };
 		7C47DD1027F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */; };
 		7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */; };
 		7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */; };
@@ -29,6 +31,7 @@
 		7CB2306327F7A21B00528A48 /* RobotoFlex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */; };
 		7CB2306527F7A4E800528A48 /* DeepGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2306427F7A4E800528A48 /* DeepGreenView.swift */; };
 		7CB2306827FA343400528A48 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2306727FA343400528A48 /* Constraints.swift */; };
+		7CB2306A27FB60E500528A48 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2306927FB60E500528A48 /* Button.swift */; };
 		7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E627CBED0800DCF978 /* AppDelegate.swift */; };
 		7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E827CBED0800DCF978 /* SceneDelegate.swift */; };
 		7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EA27CBED0800DCF978 /* ViewController.swift */; };
@@ -41,6 +44,8 @@
 /* Begin PBXFileReference section */
 		36929F991DE5833188C6318E /* Pods-Garden_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.release.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.release.xcconfig"; sourceTree = "<group>"; };
 		6286231C81B228318D732A7D /* Pods_Garden_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garden_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C391C6627FF93160041AD83 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		7C391C6827FF955E0041AD83 /* AdviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceService.swift; sourceTree = "<group>"; };
 		7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 		7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RobotoFlex.ttf; sourceTree = "<group>"; };
 		7CB2306427F7A4E800528A48 /* DeepGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepGreenView.swift; sourceTree = "<group>"; };
 		7CB2306727FA343400528A48 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		7CB2306927FB60E500528A48 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		7CC212E327CBED0800DCF978 /* Garden_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC212E627CBED0800DCF978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CC212E827CBED0800DCF978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +101,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7C391C6A27FF96B20041AD83 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		7C47DCC327F399450087F5D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,8 @@
 			children = (
 				7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */,
 				7C47DD2127F448840087F5D7 /* NotesService.swift */,
+				7C391C6627FF93160041AD83 /* Repository.swift */,
+				7C391C6827FF955E0041AD83 /* AdviceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -173,6 +188,7 @@
 				7CB2305627F7505000528A48 /* Colors.swift */,
 				7CB2305827F7652100528A48 /* Fonts.swift */,
 				7CB2306727FA343400528A48 /* Constraints.swift */,
+				7CB2306927FB60E500528A48 /* Button.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -199,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB2305F27F7722B00528A48 /* Source */,
+				7C391C6A27FF96B20041AD83 /* Presenters */,
 				7C47DD2F27F74B320087F5D7 /* Views */,
 				7C47DD1627F3A2E20087F5D7 /* Services */,
 				7C47DCC327F399450087F5D7 /* Models */,
@@ -345,6 +362,7 @@
 				7CB2305527F74D1300528A48 /* DayViewController.swift in Sources */,
 				7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */,
 				7C47DD1C27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift in Sources */,
+				7C391C6727FF93160041AD83 /* Repository.swift in Sources */,
 				7CB2305927F7652100528A48 /* Fonts.swift in Sources */,
 				7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */,
 				7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */,
@@ -357,6 +375,8 @@
 				7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */,
 				7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */,
 				7CB2306527F7A4E800528A48 /* DeepGreenView.swift in Sources */,
+				7CB2306A27FB60E500528A48 /* Button.swift in Sources */,
+				7C391C6927FF955E0041AD83 /* AdviceService.swift in Sources */,
 				7C47DD1E27F3ADC60087F5D7 /* PersistableService.swift in Sources */,
 				7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */,
 				7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */,

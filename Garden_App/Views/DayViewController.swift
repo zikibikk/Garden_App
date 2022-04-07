@@ -12,11 +12,12 @@ class DayViewController: UIViewController {
     private lazy var dateLabel: UILabel = UILabel()
     private lazy var infoView: UIView = {
         let view = DeepGreenView()
-        view.text = "Наиболее благоприятный день месяца для работы с растениями. В саду можно обработать деревья и кустарники медьсодержащими препаратами по спящим почкам"
+        view.text = advService.getAdviceFromSite()
         return view
     }()
-    private lazy var addNoteButton: UIButton = UIButton()
+    private lazy var addNoteButton: UIButton = AddNoteButton()
     private lazy var addReminderButton = UIButton()
+    var advService = AdviceService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +30,21 @@ extension DayViewController {
     private func initialize() {
         view.backgroundColor = .white
         view.addSubview(infoView)
+        view.addSubview(addNoteButton)
         
         infoView.snp.makeConstraints { maker in
-            maker.left.equalToSuperview().inset(Constraints.side)
-            maker.right.equalToSuperview().inset(Constraints.side)
+            maker.left
+                .right
+                .equalToSuperview()
+                .inset(Constraints.side)
             maker.top.equalToSuperview().inset(100)
         }
-    }
+        
+        addNoteButton.snp.makeConstraints {maker in
+            maker.right
+                .left
+                .equalToSuperview()
+                .inset(Constraints.side)
+            maker.top.equalTo(infoView.snp.bottom).offset(35)
+        }    }
 }
