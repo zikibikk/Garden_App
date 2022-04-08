@@ -27,6 +27,8 @@ class AddNoteButton: UIButton {
         return view
     }()
     
+    private var isPressed = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -59,16 +61,29 @@ extension AddNoteButton {
 }
 
 extension AddNoteButton {
-    
     @objc func pressNote() {
         var newFrame = self.backgroundView.frame
-        newFrame.size.height = 220
-        
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveLinear) {
-            self.backgroundView.frame = newFrame
-            self.backgroundView.snp.makeConstraints({
-                $0.bottom.equalToSuperview().offset(200)
-            })
+        var animator: UIViewPropertyAnimator
+        if (!isPressed) {
+            newFrame.size.height += 200
+            animator = UIViewPropertyAnimator(duration: 1, curve: .linear) { [self] in
+                self.backgroundView.snp.makeConstraints({
+                    $0.bottom.equalToSuperview().offset(200)
+                })
+                self.backgroundView.frame = newFrame
+            }
         }
+        else {
+            newFrame.size.height -= 200
+            animator = UIViewPropertyAnimator(duration: 1, curve: .linear) { [self] in
+                self.backgroundView.snp.makeConstraints({
+                    $0.bottom.equalToSuperview().inset(200)
+                })
+                self.backgroundView.frame = newFrame
+            }
+        }
+
+        animator.startAnimation()
+        isPressed = !isPressed
     }
 }
