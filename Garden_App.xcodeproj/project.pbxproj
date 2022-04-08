@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C391C6727FF93160041AD83 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6627FF93160041AD83 /* Repository.swift */; };
 		7C391C6927FF955E0041AD83 /* AdviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6827FF955E0041AD83 /* AdviceService.swift */; };
+		7C391C6E280077270041AD83 /* DayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6D280077270041AD83 /* DayPresenter.swift */; };
 		7C47DD1027F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */; };
 		7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */; };
 		7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */; };
@@ -17,7 +18,6 @@
 		7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */; };
 		7C47DD1B27F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1927F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift */; };
 		7C47DD1C27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1A27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift */; };
-		7C47DD1E27F3ADC60087F5D7 /* PersistableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */; };
 		7C47DD2227F448840087F5D7 /* NotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2127F448840087F5D7 /* NotesService.swift */; };
 		7C47DD2527F449240087F5D7 /* ReminderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2427F449240087F5D7 /* ReminderStruct.swift */; };
 		7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2627F4493F0087F5D7 /* TagStruct.swift */; };
@@ -46,6 +46,7 @@
 		6286231C81B228318D732A7D /* Pods_Garden_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garden_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C391C6627FF93160041AD83 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7C391C6827FF955E0041AD83 /* AdviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceService.swift; sourceTree = "<group>"; };
+		7C391C6D280077270041AD83 /* DayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPresenter.swift; sourceTree = "<group>"; };
 		7C47DD0A27F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C47DD0B27F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C47DD0C27F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -54,7 +55,6 @@
 		7C47DD0F27F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C47DD1927F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C47DD1A27F3ABC00087F5D7 /* ReminderEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableService.swift; sourceTree = "<group>"; };
 		7C47DD2127F448840087F5D7 /* NotesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesService.swift; sourceTree = "<group>"; };
 		7C47DD2427F449240087F5D7 /* ReminderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderStruct.swift; sourceTree = "<group>"; };
 		7C47DD2627F4493F0087F5D7 /* TagStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStruct.swift; sourceTree = "<group>"; };
@@ -104,6 +104,7 @@
 		7C391C6A27FF96B20041AD83 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				7C391C6D280077270041AD83 /* DayPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -120,7 +121,6 @@
 		7C47DD1627F3A2E20087F5D7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7C47DD1D27F3ADC60087F5D7 /* PersistableService.swift */,
 				7C47DD2127F448840087F5D7 /* NotesService.swift */,
 				7C391C6627FF93160041AD83 /* Repository.swift */,
 				7C391C6827FF955E0041AD83 /* AdviceService.swift */,
@@ -377,8 +377,8 @@
 				7CB2306527F7A4E800528A48 /* DeepGreenView.swift in Sources */,
 				7CB2306A27FB60E500528A48 /* Button.swift in Sources */,
 				7C391C6927FF955E0041AD83 /* AdviceService.swift in Sources */,
-				7C47DD1E27F3ADC60087F5D7 /* PersistableService.swift in Sources */,
 				7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */,
+				7C391C6E280077270041AD83 /* DayPresenter.swift in Sources */,
 				7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */,
 				7C47DD2527F449240087F5D7 /* ReminderStruct.swift in Sources */,
 			);

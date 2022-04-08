@@ -8,9 +8,6 @@
 import SnapKit
 import CoreGraphics
 
-protocol AddNoteScreen {
-    func addNote(note: NoteStruct)
-}
 
 class DeepGreenView: UIView {
     
@@ -35,8 +32,6 @@ class DeepGreenView: UIView {
         set { label.text = newValue }
         get { return label.text }
     }
-    
-    weak var addNoteToCDDelegate: SaveNoteDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,11 +67,5 @@ extension DeepGreenView {
         self.snp.makeConstraints {
             $0.bottom.equalTo(backgroundView)
         }
-    }
-}
-
-extension DeepGreenView: AddNoteScreen {
-    func addNote(note: NoteStruct) {
-        addNoteToCDDelegate?.saveNote(note: note)
     }
 }

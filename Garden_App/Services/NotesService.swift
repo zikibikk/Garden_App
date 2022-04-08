@@ -13,13 +13,12 @@ protocol SaveNoteDelegate: AnyObject {
 
 class NotesService {
     private let repo: Repository
-    var persistableService: PersistableService
-    var addNoteScreen: AddNoteScreen?
+    private let viewWithAddingNote: DayViewController
     
-    init(persistableService: PersistableService, addNoteScreen: AddNoteScreen) {
-        self.persistableService = persistableService
-        self.addNoteScreen = addNoteScreen
+    init(viewWithAddingNote: DayViewController) {
         self.repo = Repository()
+        self.viewWithAddingNote = viewWithAddingNote
+        viewWithAddingNote.addNoteToCDDelegate = self
     }
 }
 

@@ -7,17 +7,22 @@
 
 import SnapKit
 
+protocol AddNoteScreen {
+    func addNote(note: NoteStruct)
+}
+
 class DayViewController: UIViewController {
     
     private lazy var dateLabel: UILabel = UILabel()
     private lazy var infoView: UIView = {
         let view = DeepGreenView()
-        view.text = advService.getAdviceFromSite()
+        view.text = self.getAdviceDelegate?.getAdviceFromSite()
         return view
     }()
     private lazy var addNoteButton: UIButton = AddNoteButton()
     private lazy var addReminderButton = UIButton()
-    var advService = AdviceService()
+    weak var getAdviceDelegate: GetAdviceDelegate?
+    weak var addNoteToCDDelegate: SaveNoteDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,5 +51,12 @@ extension DayViewController {
                 .equalToSuperview()
                 .inset(Constraints.side)
             maker.top.equalTo(infoView.snp.bottom).offset(35)
-        }    }
+        }
+    }
+}
+
+extension DayViewController: AddNoteScreen {
+    func addNote(note: NoteStruct) {
+        addNoteToCDDelegate?.saveNote(note: note)
+    }
 }
