@@ -6,6 +6,7 @@
 //
 
 import SnapKit
+import Darwin
 
 class AddNoteButton: UIButton {
     
@@ -14,6 +15,7 @@ class AddNoteButton: UIButton {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .buttonTitle
         button.setTitle("Добавить заметку", for: .normal)
+        button.addTarget(self, action: #selector(pressNote), for: .touchUpInside)
         return button
     }()
     
@@ -52,6 +54,21 @@ extension AddNoteButton {
             maker.left.equalToSuperview().inset(15)
             maker.top.equalToSuperview().inset(4)
             maker.bottom.equalToSuperview().inset(9)
+        }
+    }
+}
+
+extension AddNoteButton {
+    
+    @objc func pressNote() {
+        var newFrame = self.backgroundView.frame
+        newFrame.size.height = 220
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveLinear) {
+            self.backgroundView.frame = newFrame
+            self.backgroundView.snp.makeConstraints({
+                $0.bottom.equalToSuperview().offset(200)
+            })
         }
     }
 }

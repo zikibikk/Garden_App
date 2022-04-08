@@ -28,6 +28,7 @@ class DayViewController: UIViewController {
         super.viewDidLoad()
         initialize()
     }
+    
 }
 
 extension DayViewController {
@@ -45,7 +46,7 @@ extension DayViewController {
             maker.top.equalToSuperview().inset(100)
         }
         
-        addNoteButton.snp.makeConstraints {maker in
+        addNoteButton.snp.makeConstraints { maker in
             maker.right
                 .left
                 .equalToSuperview()
