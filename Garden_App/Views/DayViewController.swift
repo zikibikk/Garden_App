@@ -19,8 +19,8 @@ class DayViewController: UIViewController {
         view.text = self.getAdviceDelegate?.getAdviceFromSite()
         return view
     }()
-    private lazy var addNoteButton: UIButton = AddNoteButton()
-    private lazy var addReminderButton = UIButton()
+    private lazy var addNoteButton = AddNoteButton()
+    private lazy var addReminderButton = AddReminderButton()
     weak var getAdviceDelegate: GetAdviceDelegate?
     weak var addNoteToCDDelegate: SaveNoteDelegate?
 
@@ -37,6 +37,7 @@ extension DayViewController {
         view.backgroundColor = .white
         view.addSubview(infoView)
         view.addSubview(addNoteButton)
+        view.addSubview(addReminderButton)
         
         infoView.snp.makeConstraints { maker in
             maker.left
@@ -52,6 +53,14 @@ extension DayViewController {
                 .equalToSuperview()
                 .inset(Constraints.side)
             maker.top.equalTo(infoView.snp.bottom).offset(35)
+        }
+        
+        addReminderButton.snp.makeConstraints { maker in
+            maker.right
+                .left
+                .equalToSuperview()
+                .inset(Constraints.side)
+            maker.top.equalTo(addNoteButton.snp.bottom).offset(15)
         }
     }
 }
