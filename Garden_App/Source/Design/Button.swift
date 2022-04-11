@@ -15,7 +15,7 @@ class AddNoteButton: UIButton {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .buttonTitle
         button.setTitle("Добавить заметку", for: .normal)
-        button.addTarget(self, action: #selector(pressNote), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(pressNote), for: .touchUpInside)
         return button
     }()
     
@@ -54,6 +54,10 @@ extension AddNoteButton {
             maker.left.equalToSuperview().inset(15)
             maker.top.equalToSuperview().inset(4)
             maker.bottom.equalToSuperview().inset(9)
+        }
+        
+        self.snp.makeConstraints {
+            $0.bottom.equalTo(backgroundView)
         }
     }
 }
