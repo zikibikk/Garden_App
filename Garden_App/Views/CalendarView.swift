@@ -21,6 +21,7 @@ class CalendarView: UIViewController {
         super.viewDidLoad()
         self.updateLayout(with: CGSize())
         initialize()
+        initializeTableView()
         calendar.delegate = self
         calendar.dataSource = self
     }
@@ -33,6 +34,14 @@ extension CalendarView: FSCalendarDelegate, FSCalendarDataSource {
         }
         view.layoutIfNeeded()
     }
+    
+//    func calendar(calendar: FSCalendar!, hasEventForDate date: NSDate!) -> Bool {
+//        return shouldShowEventDot
+//    }
+}
+
+class TableViewCell: UITableViewCell {
+    
 }
 
 extension CalendarView {
@@ -44,7 +53,7 @@ extension CalendarView {
     private func initialize() {
         view.backgroundColor = .white
         calendar.scrollEnabled = false
-        //calendar.pagingEnabled = false
+        calendar.pagingEnabled = false
         calendar.placeholderType = .none
         calendar.firstWeekday = 2
         self.calendar.appearance.headerMinimumDissolvedAlpha = 0.0;
@@ -77,5 +86,11 @@ extension CalendarView {
            maker.bottom.equalToSuperview().inset(433)
            maker.height.width.equalTo(344)
         }
+    }
+    
+    private func initializeTableView() {
+        self.view.addSubview(self.tableView)
+        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        //self.tableView.dataSource = initialize().self
     }
 }
