@@ -12,13 +12,6 @@ protocol GetAdviceDelegate: AnyObject {
 }
 
 class AdviceService: GetAdviceDelegate {
-    private let viewWithAdv: DayViewController
-    
-    init(viewWithAdv: DayViewController) {
-        self.viewWithAdv = viewWithAdv
-        viewWithAdv.getAdviceDelegate = self
-    }
-    
     func getAdviceFromSite() -> String {
         return "Наиболее благоприятный день месяца для работы с растениями. В саду можно обработать деревья и кустарники медьсодержащими препаратами по спящим почкам"
     }

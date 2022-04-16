@@ -13,12 +13,9 @@ protocol SaveNoteDelegate: AnyObject {
 
 class NotesService {
     private let repo: Repository
-    private let viewWithAddingNote: DayViewController
     
-    init(viewWithAddingNote: DayViewController) {
+    init() {
         self.repo = Repository()
-        self.viewWithAddingNote = viewWithAddingNote
-        viewWithAddingNote.addNoteToCDDelegate = self
     }
 }
 

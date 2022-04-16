@@ -9,13 +9,17 @@ import Foundation
 
 class DayPresenter {
     
-    let dayView: DayViewController
+    weak var dayView: DayViewController?
     private let notesSrv: NotesService
     private let advSrv: AdviceService
     
-    init(dayView: DayViewController) {
-        self.dayView = dayView
-        self.notesSrv = NotesService(viewWithAddingNote: dayView)
-        self.advSrv = AdviceService(viewWithAdv: dayView)
+    init() {
+        self.notesSrv = NotesService()
+        self.advSrv = AdviceService()
+    }
+    
+    func initialize() {
+        dayView?.infoView.text = advSrv.getAdviceFromSite()
+        dayView?.dateLabel.text = "Сегодня, 6 марта"
     }
 }

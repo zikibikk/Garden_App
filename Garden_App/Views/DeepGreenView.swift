@@ -8,7 +8,6 @@
 import SnapKit
 import CoreGraphics
 
-
 class DeepGreenView: UIView {
     
     private lazy var label: UILabel = {
