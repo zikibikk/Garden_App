@@ -31,7 +31,7 @@
 		7CB2306327F7A21B00528A48 /* RobotoFlex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */; };
 		7CB2306527F7A4E800528A48 /* DeepGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2306427F7A4E800528A48 /* DeepGreenView.swift */; };
 		7CB2306827FA343400528A48 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2306727FA343400528A48 /* Constraints.swift */; };
-		7CB2306A27FB60E500528A48 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2306927FB60E500528A48 /* AddNoteView.swift */; };
+		7CB2306A27FB60E500528A48 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2306927FB60E500528A48 /* Button.swift */; };
 		7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E627CBED0800DCF978 /* AppDelegate.swift */; };
 		7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212E827CBED0800DCF978 /* SceneDelegate.swift */; };
 		7CC212EB27CBED0800DCF978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EA27CBED0800DCF978 /* ViewController.swift */; };
@@ -68,7 +68,7 @@
 		7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RobotoFlex.ttf; sourceTree = "<group>"; };
 		7CB2306427F7A4E800528A48 /* DeepGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepGreenView.swift; sourceTree = "<group>"; };
 		7CB2306727FA343400528A48 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
-		7CB2306927FB60E500528A48 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		7CB2306927FB60E500528A48 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		7CC212E327CBED0800DCF978 /* Garden_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Garden_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC212E627CBED0800DCF978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CC212E827CBED0800DCF978 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +175,6 @@
 		7CB2305F27F7722B00528A48 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7CB2306927FB60E500528A48 /* AddNoteView.swift */,
 				7C4F4EB92804C41600547B95 /* AddReminderView.swift */,
 				7CB2306627FA33AB00528A48 /* Design */,
 			);
@@ -185,6 +184,7 @@
 		7CB2306627FA33AB00528A48 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				7CB2306927FB60E500528A48 /* Button.swift */,
 				7CB2305627F7505000528A48 /* Colors.swift */,
 				7CB2305827F7652100528A48 /* Fonts.swift */,
 				7CB2306727FA343400528A48 /* Constraints.swift */,
@@ -383,7 +383,7 @@
 				7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */,
 				7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */,
 				7CB2306527F7A4E800528A48 /* DeepGreenView.swift in Sources */,
-				7CB2306A27FB60E500528A48 /* AddNoteView.swift in Sources */,
+				7CB2306A27FB60E500528A48 /* Button.swift in Sources */,
 				7C391C6927FF955E0041AD83 /* AdviceService.swift in Sources */,
 				7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */,
 				7C391C6E280077270041AD83 /* DayPresenter.swift in Sources */,
