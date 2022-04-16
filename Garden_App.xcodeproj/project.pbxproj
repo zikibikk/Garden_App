@@ -154,13 +154,12 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		7C47DD2F27F74B320087F5D7 /* Views */ = {
+		7C47DD2F27F74B320087F5D7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				7CB2305427F74D1300528A48 /* DayViewController.swift */,
-				7CB2306427F7A4E800528A48 /* DeepGreenView.swift */,
 			);
-			path = Views;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		7CB2305E27F7721C00528A48 /* Fonts */ = {
@@ -175,8 +174,7 @@
 		7CB2305F27F7722B00528A48 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7CB2306927FB60E500528A48 /* AddNoteView.swift */,
-				7C4F4EB92804C41600547B95 /* AddReminderView.swift */,
+				7CDA745A280B6D670035125D /* Views */,
 				7CB2306627FA33AB00528A48 /* Design */,
 			);
 			path = Source;
@@ -216,7 +214,7 @@
 				7CDA7455280ACD1E0035125D /* Resource */,
 				7CB2305F27F7722B00528A48 /* Source */,
 				7C391C6A27FF96B20041AD83 /* Presenters */,
-				7C47DD2F27F74B320087F5D7 /* Views */,
+				7C47DD2F27F74B320087F5D7 /* Screens */,
 				7C47DD1627F3A2E20087F5D7 /* Services */,
 				7C47DCC327F399450087F5D7 /* Models */,
 				7CC212E627CBED0800DCF978 /* AppDelegate.swift */,
@@ -236,6 +234,16 @@
 				7CB2305E27F7721C00528A48 /* Fonts */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		7CDA745A280B6D670035125D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7CB2306927FB60E500528A48 /* AddNoteView.swift */,
+				7C4F4EB92804C41600547B95 /* AddReminderView.swift */,
+				7CB2306427F7A4E800528A48 /* DeepGreenView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		84393A06CD1522133AEEC411 /* Frameworks */ = {
