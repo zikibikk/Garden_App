@@ -24,6 +24,8 @@ class AddNoteView: UIView {
         return view
     }()
     
+    private var isPressed = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
