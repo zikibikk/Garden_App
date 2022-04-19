@@ -6,12 +6,21 @@
 //
 
 import Foundation
+
+protocol SaveNoteDelegate: AnyObject {
+    func saveNote(note: NoteStruct)
+}
+
 class NotesService {
-    var persistableService: PersistableService
+    private let repo: Repository
     
-    init(persistableService: PersistableService) {
-        self.persistableService = persistableService
+    init() {
+        self.repo = Repository()
     }
-    
-    
+}
+
+extension NotesService: SaveNoteDelegate {
+    func saveNote(note: NoteStruct) {
+        repo.saveNoteToCD(note: note)
+    }
 }
