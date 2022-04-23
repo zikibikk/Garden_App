@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C32E4632810511A00FAA811 /* AddReminderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32E4622810511A00FAA811 /* AddReminderController.swift */; };
+		7C32E4652814AA1200FAA811 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C32E4642814AA1200FAA811 /* Roboto.ttf */; };
 		7C391C6727FF93160041AD83 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6627FF93160041AD83 /* Repository.swift */; };
 		7C391C6927FF955E0041AD83 /* AdviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6827FF955E0041AD83 /* AdviceService.swift */; };
 		7C391C6E280077270041AD83 /* DayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6D280077270041AD83 /* DayPresenter.swift */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		36929F991DE5833188C6318E /* Pods-Garden_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.release.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.release.xcconfig"; sourceTree = "<group>"; };
 		6286231C81B228318D732A7D /* Pods_Garden_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garden_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C32E4622810511A00FAA811 /* AddReminderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderController.swift; sourceTree = "<group>"; };
+		7C32E4642814AA1200FAA811 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
 		7C391C6627FF93160041AD83 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7C391C6827FF955E0041AD83 /* AdviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceService.swift; sourceTree = "<group>"; };
 		7C391C6D280077270041AD83 /* DayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPresenter.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB2305427F74D1300528A48 /* DayViewController.swift */,
+				7C32E4622810511A00FAA811 /* AddReminderController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 		7CB2305E27F7721C00528A48 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				7C32E4642814AA1200FAA811 /* Roboto.ttf */,
 				7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */,
 				7CB2306027F7728800528A48 /* Roboto-Bold.ttf */,
 			);
@@ -314,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C32E4652814AA1200FAA811 /* Roboto.ttf in Resources */,
 				7CC212F627CBED0900DCF978 /* LaunchScreen.storyboard in Resources */,
 				7CC212F327CBED0900DCF978 /* Assets.xcassets in Resources */,
 				7CB2306127F7728800528A48 /* Roboto-Bold.ttf in Resources */,
@@ -383,6 +390,7 @@
 				7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */,
 				7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */,
 				7C47DD2227F448840087F5D7 /* NotesService.swift in Sources */,
+				7C32E4632810511A00FAA811 /* AddReminderController.swift in Sources */,
 				7C47DD1B27F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift in Sources */,
 				7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */,
 				7C47DD1427F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift in Sources */,

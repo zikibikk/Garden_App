@@ -59,5 +59,9 @@ extension AddReminderView {
             maker.top.equalToSuperview().inset(4)
             maker.bottom.equalToSuperview().inset(9)
         }
+        
+        self.snp.makeConstraints {
+            $0.bottom.equalTo(backgroundView)
+        }
     }
 }
