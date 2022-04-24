@@ -20,4 +20,8 @@ extension UIFont {
     static var text: UIFont {
         return UIFont(name: "RobotoFlex", size: 20)!
     }
+    
+    static var tag: UIFont {
+        return UIFont(name: "Roboto", size: 13)!
+    }
 }

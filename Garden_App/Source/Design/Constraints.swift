@@ -9,6 +9,6 @@ import SnapKit
 
 enum Constraints: ConstraintInsetTarget {
     
-    static let side = 20
+    static let side = 24
     static let fieldHeight = 50
 }

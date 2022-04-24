@@ -24,3 +24,19 @@ extension NotesService: SaveNoteDelegate {
         repo.saveNoteToCD(note: note)
     }
 }
+
+extension NotesService {
+    func getNoteByDate(date: Date) -> NoteStruct? {
+        return repo.getAllNotes().filter({ note in
+            note.noteDate == date
+        }).first
+    }
+}
+
+extension NotesService {
+    func getDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
+        return dateFormatter.string(from: date)
+    }
+}
