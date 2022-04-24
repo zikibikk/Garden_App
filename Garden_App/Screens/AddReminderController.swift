@@ -20,6 +20,8 @@ class AddReminderController: UIViewController {
     private lazy var textField: UITextField = {
        let tf = UITextField()
         tf.borderStyle = .roundedRect
+        tf.keyboardType = .default
+        tf.enablesReturnKeyAutomatically = true
         return tf
     }()
     private lazy var datePicker: UIDatePicker = {
@@ -31,16 +33,17 @@ class AddReminderController: UIViewController {
         return dp
     }()
     private lazy var addButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .deepGreen
-        button.titleLabel?.font = .buttonTitle
+        let button = UIButton(type: .system)
         button.titleLabel?.text = "Поставить напоминание"
+        button.titleLabel?.font = .buttonTitle
+        button.titleLabel?.textColor = .white
+        button.backgroundColor = .deepGreen
         return button
     }()
-    private lazy var horizontalView: UIStackView = {
+    private lazy var verticalView: UIStackView = {
         let hv = UIStackView()
         hv.axis = .vertical
-        hv.spacing = 20
+        hv.spacing = 12
         return hv
     }()
     
@@ -53,25 +56,23 @@ class AddReminderController: UIViewController {
 extension AddReminderController {
     func setup() {
         self.view.backgroundColor = .white
-//        self.view.addSubview(titleLabel)
-////        self.view.addSubview(cancelButton)
-//        self.view.addSubview(textField)
-//        self.view.addSubview(datePicker)
-//        self.view.addSubview(addButton)
-        self.view.addSubview(horizontalView)
+        self.view.addSubview(verticalView)
         
-        horizontalView.snp.makeConstraints { maker in
+        addButton.snp.makeConstraints({ $0.height.equalTo(Constraints.fieldHeight)})
+        
+        verticalView.snp.makeConstraints { maker in
             maker.left
                 .right
                 .equalToSuperview()
                 .inset(Constraints.side)
             maker.top.equalToSuperview()
-                .inset(100 )
+                .inset(20)
         }
         
-        horizontalView.addArrangedSubview(titleLabel)
-        horizontalView.addArrangedSubview(textField)
-        horizontalView.addArrangedSubview(datePicker)
-        horizontalView.addArrangedSubview(addButton)
+        verticalView.addArrangedSubview(titleLabel)
+        verticalView.addArrangedSubview(textField)
+        verticalView.addArrangedSubview(datePicker)
+        verticalView.addArrangedSubview(addButton)
+        self.view.snp.makeConstraints({$0.bottom.equalTo(verticalView).offset(25)})
     }
 }

@@ -44,4 +44,9 @@ class Repository {
         return [.init(reminderText: "Посадить Клён", reminderDate: Date(timeIntervalSince1970: 1659689576), remindersPlants: nil),
                 .init(reminderText: "Полить клубнику", reminderDate: Date(timeIntervalSince1970: 1662367976), remindersPlants: nil)]
     }
+    
+    func getAllNotes() -> [NoteStruct] {
+        //4.03
+        return [.init(noteDate: Date(timeIntervalSince1970: 1646414107), noteText: "Высадила семена томата в стаканчики. Очень долго шли из Самары, и теперь надо успеть до конца следующей недели вырастить крепкие саженцы: погоду обещают хорошую, снег быстрее растает - дороги быстрее высохнут, мама захочет пораньше поехать на дачу, и мы опять застрянем в той яме. ", noteName: nil, noteTags: nil)]
+    }
 }

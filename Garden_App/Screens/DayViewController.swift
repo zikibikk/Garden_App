@@ -8,13 +8,14 @@
 import SnapKit
 
 class DayViewController: UIViewController {
-    lazy var infoView = DeepGreenView()
+    lazy var infoView = GreenView()
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .title
         return label
     }()
+    
     private var presenter: DayPresenter
     private var isSelected = false
     private lazy var addNoteButton = AddNoteView()
@@ -22,7 +23,6 @@ class DayViewController: UIViewController {
     private lazy var noteGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNote(_:)))
     private lazy var reminderGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addReminder(_:)))
 
-    
     init(presenter: DayPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -45,7 +45,7 @@ extension DayViewController {
         view.addSubview(infoView)
         view.addSubview(addNoteButton)
         view.addSubview(addReminderButton)
-        presenter.initialize()
+        presenter.initializeDayVC()
         
         addNoteButton.addGestureRecognizer(noteGestureRecognizer)
         addReminderButton.addGestureRecognizer(reminderGestureRecognizer)
