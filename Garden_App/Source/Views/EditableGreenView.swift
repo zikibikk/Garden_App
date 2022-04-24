@@ -57,7 +57,6 @@ extension EditableGreenView {
                 .trailing
                 .leading
                 .equalToSuperview()
-            maker.height.equalTo(300)
         }
         
         textView.snp.makeConstraints { maker in

@@ -6,6 +6,7 @@
 //
 import SnapKit
 import FittedSheets
+import CoreText
 
 class DayPresenter {
     weak var dayView: DayViewController?
@@ -13,10 +14,12 @@ class DayPresenter {
     private let notesSrv: NotesService
     private let advSrv: AdviceService
     private let currentDateTS = Date(timeIntervalSince1970: 1646586907)
+    private let currentNote: NoteStruct?
     
     init() {
         self.notesSrv = NotesService()
         self.advSrv = AdviceService()
+        currentNote = notesSrv.getNoteByDate(date: currentDateTS)
     }
     
     func initializeDayVC() {
@@ -25,9 +28,9 @@ class DayPresenter {
     }
     
     func initializeNoteVC() {
-        let note = notesSrv.getNoteByDate(date: currentDateTS)
-        noteVC?.noteView.text = note?.noteText
+        noteVC?.noteView.text = currentNote?.noteText
         noteVC?.dateLabel.text = notesSrv.getDate(date: currentDateTS)
+        //noteVC?.tags = currentNote?.noteTags
     }
     
     func showNoteScreen() {

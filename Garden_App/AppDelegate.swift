@@ -15,15 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let presenter = DayPresenter()
-        let navigationController = UINavigationController()
+        let previousPresenter = PreviousDayPresenter()
+        let dayNavC = UINavigationController()
+        let previousDayNavC = UINavigationController()
         let tabBarController = UITabBarController()
-        let dayView = DayViewController(presenter: presenter)
-        dayView.title = "Сегодня"
-        presenter.dayView = dayView
-        navigationController.isNavigationBarHidden = true
-        navigationController.viewControllers = [dayView]
-        tabBarController.viewControllers = [navigationController, UIViewController(), UIViewController(), UIViewController()]
+        let currentDayVC = DayViewController(presenter: presenter)
+        let previousDayVC = PreviousDayViewController(presenter: previousPresenter)
+        
+        presenter.dayView = currentDayVC
+        previousPresenter.dayView = previousDayVC
+        dayNavC.isNavigationBarHidden = true
+        dayNavC.viewControllers = [currentDayVC]
+        previousDayNavC.isNavigationBarHidden = true
+        previousDayNavC.viewControllers = [previousDayVC]
+        tabBarController.viewControllers = [dayNavC, previousDayNavC, UIViewController(), UIViewController()]
         tabBarController.tabBar.tintColor = .black
+        
         guard let items = tabBarController.tabBar.items else { return false }
         items[0].image = UIImage(systemName: "scribble.variable")
         items[1].image = UIImage(systemName: "calendar")

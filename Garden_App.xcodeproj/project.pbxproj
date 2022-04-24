@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7C30CFDD2815B7EE006F592A /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30CFDC2815B7EE006F592A /* NoteViewController.swift */; };
 		7C30CFDF2815EA99006F592A /* EditableGreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30CFDE2815EA99006F592A /* EditableGreenView.swift */; };
+		7C30CFE12815F2B9006F592A /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30CFE02815F2B9006F592A /* TagView.swift */; };
+		7C30CFE32815FE2D006F592A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30CFE22815FE2D006F592A /* CollectionViewCell.swift */; };
 		7C32E4632810511A00FAA811 /* AddReminderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32E4622810511A00FAA811 /* AddReminderController.swift */; };
 		7C32E4652814AA1200FAA811 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C32E4642814AA1200FAA811 /* Roboto.ttf */; };
 		7C391C6727FF93160041AD83 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C391C6627FF93160041AD83 /* Repository.swift */; };
@@ -52,6 +54,8 @@
 		6286231C81B228318D732A7D /* Pods_Garden_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garden_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C30CFDC2815B7EE006F592A /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		7C30CFDE2815EA99006F592A /* EditableGreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableGreenView.swift; sourceTree = "<group>"; };
+		7C30CFE02815F2B9006F592A /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		7C30CFE22815FE2D006F592A /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7C32E4622810511A00FAA811 /* AddReminderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderController.swift; sourceTree = "<group>"; };
 		7C32E4642814AA1200FAA811 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
 		7C391C6627FF93160041AD83 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				7C4F4EB92804C41600547B95 /* AddReminderView.swift */,
 				7CB2306427F7A4E800528A48 /* GreenView.swift */,
 				7C30CFDE2815EA99006F592A /* EditableGreenView.swift */,
+				7C30CFE02815F2B9006F592A /* TagView.swift */,
+				7C30CFE22815FE2D006F592A /* CollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -391,6 +397,8 @@
 			files = (
 				7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */,
 				7CB2305727F7505000528A48 /* Colors.swift in Sources */,
+				7C30CFE32815FE2D006F592A /* CollectionViewCell.swift in Sources */,
+				7C30CFE12815F2B9006F592A /* TagView.swift in Sources */,
 				7C5B1A112814C534000C9999 /* PreviousDayPresenter.swift in Sources */,
 				7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */,
 				7C47DD1027F39E0A0087F5D7 /* TagEntity+CoreDataClass.swift in Sources */,

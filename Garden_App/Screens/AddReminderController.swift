@@ -66,7 +66,7 @@ extension AddReminderController {
                 .equalToSuperview()
                 .inset(Constraints.side)
             maker.top.equalToSuperview()
-                .inset(20)
+                .inset(30)
         }
         
         verticalView.addArrangedSubview(titleLabel)
