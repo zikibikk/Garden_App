@@ -46,6 +46,9 @@
 		7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EF27CBED0800DCF978 /* Garden_App.xcdatamodeld */; };
 		7CC212F327CBED0900DCF978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC212F227CBED0900DCF978 /* Assets.xcassets */; };
 		7CC212F627CBED0900DCF978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC212F427CBED0900DCF978 /* LaunchScreen.storyboard */; };
+		C70D60602809DC0800D90071 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D605F2809DC0800D90071 /* CalendarTableViewCell.swift */; };
+		C70D608C281629A200D90071 /* CalendarPaginationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D608B281629A200D90071 /* CalendarPaginationService.swift */; };
+		C7E866CC27F869E300F9784C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E866CB27F869E300F9784C /* CalendarViewController.swift */; };
 		E88E40D2CFD1B8FDD585909A /* Pods_Garden_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6286231C81B228318D732A7D /* Pods_Garden_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +97,9 @@
 		7CC212F527CBED0900DCF978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CC212F727CBED0900DCF978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B649471A75255ACE9C7D68D8 /* Pods-Garden_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.debug.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.debug.xcconfig"; sourceTree = "<group>"; };
+		C70D605F2809DC0800D90071 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		C70D608B281629A200D90071 /* CalendarPaginationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPaginationService.swift; sourceTree = "<group>"; };
+		C7E866CB27F869E300F9784C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				7C47DD2127F448840087F5D7 /* NotesService.swift */,
+				7CB2306427F7A4E800528A48 /* ViewService.swift */,
+				C70D608B281629A200D90071 /* CalendarPaginationService.swift */,
 				7C391C6627FF93160041AD83 /* Repository.swift */,
 				7C391C6827FF955E0041AD83 /* AdviceService.swift */,
 			);
@@ -175,6 +183,10 @@
 			isa = PBXGroup;
 			children = (
 				7CB2305427F74D1300528A48 /* DayViewController.swift */,
+				7CB2305627F7505000528A48 /* Colors.swift */,
+				7CB2305827F7652100528A48 /* Fonts.swift */,
+				C7E866CB27F869E300F9784C /* CalendarViewController.swift */,
+				C70D605F2809DC0800D90071 /* CalendarTableViewCell.swift */,
 				7C32E4622810511A00FAA811 /* AddReminderController.swift */,
 				7C5B1A0E2814C45F000C9999 /* PreviousDayViewController.swift */,
 				7C30CFDC2815B7EE006F592A /* NoteViewController.swift */,
@@ -397,6 +409,7 @@
 			files = (
 				7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */,
 				7CB2305727F7505000528A48 /* Colors.swift in Sources */,
+				C7E866CC27F869E300F9784C /* CalendarViewController.swift in Sources */,
 				7C30CFE32815FE2D006F592A /* CollectionViewCell.swift in Sources */,
 				7C30CFE12815F2B9006F592A /* TagView.swift in Sources */,
 				7C5B1A112814C534000C9999 /* PreviousDayPresenter.swift in Sources */,
@@ -412,11 +425,13 @@
 				7CB2305927F7652100528A48 /* Fonts.swift in Sources */,
 				7C47DD1527F39E0A0087F5D7 /* NoteEntity+CoreDataProperties.swift in Sources */,
 				7C47DD1127F39E0A0087F5D7 /* TagEntity+CoreDataProperties.swift in Sources */,
+				C70D60602809DC0800D90071 /* CalendarTableViewCell.swift in Sources */,
 				7C47DD2227F448840087F5D7 /* NotesService.swift in Sources */,
 				7C32E4632810511A00FAA811 /* AddReminderController.swift in Sources */,
 				7C47DD1B27F3ABC00087F5D7 /* ReminderEntity+CoreDataClass.swift in Sources */,
 				7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */,
 				7C47DD1427F39E0A0087F5D7 /* NoteEntity+CoreDataClass.swift in Sources */,
+				C70D608C281629A200D90071 /* CalendarPaginationService.swift in Sources */,
 				7C47DD2927F4494F0087F5D7 /* PlantStruct.swift in Sources */,
 				7CB2306827FA343400528A48 /* Constraints.swift in Sources */,
 				7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */,
