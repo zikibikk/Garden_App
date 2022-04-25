@@ -6,12 +6,37 @@
 //
 
 import Foundation
+
+protocol SaveNoteDelegate: AnyObject {
+    func saveNote(note: NoteStruct)
+}
+
 class NotesService {
-    var persistableService: PersistableService
+    private let repo: Repository
     
-    init(persistableService: PersistableService) {
-        self.persistableService = persistableService
+    init() {
+        self.repo = Repository()
     }
-    
-    
+}
+
+extension NotesService: SaveNoteDelegate {
+    func saveNote(note: NoteStruct) {
+        repo.saveNoteToCD(note: note)
+    }
+}
+
+extension NotesService {
+    func getNoteByDate(date: Date) -> NoteStruct? {
+        return repo.getAllNotes().filter({ note in
+            note.noteDate == date
+        }).first
+    }
+}
+
+extension NotesService {
+    func getDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
+        return dateFormatter.string(from: date)
+    }
 }

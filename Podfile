@@ -10,5 +10,6 @@ target 'Garden_App' do
 	pod 'Alamofire'
 	pod 'FSCalendar'
 	pod 'SnapKit'
+	pod 'FittedSheets'
 
 end
