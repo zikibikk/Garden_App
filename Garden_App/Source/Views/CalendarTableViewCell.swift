@@ -45,7 +45,7 @@ class CalendarTableViewCell: UITableViewCell {
         calendar.appearance.headerTitleColor = UIColor.black
         calendar.appearance.weekdayTextColor = UIColor.black
         calendar.appearance.weekdayFont = UIFont(name: "Roboto-Bold", size: 15)
-        calendar.appearance.todayColor = Colors.green
+        calendar.appearance.todayColor = .deepGreen
         calendar.appearance.caseOptions = [.headerUsesCapitalized,.weekdayUsesSingleUpperCase]
         calendar.appearance.headerDateFormat = "LLLL yyyy"
     }

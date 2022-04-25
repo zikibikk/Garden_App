@@ -4,7 +4,6 @@
 //
 //  Created by Alina Bikkinina on 02.04.2022.
 //
-
 import SnapKit
 
 class GreenView: UIView {
