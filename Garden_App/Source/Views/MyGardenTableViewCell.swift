@@ -12,23 +12,22 @@ class MyGardenTableViewCell: UITableViewCell {
     private lazy var exampleText = UILabel()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureLabel()
+        configurePlantsNames()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setData(data: String) {
-        exampleText.text = data
-    }
-    
-    private func configureLabel() {
+
+    private func configurePlantsNames() {
         contentView.addSubview(exampleText)
         exampleText.font = UIFont(name: "Roboto-SemiBold", size: 20)
         exampleText.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(13)
-            make.height.equalTo(53)
+            make.edges.equalToSuperview().inset(15)
         }
+    }
+    
+    func setData(data: String) {
+        exampleText.text = data
     }
 }
