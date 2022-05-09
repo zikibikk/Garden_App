@@ -26,8 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         previousPresenter.dayView = previousDayVC
         dayNavC.isNavigationBarHidden = true
         dayNavC.viewControllers = [currentDayVC]
-        previousDayNavC.isNavigationBarHidden = true
+        previousDayNavC.navigationBar.prefersLargeTitles = true
         previousDayNavC.viewControllers = [MyGardenViewController()]
+        previousDayNavC.navigationBar.tintColor = .black
+        previousDayNavC.navigationBar.barTintColor = UIColor(red: 231/255, green: 240/255, blue: 231/255, alpha: 5)
         tabBarController.viewControllers = [dayNavC, previousDayNavC, UIViewController(), UIViewController()]
         tabBarController.tabBar.tintColor = .black
 

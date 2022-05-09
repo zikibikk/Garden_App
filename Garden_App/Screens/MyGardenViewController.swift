@@ -2,123 +2,105 @@
 //  MyGardenViewController.swift
 //  Garden_App
 //
-//  Created by Лилия Комиссарова on 25.04.2022.
+//  Created by Лилия Комиссарова on 07.05.2022.
 //
 
 import Foundation
 import UIKit
-import SnapKit
 
 class MyGardenViewController: UIViewController {
-    private lazy var tableView = SelfSizingTableView()
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(MyGardenTableViewCell.self, forCellReuseIdentifier: "\(MyGardenTableViewCell.self)")
+        return tableView
+    }()
+    
     private var addButton = UIButton()
-    private var shadowView = UIView()
-    private var hardcodedArray: [String] = ["пупочек", "крапива", "груша", "пупочек", "крапива", "груша"]
+    private var models: [String] = ["пупочек", "крапива", "груша", "пупочек", "крапива", "груша"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
-        configureShadowView()
+        configureNavigationItem()
         configureTableView()
-        tableView.reloadData()
-    }
-    
-    private func configureView() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.isNavigationBarHidden = false
-        title = "Мой сад"
-        self.navigationController?.title = ""
-        view.backgroundColor = .white
-        view.addSubview(addButton)
-        addButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(330)
-            make.right.equalToSuperview().inset(17)
-            make.bottom.equalToSuperview().inset(764)
-        }
-        addButton.setImage(UIImage(named: "addIcon"), for: .normal)
     }
     
     private func configureTableView() {
         view.addSubview(tableView)
-        tableView.rowHeight = 53
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(25)
-            make.leading.trailing.equalToSuperview().inset(25)
-            make.height.equalTo(CGFloat(hardcodedArray.count) * tableView.rowHeight)
+            make.edges.equalToSuperview()
         }
-        tableView.backgroundColor = .clear
-        tableView.layer.cornerRadius = 30
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(MyGardenTableViewCell.self, forCellReuseIdentifier: "MyGardenTableViewCell")
-        tableView.separatorColor = UIColor(red: 186/255, green: 207/255, blue: 192/255, alpha: 1)
+        tableView.backgroundColor = .backgroundGreen
+        tableView.separatorColor = .lightGreen
         tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 13, bottom: 0, right: 13)
+        tableView.tableHeaderView = UIView.init(frame: CGRect(x: 1, y: 50, width: 0, height: 20))
     }
     
-    private func configureShadowView() {
-        view.addSubview(shadowView)
-        tableView.rowHeight = 53
-        shadowView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(25)
-            make.leading.trailing.equalToSuperview().inset(25)
-            make.height.equalTo(CGFloat(hardcodedArray.count) * tableView.rowHeight)
-        }
-        shadowView.backgroundColor = .white
-        shadowView.layer.cornerRadius = 30
-        shadowView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
-        shadowView.layer.shadowOpacity = 1
-        shadowView.layer.shadowRadius = 10
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 5)
+    private func configureNavigationItem() {
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = "Мой сад"
+        addButton.setImage(UIImage(named: "addIcon"), for: .normal)
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        navigationController?.navigationBar.addSubview(addButton)
+        let targetView = self.navigationController?.navigationBar
+
+        let trailingContraint = NSLayoutConstraint(item: addButton, attribute:
+                .trailingMargin, relatedBy: .equal, toItem: targetView,
+                                 attribute: .trailingMargin, multiplier: 1.0, constant: -16)
+        let bottomConstraint = NSLayoutConstraint(item: addButton, attribute: .bottom, relatedBy: .equal,
+                                            toItem: targetView, attribute: .bottom, multiplier: 1.0, constant: -6)
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([trailingContraint, bottomConstraint])
+    }
+    
+    @objc func addButtonTapped() {
+        models.append("я новенький!")
+        tableView.reloadData()
     }
 }
 
-class SelfSizingTableView: UITableView {
-
-    var maxHeight: CGFloat = UIScreen.main.bounds.size.height
-
-    override func reloadData() {
-        super.reloadData()
-        self.invalidateIntrinsicContentSize()
-        self.layoutIfNeeded()
-    }
-
-    override var intrinsicContentSize: CGSize {
-        let height = min(contentSize.height + 100, maxHeight)
-        return CGSize(width: contentSize.width, height: height)
-    }
-}
-
-extension MyGardenViewController: UITableViewDelegate, UITableViewDataSource {
+extension MyGardenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        hardcodedArray.count
+        models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "MyGardenTableViewCell", for: indexPath) as! MyGardenTableViewCell
-        cell.setData(data: hardcodedArray[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(MyGardenTableViewCell.self)", for: indexPath) as! MyGardenTableViewCell
+        cell.setData(data: models[indexPath.row])
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let cornerRadius = 30
-//        var corners: UIRectCorner = []
-//
-//        if indexPath.row == 0
-//        {
-//            corners.update(with: .topLeft)
-//            corners.update(with: .topRight)
-//        }
-//
-//        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1
-//        {
-//            corners.update(with: .bottomLeft)
-//            corners.update(with: .bottomRight)
-//        }
-//
-//        let maskLayer = CAShapeLayer()
-//        maskLayer.path = UIBezierPath(roundedRect: cell.bounds,
-//                                      byRoundingCorners: corners,
-//                                      cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)).cgPath
-//        cell.layer.mask = maskLayer
-//    }
 }
+
+extension MyGardenViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        let cornerRadius = 30
+        var corners: UIRectCorner = []
+
+        if indexPath.row == 0
+        {
+            corners.update(with: .topLeft)
+            corners.update(with: .topRight)
+        }
+
+        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1
+        {
+            corners.update(with: .bottomLeft)
+            corners.update(with: .bottomRight)
+        }
+
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: cell.bounds,
+                                      byRoundingCorners: corners,
+                                      cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)).cgPath
+        cell.layer.mask = maskLayer
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
 

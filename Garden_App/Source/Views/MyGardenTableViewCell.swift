@@ -9,25 +9,28 @@ import Foundation
 import UIKit
 
 class MyGardenTableViewCell: UITableViewCell {
-    private lazy var exampleText = UILabel()
+    private lazy var plantLabel = UILabel()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configurePlantsNames()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func configurePlantsNames() {
-        contentView.addSubview(exampleText)
-        exampleText.font = UIFont(name: "Roboto-SemiBold", size: 20)
-        exampleText.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(15)
+    private func configureView() {
+        contentView.addSubview(plantLabel)
+        plantLabel.font = .text
+        plantLabel.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(15)
+            make.leading.trailing.equalToSuperview().inset(25)
+            make.top.equalToSuperview().inset(28)
         }
     }
     
     func setData(data: String) {
-        exampleText.text = data
+        plantLabel.text = data
     }
 }

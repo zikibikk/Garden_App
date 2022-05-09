@@ -45,14 +45,24 @@
 		7CC212F627CBED0900DCF978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC212F427CBED0900DCF978 /* LaunchScreen.storyboard */; };
 		C70D60602809DC0800D90071 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D605F2809DC0800D90071 /* CalendarTableViewCell.swift */; };
 		C70D608C281629A200D90071 /* CalendarPaginationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D608B281629A200D90071 /* CalendarPaginationService.swift */; };
+		C7D0B4512827010C00AA4AE3 /* MyGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D0B4502827010C00AA4AE3 /* MyGardenViewController.swift */; };
 		C7DF4115281685FD00193C5C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF4114281685FD00193C5C /* Fonts.swift */; };
 		C7DF41172816864600193C5C /* GreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF41162816864600193C5C /* GreenView.swift */; };
 		C7DF41192816877E00193C5C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF41182816877E00193C5C /* Colors.swift */; };
-		C7DF411B28168C4700193C5C /* MyGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF411A28168C4700193C5C /* MyGardenViewController.swift */; };
 		C7DF411D281692C100193C5C /* MyGardenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DF411C281692C100193C5C /* MyGardenTableViewCell.swift */; };
 		C7E866CC27F869E300F9784C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E866CB27F869E300F9784C /* CalendarViewController.swift */; };
 		E88E40D2CFD1B8FDD585909A /* Pods_Garden_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6286231C81B228318D732A7D /* Pods_Garden_App.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7D0B44B2826ADB300AA4AE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CC212DB27CBED0700DCF978 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CC212E227CBED0800DCF978;
+			remoteInfo = Garden_App;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		36929F991DE5833188C6318E /* Pods-Garden_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.release.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,10 +108,11 @@
 		B649471A75255ACE9C7D68D8 /* Pods-Garden_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.debug.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.debug.xcconfig"; sourceTree = "<group>"; };
 		C70D605F2809DC0800D90071 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		C70D608B281629A200D90071 /* CalendarPaginationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPaginationService.swift; sourceTree = "<group>"; };
+		C7D0B4472826ADB300AA4AE3 /* Garden_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Garden_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D0B4502827010C00AA4AE3 /* MyGardenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewController.swift; sourceTree = "<group>"; };
 		C7DF4114281685FD00193C5C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		C7DF41162816864600193C5C /* GreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenView.swift; sourceTree = "<group>"; };
 		C7DF41182816877E00193C5C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		C7DF411A28168C4700193C5C /* MyGardenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewController.swift; sourceTree = "<group>"; };
 		C7DF411C281692C100193C5C /* MyGardenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenTableViewCell.swift; sourceTree = "<group>"; };
 		C7E866CB27F869E300F9784C /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +123,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E88E40D2CFD1B8FDD585909A /* Pods_Garden_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7D0B4442826ADB300AA4AE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +208,7 @@
 				7C32E4622810511A00FAA811 /* AddReminderController.swift */,
 				7C5B1A0E2814C45F000C9999 /* PreviousDayViewController.swift */,
 				7C30CFDC2815B7EE006F592A /* NoteViewController.swift */,
-				C7DF411A28168C4700193C5C /* MyGardenViewController.swift */,
+				C7D0B4502827010C00AA4AE3 /* MyGardenViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -228,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				7CC212E527CBED0800DCF978 /* Garden_App */,
+				C7D0B4482826ADB300AA4AE3 /* Garden_AppTests */,
 				7CC212E427CBED0800DCF978 /* Products */,
 				0659958BD155C865589DE62E /* Pods */,
 				84393A06CD1522133AEEC411 /* Frameworks */,
@@ -238,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				7CC212E327CBED0800DCF978 /* Garden_App.app */,
+				C7D0B4472826ADB300AA4AE3 /* Garden_AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,6 +313,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C7D0B4482826ADB300AA4AE3 /* Garden_AppTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Garden_AppTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,6 +342,24 @@
 			productReference = 7CC212E327CBED0800DCF978 /* Garden_App.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C7D0B4462826ADB300AA4AE3 /* Garden_AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7D0B44F2826ADB300AA4AE3 /* Build configuration list for PBXNativeTarget "Garden_AppTests" */;
+			buildPhases = (
+				C7D0B4432826ADB300AA4AE3 /* Sources */,
+				C7D0B4442826ADB300AA4AE3 /* Frameworks */,
+				C7D0B4452826ADB300AA4AE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7D0B44C2826ADB300AA4AE3 /* PBXTargetDependency */,
+			);
+			name = Garden_AppTests;
+			productName = Garden_AppTests;
+			productReference = C7D0B4472826ADB300AA4AE3 /* Garden_AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -327,6 +372,10 @@
 				TargetAttributes = {
 					7CC212E227CBED0800DCF978 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					C7D0B4462826ADB300AA4AE3 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 7CC212E227CBED0800DCF978;
 					};
 				};
 			};
@@ -344,6 +393,7 @@
 			projectRoot = "";
 			targets = (
 				7CC212E227CBED0800DCF978 /* Garden_App */,
+				C7D0B4462826ADB300AA4AE3 /* Garden_AppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -358,6 +408,13 @@
 				7CC212F327CBED0900DCF978 /* Assets.xcassets in Resources */,
 				7CB2306127F7728800528A48 /* Roboto-Bold.ttf in Resources */,
 				7CB2306327F7A21B00528A48 /* RobotoFlex.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7D0B4452826ADB300AA4AE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,10 +467,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D0B4512827010C00AA4AE3 /* MyGardenViewController.swift in Sources */,
 				7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */,
 				C7E866CC27F869E300F9784C /* CalendarViewController.swift in Sources */,
 				7C30CFE32815FE2D006F592A /* CollectionViewCell.swift in Sources */,
-				C7DF411B28168C4700193C5C /* MyGardenViewController.swift in Sources */,
 				7C30CFE12815F2B9006F592A /* TagView.swift in Sources */,
 				7C5B1A112814C534000C9999 /* PreviousDayPresenter.swift in Sources */,
 				7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */,
@@ -452,7 +509,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7D0B4432826ADB300AA4AE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7D0B44C2826ADB300AA4AE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7CC212E227CBED0800DCF978 /* Garden_App */;
+			targetProxy = C7D0B44B2826ADB300AA4AE3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7CC212F427CBED0900DCF978 /* LaunchScreen.storyboard */ = {
@@ -638,6 +710,42 @@
 			};
 			name = Release;
 		};
+		C7D0B44D2826ADB300AA4AE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.Garden-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Garden_App.app/Garden_App";
+			};
+			name = Debug;
+		};
+		C7D0B44E2826ADB300AA4AE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.Garden-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Garden_App.app/Garden_App";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -655,6 +763,15 @@
 			buildConfigurations = (
 				7CC212FB27CBED0900DCF978 /* Debug */,
 				7CC212FC27CBED0900DCF978 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7D0B44F2826ADB300AA4AE3 /* Build configuration list for PBXNativeTarget "Garden_AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7D0B44D2826ADB300AA4AE3 /* Debug */,
+				C7D0B44E2826ADB300AA4AE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
