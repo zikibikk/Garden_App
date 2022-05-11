@@ -8,19 +8,21 @@
 import SnapKit
 
 class DayViewController: UIViewController {
-    lazy var infoView = DeepGreenView()
+    lazy var infoView = GreenView()
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .title
         return label
     }()
+    
     private var presenter: DayPresenter
     private var isSelected = false
     private lazy var addNoteButton = AddNoteView()
     private lazy var addReminderButton = AddReminderView()
-    private lazy var gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animateView(_:)))
-    
+    private lazy var noteGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNote(_:)))
+    private lazy var reminderGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addReminder(_:)))
+
     init(presenter: DayPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -43,9 +45,10 @@ extension DayViewController {
         view.addSubview(infoView)
         view.addSubview(addNoteButton)
         view.addSubview(addReminderButton)
-        presenter.initialize()
+        presenter.initializeDayVC()
         
-        addNoteButton.addGestureRecognizer(gestureRecognizer)
+        addNoteButton.addGestureRecognizer(noteGestureRecognizer)
+        addReminderButton.addGestureRecognizer(reminderGestureRecognizer)
         
         dateLabel.snp.makeConstraints { maker in
             maker.left
@@ -82,22 +85,13 @@ extension DayViewController {
 }
 
 extension DayViewController {
-    @objc func animateView(_ sender:UITapGestureRecognizer) {
-        
-        let animator = UIViewPropertyAnimator(duration:0, curve: .linear) { [self] in
-            if(!isSelected) {
-                addNoteButton.snp.makeConstraints { maker in
-                    maker.height.equalTo(220)
-                }
-            } else {
-                addNoteButton.snp.makeConstraints { maker in
-                    maker.height.equalTo(Constraints.fieldHeight)
-                }
-            }
-            isSelected = !isSelected
-            addNoteButton.updateConstraints()
-            addNoteButton.layoutIfNeeded()
-         }
-         animator.startAnimation()
+    @objc func addNote(_ sender:UITapGestureRecognizer) {
+        presenter.showNoteScreen()
+     }
+}
+
+extension DayViewController {
+    @objc func addReminder(_ sender:UITapGestureRecognizer) {
+        presenter.showReminderScreen()
      }
 }

@@ -6,10 +6,8 @@
 //
 
 import SnapKit
-import CoreGraphics
 
-class DeepGreenView: UIView {
-    
+class GreenView: UIView {
     private lazy var label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -36,13 +34,18 @@ class DeepGreenView: UIView {
         super.init(frame: frame)
         setup()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func makeLightBackground() {
+        self.backgroundView.backgroundColor = .lightGreen
+        self.label.textColor = .black
+    }
 }
 
-extension DeepGreenView {
+extension GreenView {
     private func setup() {
         addSubview(backgroundView)
         backgroundView.addSubview(label)
