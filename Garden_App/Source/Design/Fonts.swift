@@ -16,6 +16,14 @@ extension UIFont {
         return UIFont(name: "Roboto-Bold", size: 20)!
     }
     
+    static var date: UIFont {
+        return UIFont(name: "Roboto", size: 19)!
+    }
+    
+    static var bubbleNote: UIFont {
+        return UIFont(name: "RobotoFlex", size: 18)!
+    }
+    
     static var text: UIFont {
         return UIFont(name: "RobotoFlex", size: 20)!
     }

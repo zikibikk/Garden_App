@@ -18,7 +18,7 @@ class MyGardenViewController: UIViewController {
         return tableView
     }()
     
-    private var addButton = UIButton()
+    private lazy var addButton = UIButton()
     private var models: [String] = ["пупочек", "крапива", "груша", "пупочек", "крапива", "груша"]
     
     override func viewDidLoad() {
