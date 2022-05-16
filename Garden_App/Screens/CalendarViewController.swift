@@ -11,7 +11,7 @@ import FSCalendar
 
 class CalendarViewController: UIViewController {
     private lazy var tableView = UITableView()
-    private let apiCaller = CalendarPaginationService()
+    private let paginator = CalendarPaginationService()
     private var months = [Date]()
     
     override func viewDidLoad() {
@@ -43,15 +43,6 @@ class CalendarViewController: UIViewController {
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "CalendarTableViewCell")
         tableView.separatorStyle = .none
     }
-    
-    private func configureDownloadingSpinner() -> UIView {
-        let spinnerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
-        let spinnerBody = UIActivityIndicatorView()
-        spinnerBody.center = spinnerView.center
-        spinnerView.addSubview(spinnerBody)
-        spinnerBody.startAnimating()
-        return spinnerView
-    }
 }
 
 extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
@@ -70,22 +61,8 @@ extension CalendarViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         if position > (tableView.contentSize.height - 100 - scrollView.frame.size.height) {
-            guard !apiCaller.isPaginating else { return }
-            self.tableView.tableFooterView = configureDownloadingSpinner()
-            apiCaller.fetchData(pagination: true) { [weak self] result in
-                DispatchQueue.main.async {
-                    self?.tableView.tableFooterView = nil
-                }
-                switch result {
-                case .success(let additionalData):
-                    self?.months.append(contentsOf: additionalData)
-                    DispatchQueue.main.async {
-                        self?.tableView.reloadData()
-                    }
-                case .failure(_):
-                    break
-                }
-            }
+            months.append(contentsOf: paginator.fetchData())
+            tableView.reloadData()
         }
     }
 }
