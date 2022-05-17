@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let presenter = DayPresenter()
         let previousPresenter = PreviousDayPresenter()
         let dayNavC = UINavigationController()
@@ -21,16 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         let currentDayVC = DayViewController(presenter: presenter)
         let previousDayVC = PreviousDayViewController(presenter: previousPresenter)
-        
+
         presenter.dayView = currentDayVC
         previousPresenter.dayView = previousDayVC
         dayNavC.isNavigationBarHidden = true
         dayNavC.viewControllers = [currentDayVC]
-        previousDayNavC.isNavigationBarHidden = true
-        previousDayNavC.viewControllers = [previousDayVC]
+        previousDayNavC.viewControllers = [MyNotesViewController()]
+        previousDayNavC.navigationBar.tintColor = .black
+        // for MyGardenViewController
+        //previousDayNavC.navigationBar.prefersLargeTitles = true
+        //previousDayNavC.navigationBar.barTintColor = UIColor(red: 231/255, green: 240/255, blue: 231/255, alpha: 5)
         tabBarController.viewControllers = [dayNavC, previousDayNavC, UIViewController(), UIViewController()]
         tabBarController.tabBar.tintColor = .black
-        
+
         guard let items = tabBarController.tabBar.items else { return false }
         items[0].image = UIImage(systemName: "scribble.variable")
         items[1].image = UIImage(systemName: "calendar")
