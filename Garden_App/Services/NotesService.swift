@@ -36,6 +36,14 @@ extension NotesService {
 extension NotesService {
     func getDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM"
+        return dateFormatter.string(from: date)
+    }
+}
+
+extension NotesService {
+    func getDateWithYear(date: Date) -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMMM yyyy"
         return dateFormatter.string(from: date)
     }

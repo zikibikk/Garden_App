@@ -19,6 +19,8 @@ class NoteViewController: UIViewController {
     
     lazy var noteView = EditableGreenView()
     
+    private lazy var scrollView = UIScrollView()
+    
     private lazy var tagInscription: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -58,48 +60,68 @@ class NoteViewController: UIViewController {
 extension NoteViewController {
     private func initialize() {
         self.view.backgroundColor = .white
-        view.addSubview(dateLabel)
-        view.addSubview(noteView)
-        view.addSubview(tagInscription)
-        view.addSubview(collectionView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(dateLabel)
+        scrollView.addSubview(noteView)
+        scrollView.addSubview(tagInscription)
+        scrollView.addSubview(collectionView)
+        scrollView.alwaysBounceVertical = true
         presenter.initializeNoteVC()
         
-        let tag = TagView()
-        tag.color = .tpink
-        tag.text = "томат"
-        tags = [tag]
+//        let tag = TagView()
+//        tag.color = .tpink
+//        tag.text = "томат"
+//        tags = [tag]
         //collectionView.addSubview(tag)
         
-        dateLabel.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().inset(60)
-            maker.left.equalTo(Constraints.side)
-            maker.height.equalTo(40)
+        scrollView.snp.makeConstraints { maker in
+            maker.left
+                .equalToSuperview()
+                .inset(Constraints.side)
+            maker.right
+                .equalTo(view.safeAreaLayoutGuide.snp.right)
+                .inset(Constraints.side)
+            maker.width
+                .equalTo(view.safeAreaLayoutGuide.snp.width)
+                .inset(Constraints.side)
+            maker.top
+                .equalToSuperview()
+            maker.bottom.equalToSuperview()
         }
+        
+//        dateLabel.snp.makeConstraints { maker in
+//            maker.top.equalToSuperview()
+//            maker.left.equalTo(Constraints.side)
+//            maker.height.equalTo(40)
+//        }
         noteView.snp.makeConstraints { maker in
-            maker.top.equalTo(dateLabel.snp.bottom).offset(12)
+            maker.top.equalToSuperview()
             maker.left
                 .right
                 .equalToSuperview()
-                .inset(Constraints.side)
             maker.height.equalTo(300)
+            maker.width.equalToSuperview()
         }
         tagInscription.snp.makeConstraints { maker in
             maker.top.equalTo(noteView.snp.bottom).offset(44)
-            maker.left.equalToSuperview().inset(Constraints.side)
+            maker.left.equalToSuperview()
+            maker.width.equalToSuperview()
         }
         collectionView.snp.makeConstraints { maker in
             maker.top.equalTo(noteView.snp.bottom).offset(85)
             maker.left
                 .right
                 .equalToSuperview()
-                .inset(52)
+                .inset(22)
+            maker.width.equalToSuperview()
+                .inset(44)
         }
         //for demonstration
-        view.addSubview(tag)
-        tag.snp.makeConstraints { maker in
-            maker.left.equalToSuperview().inset(52)
-            maker.top.equalTo(noteView.snp.bottom).offset(85)
-        }
+//        view.addSubview(tag)
+//        tag.snp.makeConstraints { maker in
+//            maker.left.equalToSuperview().inset(52)
+//            maker.top.equalTo(noteView.snp.bottom).offset(85)
+//        }
     }
 }
 
