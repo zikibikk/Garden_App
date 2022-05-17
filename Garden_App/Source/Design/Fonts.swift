@@ -14,11 +14,11 @@ extension UIFont {
     }
     
     static var buttonTitle: UIFont {
-        return UIFont(name: "Roboto-Bold", size: 20)!
+        return UIFont(name: "Roboto-Bold", size: 18)!
     }
     
     static var text: UIFont {
-        return UIFont(name: "RobotoFlex", size: 20)!
+        return UIFont(name: "RobotoFlex", size: 18)!
     }
     
     static var tag: UIFont {

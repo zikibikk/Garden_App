@@ -24,7 +24,19 @@ class DayPresenter {
     
     func initializeDayVC() {
         dayView?.infoView.text = advSrv.getAdviceFromSite()
-        dayView?.dateLabel.text = "Сегодня, 6 марта"
+        dayView?.title = "Сегодня, 6 марта"
+        //dayView?.dateLabel.text = "Сегодня, 6 марта"
+    }
+    
+    func viewDidLoadDayVC() {
+        if let note = notesSrv.getNoteByDate(date: currentDateTS) {
+            let view = GreenView()
+            view.text = note.noteText
+            dayView?.noteView = view
+            print("note exists")
+        } else {
+            dayView?.noteView = AddNoteView()
+        }
     }
     
     func initializeNoteVC() {
@@ -42,7 +54,12 @@ class DayPresenter {
     func showReminderScreen() {
         print("reminder")
         let addReminderController = AddReminderController()
+        addReminderController.presenter = self
         let sheetController = SheetViewController(controller: addReminderController, sizes: [.intrinsic])
         dayView?.present(sheetController, animated: true)
+    }
+    
+    func addReminder() {
+        dayView?.dismiss(animated: true)
     }
 }

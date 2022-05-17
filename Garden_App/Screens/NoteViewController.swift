@@ -9,13 +9,16 @@ import UIKit
 
 class NoteViewController: UIViewController {
     var tags: [TagView]?
+    
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .buttonTitle
         return label
     }()
+    
     lazy var noteView = EditableGreenView()
+    
     private lazy var tagInscription: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -23,6 +26,7 @@ class NoteViewController: UIViewController {
         label.text = "Теги"
         return label
     }()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -33,6 +37,7 @@ class NoteViewController: UIViewController {
         cv.dataSource = self
         return cv
     }()
+    
     private var presenter: DayPresenter
     
     override func viewDidLoad() {
