@@ -25,6 +25,7 @@ class DayPresenter {
     }
     
     func initializeDayVC() {
+        dayView?.navigationController?.navigationBar.prefersLargeTitles = true
         dayView?.infoView.text = advSrv.getAdviceFromSite()
         dayView?.title = "Сегодня, " + notesSrv.getDate(date: currentDateTS)//"Сегодня, 6 марта"
     }
@@ -60,7 +61,19 @@ class DayPresenter {
         dayView?.present(sheetController, animated: true)
     }
     
+    func showRTagScreen() {
+        print("tag")
+        let addTagController = AddTagController()
+        addTagController.presenter = self
+        let sheetController = SheetViewController(controller: addTagController, sizes: [.intrinsic])
+        dayView?.present(sheetController, animated: true)
+    }
+    
     func addReminder() {
         dayView?.dismiss(animated: true)
+    }
+    
+    func addTag() {
+        
     }
 }

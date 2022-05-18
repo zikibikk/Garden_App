@@ -43,6 +43,7 @@
 		7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CC212EF27CBED0800DCF978 /* Garden_App.xcdatamodeld */; };
 		7CC212F327CBED0900DCF978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC212F227CBED0900DCF978 /* Assets.xcassets */; };
 		7CC212F627CBED0900DCF978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC212F427CBED0900DCF978 /* LaunchScreen.storyboard */; };
+		7CF7C42D2835240200CBAA9A /* AddTagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7C42C2835240200CBAA9A /* AddTagController.swift */; };
 		C70D60602809DC0800D90071 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D605F2809DC0800D90071 /* CalendarTableViewCell.swift */; };
 		C70D608C281629A200D90071 /* CalendarPaginationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70D608B281629A200D90071 /* CalendarPaginationService.swift */; };
 		C7D0B4512827010C00AA4AE3 /* MyGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D0B4502827010C00AA4AE3 /* MyGardenViewController.swift */; };
@@ -97,6 +98,7 @@
 		7CC212F227CBED0900DCF978 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CC212F527CBED0900DCF978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CC212F727CBED0900DCF978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CF7C42C2835240200CBAA9A /* AddTagController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagController.swift; sourceTree = "<group>"; };
 		B649471A75255ACE9C7D68D8 /* Pods-Garden_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden_App.debug.xcconfig"; path = "Target Support Files/Pods-Garden_App/Pods-Garden_App.debug.xcconfig"; sourceTree = "<group>"; };
 		C70D605F2809DC0800D90071 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		C70D608B281629A200D90071 /* CalendarPaginationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPaginationService.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				7C30CFDC2815B7EE006F592A /* NoteViewController.swift */,
 				C7D0B4502827010C00AA4AE3 /* MyGardenViewController.swift */,
 				C7D0B454282BC6AD00AA4AE3 /* MyNotesViewController.swift */,
+				7CF7C42C2835240200CBAA9A /* AddTagController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				7C30CFDF2815EA99006F592A /* EditableGreenView.swift in Sources */,
 				7CB2306A27FB60E500528A48 /* AddNoteView.swift in Sources */,
 				7C391C6927FF955E0041AD83 /* AdviceService.swift in Sources */,
+				7CF7C42D2835240200CBAA9A /* AddTagController.swift in Sources */,
 				7C47DD1327F39E0A0087F5D7 /* PlantEntity+CoreDataProperties.swift in Sources */,
 				C7DF41172816864600193C5C /* GreenView.swift in Sources */,
 				7C391C6E280077270041AD83 /* DayPresenter.swift in Sources */,

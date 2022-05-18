@@ -39,6 +39,7 @@ extension DayViewController {
     private func initialize() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.isNavigationBarHidden = false
+
         scrollView.alwaysBounceVertical = true
         
         view.backgroundColor = .white
@@ -64,7 +65,8 @@ extension DayViewController {
                 .inset(Constraints.side)
             maker.top
                 .equalToSuperview()
-            maker.bottom.equalToSuperview()
+            maker.bottom
+                .equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
         infoView.snp.makeConstraints { maker in

@@ -6,6 +6,7 @@
 //
 
 import SnapKit
+import UIKit
 
 class TagView: UIView {
     private lazy var title: UILabel = {
@@ -53,5 +54,31 @@ extension TagView {
             maker.bottom.equalTo(title).offset(7)
             maker.right.equalTo(title).offset(7)
         }
+    }
+}
+
+extension TagView {
+    static var addTag: TagView {
+        let tag = TagView()
+        tag.text = "+"
+        tag.color = .lightGreen
+        tag.snp.makeConstraints { $0.width.equalTo(75)}
+        return tag
+    }
+}
+
+extension UIButton {
+    static var addTag: UIButton {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .lightGreen
+        button.tintColor = .gray
+        button.setImage(UIImage(named: "addIcon"), for: .normal)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 13
+        button.snp.makeConstraints { maker in
+            maker.height.equalTo(25)
+            maker.width.equalTo(75)
+        }
+        return button
     }
 }

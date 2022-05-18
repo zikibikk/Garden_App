@@ -59,6 +59,8 @@ class NoteViewController: UIViewController {
 
 extension NoteViewController {
     private func initialize() {
+        navigationController?.navigationBar.tintColor = .black
+        
         self.view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.addSubview(dateLabel)
@@ -68,10 +70,8 @@ extension NoteViewController {
         scrollView.alwaysBounceVertical = true
         presenter.initializeNoteVC()
         
-//        let tag = TagView()
-//        tag.color = .tpink
-//        tag.text = "томат"
-//        tags = [tag]
+        let tag: UIButton = .addTag
+        //tags = [tag]
         //collectionView.addSubview(tag)
         
         scrollView.snp.makeConstraints { maker in
@@ -86,7 +86,8 @@ extension NoteViewController {
                 .inset(Constraints.side)
             maker.top
                 .equalToSuperview()
-            maker.bottom.equalToSuperview()
+            maker.bottom
+                .equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
 //        dateLabel.snp.makeConstraints { maker in
@@ -117,11 +118,11 @@ extension NoteViewController {
                 .inset(44)
         }
         //for demonstration
-//        view.addSubview(tag)
-//        tag.snp.makeConstraints { maker in
-//            maker.left.equalToSuperview().inset(52)
-//            maker.top.equalTo(noteView.snp.bottom).offset(85)
-//        }
+        view.addSubview(tag)
+        tag.snp.makeConstraints { maker in
+            maker.left.equalToSuperview().inset(52)
+            maker.top.equalTo(noteView.snp.bottom).offset(85)
+        }
     }
 }
 
