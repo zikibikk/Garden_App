@@ -9,18 +9,21 @@ import SnapKit
 
 class PreviousDayViewController: UIViewController {
     private var presenter: PreviousDayPresenter
+    
     private lazy var verticalView: UIStackView = {
         let hv = UIStackView()
         hv.axis = .vertical
         hv.spacing = 30
         return hv
     }()
+    
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .title
         return label
     }()
+    
     lazy var adviceView = GreenView()
     lazy var noteStatus: UILabel = {
         let label = UILabel()
@@ -29,11 +32,13 @@ class PreviousDayViewController: UIViewController {
         label.text = "Заметка"
         return label
     }()
+    
     lazy var noteView: GreenView = {
         let gv = GreenView()
         gv.makeLightBackground()
         return gv
     }()
+    
     lazy var reminderStatus: UILabel = {
         let label = UILabel()
         label.textColor = .black

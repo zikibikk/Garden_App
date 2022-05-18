@@ -33,9 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //previousDayNavC.navigationBar.barTintColor = UIColor(red: 231/255, green: 240/255, blue: 231/255, alpha: 5)
         tabBarController.viewControllers = [dayNavC, previousDayNavC, UIViewController(), UIViewController()]
         tabBarController.tabBar.tintColor = .black
-
+        
+//        UITabBarItem(title: nil, image: <#T##UIImage?#>, selectedImage: <#T##UIImage?#>)
         guard let items = tabBarController.tabBar.items else { return false }
         items[0].image = UIImage(systemName: "scribble.variable")
+        items[0].title = ""
         items[1].image = UIImage(systemName: "calendar")
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController

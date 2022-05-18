@@ -6,19 +6,15 @@
 //
 
 import SnapKit
+import UIKit
 
 class DayViewController: UIViewController {
     lazy var infoView = GreenView()
-    lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = .title
-        return label
-    }()
     
     private var presenter: DayPresenter
     private var isSelected = false
-    private lazy var addNoteButton = AddNoteView()
+    lazy var noteView = UIView()
+    private lazy var scrollView = UIScrollView()
     private lazy var addReminderButton = AddReminderView()
     private lazy var noteGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNote(_:)))
     private lazy var reminderGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addReminder(_:)))
@@ -34,43 +30,57 @@ class DayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoadDayVC()
         initialize()
     }
 }
 
 extension DayViewController {
     private func initialize() {
-        view.backgroundColor = .white
-        view.addSubview(dateLabel)
-        view.addSubview(infoView)
-        view.addSubview(addNoteButton)
-        view.addSubview(addReminderButton)
-        presenter.initializeDayVC()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.isNavigationBarHidden = false
+
+        scrollView.alwaysBounceVertical = true
         
-        addNoteButton.addGestureRecognizer(noteGestureRecognizer)
+        view.backgroundColor = .white
+        view.addSubview(scrollView)
+        scrollView.addSubview(infoView)
+        scrollView.addSubview(noteView)
+        scrollView.addSubview(addReminderButton)
+        presenter.initializeDayVC()
+        navigationController?.title = ""
+        
+        noteView.addGestureRecognizer(noteGestureRecognizer)
         addReminderButton.addGestureRecognizer(reminderGestureRecognizer)
         
-        dateLabel.snp.makeConstraints { maker in
+        scrollView.snp.makeConstraints { maker in
             maker.left
-                .right
                 .equalToSuperview()
                 .inset(Constraints.side)
-            maker.top.equalToSuperview().inset(90)
+            maker.right
+                .equalTo(view.safeAreaLayoutGuide.snp.right)
+                .inset(Constraints.side)
+            maker.width
+                .equalTo(view.safeAreaLayoutGuide.snp.width)
+                .inset(Constraints.side)
+            maker.top
+                .equalToSuperview()
+            maker.bottom
+                .equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
         infoView.snp.makeConstraints { maker in
-            maker.left
-                .right
-                .equalToSuperview()
-                .inset(Constraints.side)
-            maker.top.equalTo(dateLabel.snp.bottom).offset(30)
-        }
-        
-        addNoteButton.snp.makeConstraints { maker in
             maker.right
                 .left
                 .equalToSuperview()
-                .inset(Constraints.side)
+            maker.top.equalToSuperview()
+        }
+        
+        noteView.snp.makeConstraints { maker in
+            maker.right
+                .left
+                .equalToSuperview()
+            maker.width.equalToSuperview()
             maker.top.equalTo(infoView.snp.bottom).offset(35)
         }
         
@@ -78,8 +88,8 @@ extension DayViewController {
             maker.right
                 .left
                 .equalToSuperview()
-                .inset(Constraints.side)
-            maker.top.equalTo(addNoteButton.snp.bottom).offset(15)
+            maker.width.equalToSuperview()
+            maker.top.equalTo(noteView.snp.bottom).offset(15)
         }
     }
 }

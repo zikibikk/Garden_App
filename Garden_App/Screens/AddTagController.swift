@@ -1,21 +1,20 @@
 //
-//  AddNoteController.swift
+//  AddTagViewController.swift
 //  Garden_App
 //
-//  Created by Alina Bikkinina on 20.04.2022.
+//  Created by Alina Bikkinina on 18.05.2022.
 //
 
-import Foundation
 import SnapKit
 
-class AddReminderController: UIViewController {
+class AddTagController: UIViewController {
     public var presenter: DayPresenter?
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .buttonTitle
-        label.text = "Напоминание"
+        label.text = "Создать тег"
         label.textAlignment = .center
         return label
     }()
@@ -28,23 +27,17 @@ class AddReminderController: UIViewController {
         return tf
     }()
     
-    private lazy var datePicker: UIDatePicker = {
-        let dp = UIDatePicker()
-        if #available(iOS 13.4, *) {
-            dp.preferredDatePickerStyle = .wheels
-        }
-        dp.locale = .init(identifier: Locale.preferredLanguages.first!)
-        return dp
-    }()
+//    private lazy var collectionView: UICollectionView = {
+//    }()
     
     private lazy var addButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Поставить напоминание", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Сохранить", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 15
         button.titleLabel?.font = .buttonTitle
-        button.backgroundColor = .deepGreen
+        button.backgroundColor = .lightGreen
         return button
     }()
     
@@ -55,7 +48,7 @@ class AddReminderController: UIViewController {
         return hv
     }()
     
-    private lazy var reminderGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addReminder(_:)))
+    private lazy var tagGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addReminder(_:)))
     
     override func viewDidLoad() {
         setup()
@@ -63,7 +56,7 @@ class AddReminderController: UIViewController {
     }
 }
 
-extension AddReminderController {
+extension AddTagController {
     func setup() {
         self.view.backgroundColor = .white
         self.view.addSubview(verticalView)
@@ -81,16 +74,15 @@ extension AddReminderController {
         
         verticalView.addArrangedSubview(titleLabel)
         verticalView.addArrangedSubview(textField)
-        verticalView.addArrangedSubview(datePicker)
         verticalView.addArrangedSubview(addButton)
-        addButton.addGestureRecognizer(reminderGestureRecognizer)
+        addButton.addGestureRecognizer(tagGestureRecognizer)
         self.view.snp.makeConstraints({$0.bottom.equalTo(verticalView).offset(25)})
     }
 }
 
-extension AddReminderController {
+extension AddTagController {
     @objc func addReminder(_ sender:UITapGestureRecognizer) {
-        print("added reminder")
+        print("added tag")
         textField.endEditing(true)
         presenter?.addReminder()
      }
