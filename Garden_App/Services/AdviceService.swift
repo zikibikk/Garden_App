@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol GetAdviceDelegate: AnyObject {
-    func getAdviceFromSite() -> String
+protocol IAdviceService {
+    func getAdvice() -> String
 }
 
-class AdviceService: GetAdviceDelegate {
-    func getAdviceFromSite() -> String {
+class AdviceService: IAdviceService {
+    func getAdvice() -> String {
         return "Наиболее благоприятный день месяца для работы с растениями. В саду можно обработать деревья и кустарники медьсодержащими препаратами по спящим почкам"
     }
 }

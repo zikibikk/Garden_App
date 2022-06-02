@@ -7,8 +7,9 @@
 
 import Foundation
 
-protocol SaveNoteDelegate: AnyObject {
+protocol INotesService: AnyObject {
     func saveNote(note: NoteStruct)
+    func getNoteByDate(date: Date) -> NoteStruct?
 }
 
 class NotesService {
@@ -19,7 +20,7 @@ class NotesService {
     }
 }
 
-extension NotesService: SaveNoteDelegate {
+extension NotesService: INotesService {
     func saveNote(note: NoteStruct) {
         repo.saveNoteToCD(note: note)
     }
@@ -30,21 +31,5 @@ extension NotesService {
         return repo.getAllNotes().filter({ note in
             note.noteDate == date
         }).first
-    }
-}
-
-extension NotesService {
-    func getDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM"
-        return dateFormatter.string(from: date)
-    }
-}
-
-extension NotesService {
-    func getDateWithYear(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM yyyy"
-        return dateFormatter.string(from: date)
     }
 }

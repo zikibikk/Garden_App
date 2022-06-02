@@ -8,18 +8,24 @@
 import SnapKit
 import UIKit
 
-class DayViewController: UIViewController {
-    lazy var infoView = GreenView()
+class DayViewController: UIViewController, DayInput {
     
-    private var presenter: DayPresenter
+    private lazy var infoView = GreenView()
+    private var presenter: DayOutput
     private var isSelected = false
-    lazy var noteView = UIView()
+    private lazy var noteView: UIView = AddNoteView()
     private lazy var scrollView = UIScrollView()
     private lazy var addReminderButton = AddReminderView()
     private lazy var noteGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNote(_:)))
     private lazy var reminderGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addReminder(_:)))
-
-    init(presenter: DayPresenter) {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initialize()
+        presenter.viewDidLoad()
+    }
+    
+    init(presenter: DayOutput) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,10 +34,27 @@ class DayViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        presenter.viewDidLoadDayVC()
-        initialize()
+    @objc func addNote(_ sender:UITapGestureRecognizer) {
+        presenter.showNoteScreen()
+     }
+    
+    @objc func addReminder(_ sender:UITapGestureRecognizer) {
+        presenter.showReminderScreen()
+     }
+}
+
+extension DayViewController {
+    
+    func getInfo(advice: String, title: String, note: NoteStruct?) {
+        self.title = title
+        infoView.text = advice
+        
+        if let note = note {
+            let view = GreenView()
+            view.text = note.noteText
+            self.noteView = view
+            print("note exists")
+        }
     }
 }
 
@@ -39,6 +62,7 @@ extension DayViewController {
     private func initialize() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.isNavigationBarHidden = false
+        self.navigationController?.title = ""
 
         scrollView.alwaysBounceVertical = true
         
@@ -47,8 +71,6 @@ extension DayViewController {
         scrollView.addSubview(infoView)
         scrollView.addSubview(noteView)
         scrollView.addSubview(addReminderButton)
-        presenter.initializeDayVC()
-        navigationController?.title = ""
         
         noteView.addGestureRecognizer(noteGestureRecognizer)
         addReminderButton.addGestureRecognizer(reminderGestureRecognizer)
@@ -92,16 +114,4 @@ extension DayViewController {
             maker.top.equalTo(noteView.snp.bottom).offset(15)
         }
     }
-}
-
-extension DayViewController {
-    @objc func addNote(_ sender:UITapGestureRecognizer) {
-        presenter.showNoteScreen()
-     }
-}
-
-extension DayViewController {
-    @objc func addReminder(_ sender:UITapGestureRecognizer) {
-        presenter.showReminderScreen()
-     }
 }

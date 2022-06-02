@@ -9,7 +9,10 @@ import Foundation
 import SnapKit
 
 class AddReminderController: UIViewController {
-    public var presenter: DayPresenter?
+    
+    weak var router: IReminderRouter?
+    
+    private let reminderService: IReminderService
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -61,6 +64,15 @@ class AddReminderController: UIViewController {
         setup()
         super.viewDidLoad()
     }
+    
+    init(reminderService: IReminderService) {
+        self.reminderService = reminderService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension AddReminderController {
@@ -90,8 +102,10 @@ extension AddReminderController {
 
 extension AddReminderController {
     @objc func addReminder(_ sender:UITapGestureRecognizer) {
-        print("added reminder")
         textField.endEditing(true)
-        presenter?.addReminder()
-     }
+        let reminder = ReminderStruct(reminderText: textField.text ?? "", reminderDate: datePicker.date, remindersPlants: nil)
+        reminderService.addReminder(reminder: reminder)
+        print(reminder.reminderText, " ", reminder.reminderDate)
+        router?.closeReminderVC()
+    }
 }
