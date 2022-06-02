@@ -17,7 +17,7 @@ extension DateFormatter {
 
 class MyNotesTableViewCell: UITableViewCell {
     
-    private lazy var noteTextView = UITextView()
+    private lazy var noteTextLabel = UILabel()
     private lazy var noteDateLabel = UILabel()
     private lazy var noteImageView = UIImageView(image: (UIImage(named: "bubbleNote")))
     
@@ -47,7 +47,7 @@ class MyNotesTableViewCell: UITableViewCell {
     
     private func configureBubbleNote() {
         contentView.addSubview(noteImageView)
-        contentView.addSubview(noteTextView)
+        contentView.addSubview(noteTextLabel)
         
         noteImageView.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(27)
@@ -58,18 +58,18 @@ class MyNotesTableViewCell: UITableViewCell {
         noteImageView.image = noteImageView.image?.withRenderingMode(.alwaysTemplate)
         noteImageView.tintColor = .deepGreen
         
-        noteTextView.snp.makeConstraints { make in
-            make.top.bottom.right.equalTo(noteImageView).inset(13.3)
+        noteTextLabel.snp.makeConstraints { make in
+            make.top.bottom.right.equalTo(noteImageView).inset(14)
             make.left.equalTo(noteImageView).inset(25)
         }
-        noteTextView.font = .bubbleNote
-        noteTextView.backgroundColor = .clear
-        noteTextView.textColor = .white
-        noteTextView.isEditable = false
+        noteTextLabel.font = .bubbleNote
+        noteTextLabel.backgroundColor = .clear
+        noteTextLabel.textColor = .white
+        noteTextLabel.numberOfLines = 2
     }
     
     func setData(data: NoteModel) {
-        noteTextView.text = data.noteText
+        noteTextLabel.text = data.noteText
         noteDateLabel.text = dateF.string(from: data.noteDate)
     }
 }

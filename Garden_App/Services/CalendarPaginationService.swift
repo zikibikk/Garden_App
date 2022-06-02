@@ -8,19 +8,35 @@
 import Foundation
 
 class CalendarPaginationService {
-    private var howMany = 1
-    func fetchData() -> [Date] {
+    private var howManyMore = 0
+    private var howManyLess = 1
+    func fetchNextMonths() -> [Date] {
         var nextYearsMonths = [Date]()
         var dateComponents = DateComponents()
         
         for month in 1...12 {
-            dateComponents.year = 2022 + self.howMany
+            dateComponents.year = 2022 + self.howManyMore
             dateComponents.month = month
             guard let date = Calendar.current.date(from: dateComponents) else { break }
             nextYearsMonths.append(date)
         }
         
-        self.howMany = self.howMany + 1
+        self.howManyMore = self.howManyMore + 1
         return nextYearsMonths
+    }
+    
+    func fetchPrevMonths() -> [Date] {
+        var prevYearsMonths = [Date]()
+        var dateComponents = DateComponents()
+        
+        for month in 1...12 {
+            dateComponents.year = 2022 - self.howManyLess
+            dateComponents.month = month
+            guard let date = Calendar.current.date(from: dateComponents) else { break }
+            prevYearsMonths.append(date)
+        }
+        
+        self.howManyLess = self.howManyLess + 1
+        return prevYearsMonths
     }
 }

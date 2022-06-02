@@ -13,6 +13,9 @@ class CalendarViewController: UIViewController {
     private lazy var tableView = UITableView()
     private let paginator = CalendarPaginationService()
     private var months = [Date]()
+    let date = Date()
+    let calendar = Calendar.current
+    var currentMonth = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,17 +23,14 @@ class CalendarViewController: UIViewController {
         configureView()
     }
     
+    override func viewDidLayoutSubviews() {
+        tableView.scrollToRow(at: IndexPath.init(row: currentMonth + 11, section: 0), at: .top, animated: true)
+    }
+
     private func configureStartMonths() {
-        let date = Date()
-        let calendar = Calendar.current
-        let currentMonth = calendar.component(.month, from: date)
-        for month in currentMonth...12 {
-            var dateComponents = DateComponents()
-            dateComponents.year = 2022
-            dateComponents.month = month
-            guard let date = Calendar.current.date(from: dateComponents) else { return }
-            months.append(date)
-        }
+        currentMonth = calendar.component(.month, from: date)
+        months.append(contentsOf: paginator.fetchNextMonths())
+        months.insert(contentsOf: paginator.fetchPrevMonths(), at: 0)
     }
     
     private func configureView() {
@@ -61,7 +61,7 @@ extension CalendarViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         if position > (tableView.contentSize.height - 100 - scrollView.frame.size.height) {
-            months.append(contentsOf: paginator.fetchData())
+            months.append(contentsOf: paginator.fetchNextMonths())
             tableView.reloadData()
         }
     }
