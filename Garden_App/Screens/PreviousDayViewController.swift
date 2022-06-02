@@ -8,7 +8,6 @@
 import SnapKit
 
 class PreviousDayViewController: UIViewController {
-    private var presenter: PreviousDayPresenter
     
     private lazy var verticalView: UIStackView = {
         let hv = UIStackView()
@@ -47,8 +46,7 @@ class PreviousDayViewController: UIViewController {
         return label
     }()
     
-    init(presenter: PreviousDayPresenter) {
-        self.presenter = presenter
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -66,7 +64,7 @@ extension PreviousDayViewController {
     func initialize () {
         view.addSubview(verticalView)
         view.backgroundColor = .white
-        presenter.initialize()
+        //presenter.initialize()
         verticalView.addArrangedSubview(dateLabel)
         verticalView.addArrangedSubview(adviceView)
         verticalView.addArrangedSubview(noteStatus)

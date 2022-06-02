@@ -8,7 +8,7 @@
 import SnapKit
 
 class AddTagController: UIViewController {
-    public var presenter: DayPresenter?
+    //public var presenter: DayPresenter?
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -84,6 +84,6 @@ extension AddTagController {
     @objc func addReminder(_ sender:UITapGestureRecognizer) {
         print("added tag")
         textField.endEditing(true)
-        presenter?.addReminder()
+        //presenter?.addReminder()
      }
 }

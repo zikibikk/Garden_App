@@ -7,19 +7,15 @@
 import SnapKit
 import UIKit
 
-class NoteViewController: UIViewController {
-    var tags: [TagView]?
+class NoteViewController: UIViewController, NoteInput {
     
-    lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = .buttonTitle
-        return label
-    }()
+    private let presenter: NoteOutput
     
-    lazy var noteView = EditableGreenView()
+    private var tags: [TagView]?
     
     private lazy var scrollView = UIScrollView()
+    
+    private lazy var noteView = EditableGreenView()
     
     private lazy var tagInscription: UILabel = {
         let label = UILabel()
@@ -40,14 +36,13 @@ class NoteViewController: UIViewController {
         return cv
     }()
     
-    private var presenter: DayPresenter
-    
     override func viewDidLoad() {
         initialize()
         super.viewDidLoad()
+        presenter.viewDidLoad()
     }
     
-    init(presenter: DayPresenter) {
+    init(presenter: NoteOutput) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -58,21 +53,23 @@ class NoteViewController: UIViewController {
 }
 
 extension NoteViewController {
+    
+    func getNote(note: NoteStruct?) {
+        //self.tags =
+        self.noteView.text = note?.noteText
+    }
+}
+
+extension NoteViewController {
     private func initialize() {
         navigationController?.navigationBar.tintColor = .black
         
         self.view.backgroundColor = .white
         view.addSubview(scrollView)
-        scrollView.addSubview(dateLabel)
         scrollView.addSubview(noteView)
         scrollView.addSubview(tagInscription)
         scrollView.addSubview(collectionView)
         scrollView.alwaysBounceVertical = true
-        presenter.initializeNoteVC()
-        
-        let tag: UIButton = .addTag
-        //tags = [tag]
-        //collectionView.addSubview(tag)
         
         scrollView.snp.makeConstraints { maker in
             maker.left
@@ -90,11 +87,6 @@ extension NoteViewController {
                 .equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
-//        dateLabel.snp.makeConstraints { maker in
-//            maker.top.equalToSuperview()
-//            maker.left.equalTo(Constraints.side)
-//            maker.height.equalTo(40)
-//        }
         noteView.snp.makeConstraints { maker in
             maker.top.equalToSuperview()
             maker.left
@@ -116,12 +108,6 @@ extension NoteViewController {
                 .inset(22)
             maker.width.equalToSuperview()
                 .inset(44)
-        }
-        //for demonstration
-        view.addSubview(tag)
-        tag.snp.makeConstraints { maker in
-            maker.left.equalToSuperview().inset(52)
-            maker.top.equalTo(noteView.snp.bottom).offset(85)
         }
     }
 }
