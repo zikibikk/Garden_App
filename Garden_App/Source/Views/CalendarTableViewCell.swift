@@ -8,8 +8,18 @@
 import UIKit
 import FSCalendar
 
+protocol CalendarCellDelegate: AnyObject {
+    func calendarCell(_ cell: CalendarTableViewCell, didSelect date: Date)
+}
+
 class CalendarTableViewCell: UITableViewCell {
-    private lazy var calendar = FSCalendar()
+    weak var delegate: CalendarCellDelegate?
+    
+    private lazy var calendar: FSCalendar = {
+        let calendar = FSCalendar()
+        calendar.delegate = self
+        return calendar
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -63,5 +73,11 @@ class CalendarTableViewCell: UITableViewCell {
             maker.edges.equalToSuperview().inset(20)
             maker.height.equalTo(344)
         }
+    }
+}
+
+extension CalendarTableViewCell: FSCalendarDelegate {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        delegate?.calendarCell(self, didSelect: date)
     }
 }
