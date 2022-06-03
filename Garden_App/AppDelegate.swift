@@ -15,13 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let previousDayNavC = UINavigationController()
+        let calendarNavVC = UINavigationController()
+        calendarNavVC.viewControllers = [CalendarAssembly.assemble()]
         let tabBarController = UITabBarController()
-        previousDayNavC.viewControllers = [MyNotesViewController()]
-        previousDayNavC.navigationBar.tintColor = .black
+//        previousDayNavC.viewControllers = [MyNotesViewController()]
+//        previousDayNavC.navigationBar.tintColor = .black
         // for MyGardenViewController
         
-        tabBarController.viewControllers = [DayAssembly.assemble(), previousDayNavC, UIViewController(), UIViewController()]
+        tabBarController.viewControllers = [DayAssembly.assemble(), calendarNavVC, UIViewController(), UIViewController()]
         tabBarController.tabBar.tintColor = .black
         
 //        UITabBarItem(title: nil, image: <#T##UIImage?#>, selectedImage: <#T##UIImage?#>)

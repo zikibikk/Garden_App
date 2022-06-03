@@ -12,10 +12,21 @@ import FSCalendar
 class CalendarViewController: UIViewController {
     private lazy var tableView = UITableView()
     private let paginator = CalendarPaginationService()
+    private let dateService = DateService()
+    private let router: CalendarRouter
     private var months = [Date]()
-    let date = Date()
-    let calendar = Calendar.current
-    var currentMonth = Int()
+    private let date = Date()
+    private let calendar = Calendar.current
+    private var currentMonth = Int()
+    
+    init(router: CalendarRouter) {
+        self.router = router
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +63,16 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "CalendarTableViewCell", for: indexPath) as! CalendarTableViewCell
+        cell.delegate = self
         cell.setMonth(date: months[indexPath.row])
         return cell
+    }
+}
+
+extension CalendarViewController: CalendarCellDelegate {
+    func calendarCell(_ cell: CalendarTableViewCell, didSelect date: Date) {
+        let title = dateService.getDate(date: date)
+        router.openDayVC(title: title)
     }
 }
 
