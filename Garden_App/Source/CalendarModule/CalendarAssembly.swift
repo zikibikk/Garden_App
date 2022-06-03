@@ -10,11 +10,11 @@ import UIKit
 
 enum CalendarAssembly {
     static func assemble() -> UIViewController {
-        
         let router = CalendarRouter()
         let calendarVC = CalendarViewController(router: router)
-        
+        let calendarNavVC = UINavigationController()
+        calendarNavVC.viewControllers = [calendarVC]
         router.view = calendarVC
-        return calendarVC
+        return calendarNavVC
     }
 }

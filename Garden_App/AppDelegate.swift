@@ -14,15 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let calendarNavVC = UINavigationController()
-        calendarNavVC.viewControllers = [CalendarAssembly.assemble()]
         let tabBarController = UITabBarController()
-//        previousDayNavC.viewControllers = [MyNotesViewController()]
-//        previousDayNavC.navigationBar.tintColor = .black
-        // for MyGardenViewController
         
-        tabBarController.viewControllers = [DayAssembly.assemble(), calendarNavVC, UIViewController(), UIViewController()]
+        tabBarController.viewControllers = [DayAssembly.assemble(), CalendarAssembly.assemble(), MyGardenAsssembly.assemble(), MyNotesAssembly.assemble()]
         tabBarController.tabBar.tintColor = .black
         
 //        UITabBarItem(title: nil, image: <#T##UIImage?#>, selectedImage: <#T##UIImage?#>)
