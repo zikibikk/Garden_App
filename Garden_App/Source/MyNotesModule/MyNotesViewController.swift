@@ -13,17 +13,8 @@ struct NoteModel {
     var noteText: String
 }
 
-extension Date {
-    init(dateString: String) {
-        let dateStringFormatter = DateFormatter(dateFormat: "dd.MM.yy")
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "ru_RU_POSIX") as Locale
-        let date = dateStringFormatter.date(from: dateString)!
-        self.init(timeInterval: 0, since: date)
-    }
-}
-
 class MyNotesViewController: UIViewController {
-    
+    private let router: MyNotesRouter
     private lazy var searchController = UISearchController(searchResultsController: nil)
     
     private var isSearchBarEmpty: Bool {
@@ -60,6 +51,15 @@ class MyNotesViewController: UIViewController {
         return tableView
     }()
     
+    init(router: MyNotesRouter) {
+        self.router = router
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationItem()
@@ -85,19 +85,16 @@ class MyNotesViewController: UIViewController {
     private func configureSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Введите текст, тег или дату"
+        searchController.searchBar.placeholder = "Введите текст или тег"
         searchController.isActive = false
+        searchController.searchBar.isHidden = true
         definesPresentationContext = true
     }
     
     private func filterContentForSearchText(searchText: String) {
         lazy var decimalCharacters = CharacterSet.decimalDigits
         filteredNotes = models.filter { (note: NoteModel) -> Bool in
-//            if searchText.range(of: ".*[0-9]+.*", options: .regularExpression) != nil || searchText.contains(".") {
-//                return note.noteDate.description.contains(searchText.description)
-//            } else {
                 return note.noteText.lowercased().contains(searchText.lowercased())
-//            }
         }
         tableView.reloadData()
     }
@@ -108,12 +105,17 @@ class MyNotesViewController: UIViewController {
     }
 }
 
+extension MyNotesViewController: MyNotesCellDelegate {
+    func myNotesCell(_ cell: MyNotesTableViewCell, didSelect note: String, by date: Date) {
+        router.openNoteVC(date: date)
+    }
+}
+
 extension MyNotesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
            return filteredNotes.count
          }
-
         return models.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,13 +125,8 @@ extension MyNotesViewController: UITableViewDataSource {
         } else {
             cell.setData(data: models[indexPath.row])
         }
+        cell.delegate = self
         return cell
-    }
-}
-
-extension MyNotesViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        navigationItem.hidesSearchBarWhenScrolling = true
     }
 }
 

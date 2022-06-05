@@ -16,7 +16,7 @@ extension UIColor {
     }
     
     static var lightGreen: UIColor {
-        return UIColor(red: devide(a: 78), green: devide(a: 161), blue: devide(a: 101), alpha: 0.29)
+        return UIColor(red: devide(a: 208), green: devide(a: 233), blue: devide(a: 215), alpha: 1)
     }
     
     static var backgroundGreen: UIColor {
