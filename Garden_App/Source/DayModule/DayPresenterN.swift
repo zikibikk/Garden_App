@@ -30,10 +30,11 @@ extension DayPresenterN {
     
     func viewDidLoad() {
         let currentDateTS = Date.init()
+        let note = notesService.getNoteByDate(date: currentDateTS)
         
         view?.getInfo(advice: adviceService.getAdvice(),
                       title: dateService.getDate(date: currentDateTS),
-                      note: notesService.getNoteByDate(date: currentDateTS))
+                      note: note)
     }
     
     func showNoteScreen() {
@@ -43,4 +44,13 @@ extension DayPresenterN {
     func showReminderScreen() {
         router.openReminderVC(reminderService: reminderService)
     }
+    
+    func viewWillAppear() {
+        let currentDateTS = Date.init()
+        let note = notesService.getNoteByDate(date: currentDateTS)
+        
+        view?.updateNote(note: note)
+        print("note recieved")
+    }
+    
 }

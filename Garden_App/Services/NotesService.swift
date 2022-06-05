@@ -10,26 +10,54 @@ import Foundation
 protocol INotesService: AnyObject {
     func saveNote(note: NoteStruct)
     func getNoteByDate(date: Date) -> NoteStruct?
+    func getAllNotes() -> [NoteStruct]?
+    func addTag(note: NoteStruct, tag: TagStruct)
+    func deleteNoteById(id: Int32)
+    func deleteNote(note: NoteStruct)
 }
 
 class NotesService {
-    private let repo: Repository
+    private let repository: ISimpleNoteRepository
+    private let dateService: DateService
     
-    init() {
-        self.repo = Repository()
+    init(repository: ISimpleNoteRepository, dateService: DateService) {
+        self.repository = repository
+        self.dateService = dateService
     }
 }
 
 extension NotesService: INotesService {
-    func saveNote(note: NoteStruct) {
-        repo.saveNoteToCD(note: note)
+    func deleteNote(note: NoteStruct) {
+        
     }
-}
-
-extension NotesService {
+    
+    func saveNote(note: NoteStruct) {
+        repository.saveNote(note: note)
+        repository.getNoteById(id: note.id)
+    }
+    
     func getNoteByDate(date: Date) -> NoteStruct? {
-        return repo.getAllNotes().filter({ note in
-            note.noteDate == date
-        }).first
+        let searchingDate = dateService.getDateWithYear(date: date)
+        let notes = repository.getNotes()
+        guard let notes = notes else { return nil }
+        var result: NoteStruct?
+        for note in notes {
+            if dateService.getDateWithYear(date: note.noteDate) == searchingDate {
+                result = note
+            }
+        }
+        return result
+    }
+    
+    func getAllNotes() -> [NoteStruct]? {
+        return repository.getNotes()
+    }
+    
+    func addTag(note: NoteStruct, tag: TagStruct) {
+        repository.addTag(note: note, tag: tag)
+    }
+    
+    func deleteNoteById(id: Int32) {
+        repository.deleteNote(id: id)
     }
 }

@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="NoteEntity" representedClassName="NoteEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="noteDate" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="noteName" optional="YES" attributeType="String"/>
         <attribute name="noteText" attributeType="String"/>
+        <relationship name="notesPlant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlantEntity" inverseName="plantNotes" inverseEntity="PlantEntity"/>
         <relationship name="noteTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="tagNote" inverseEntity="TagEntity"/>
     </entity>
     <entity name="PlantEntity" representedClassName="PlantEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="plantDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="plantName" attributeType="String"/>
+        <relationship name="plantNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NoteEntity" inverseName="notesPlant" inverseEntity="NoteEntity"/>
         <relationship name="plantsReminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReminderEntity" inverseName="remindersPlants" inverseEntity="ReminderEntity"/>
         <relationship name="plantTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="tagPlant" inverseEntity="TagEntity"/>
     </entity>
     <entity name="ReminderEntity" representedClassName="ReminderEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="reminderDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="reminderText" attributeType="String"/>
         <relationship name="remindersPlants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlantEntity" inverseName="plantsReminders" inverseEntity="PlantEntity"/>
     </entity>
     <entity name="TagEntity" representedClassName="TagEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tagColor" optional="YES" attributeType="String"/>
         <attribute name="tagText" attributeType="String"/>
         <relationship name="tagNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteEntity" inverseName="noteTags" inverseEntity="NoteEntity"/>
         <relationship name="tagPlant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlantEntity" inverseName="plantTags" inverseEntity="PlantEntity"/>
     </entity>
     <elements>
-        <element name="NoteEntity" positionX="-383.65625" positionY="-85.06640625" width="128" height="103"/>
-        <element name="PlantEntity" positionX="-4.80859375" positionY="-69.3828125" width="128" height="103"/>
-        <element name="TagEntity" positionX="-228.96484375" positionY="53.77734375" width="128" height="103"/>
-        <element name="ReminderEntity" positionX="-171" positionY="54" width="128" height="74"/>
+        <element name="NoteEntity" positionX="-462.42578125" positionY="-128.046875" width="128" height="118"/>
+        <element name="PlantEntity" positionX="-41.8125" positionY="-145.64453125" width="128" height="133"/>
+        <element name="ReminderEntity" positionX="-47.26171875" positionY="133.8125" width="128" height="103"/>
+        <element name="TagEntity" positionX="-336.48828125" positionY="158.203125" width="128" height="118"/>
     </elements>
 </model>

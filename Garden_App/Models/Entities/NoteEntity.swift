@@ -10,17 +10,25 @@ import Foundation
 import CoreData
 
 
-extension NoteEntity {
+@objc(NoteEntity)
+public class NoteEntity: NSManagedObject {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<NoteEntity> {
+    @nonobjc public class func noteFetchRequest() -> NSFetchRequest<NoteEntity> {
         return NSFetchRequest<NoteEntity>(entityName: "NoteEntity")
     }
 
+    @NSManaged public var id: Int32
     @NSManaged public var noteDate: Date
     @NSManaged public var noteText: String
-    @NSManaged public var noteName: String?
+    @NSManaged public var notePlant: PlantEntity?
     @NSManaged public var noteTags: Set<TagEntity>?
-
+    
+    func setUp(note: NoteStruct) {
+        self.id = note.id
+        self.noteDate = note.noteDate
+        self.noteText = note.noteText
+    }
+    
 }
 
 // MARK: Generated accessors for noteTags
@@ -41,5 +49,5 @@ extension NoteEntity {
 }
 
 extension NoteEntity : Identifiable {
-
+    
 }

@@ -9,18 +9,27 @@
 import Foundation
 import CoreData
 
+@objc(PlantEntity)
+public class PlantEntity: NSManagedObject {
+
+}
 
 extension PlantEntity {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<PlantEntity> {
+    @nonobjc public class func plantFetchRequest() -> NSFetchRequest<PlantEntity> {
         return NSFetchRequest<PlantEntity>(entityName: "PlantEntity")
     }
 
-    @NSManaged public var plantDate: Date?
+    @NSManaged public var id: Int32
     @NSManaged public var plantName: String
     @NSManaged public var plantTags: Set<TagEntity>?
     @NSManaged public var plantsReminders: Set<ReminderEntity>?
+    @NSManaged public var plantNotes: Set<NoteEntity>?
 
+    func setUp(plant: PlantStruct) {
+        self.id = plant.id
+        self.plantName = plant.plantName
+    }
 }
 
 // MARK: Generated accessors for plantTags

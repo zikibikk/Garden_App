@@ -15,6 +15,15 @@ class NoteViewController: UIViewController, NoteInput {
     
     private lazy var scrollView = UIScrollView()
     
+    private lazy var saveButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Сохранить", for: .normal)
+        button.setTitleColor(.deepGreen, for: .normal)
+        button.setTitleColor(.lightGreen, for: .selected)
+        button.titleLabel?.font = .buttonTitle
+        return button
+    }()
+    
     private lazy var noteView = EditableGreenView()
     
     private lazy var tagInscription: UILabel = {
@@ -36,10 +45,20 @@ class NoteViewController: UIViewController, NoteInput {
         return cv
     }()
     
+    private lazy var saveGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(saveNote(_:)))
+    
     override func viewDidLoad() {
         initialize()
         super.viewDidLoad()
         presenter.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.saveNote(note: NoteStruct(noteDate: Date.init(),
+                                            noteText: noteView.text ?? "",
+                                            notePlant: nil,
+                                            noteTags: nil))
+        super.viewWillDisappear(animated)
     }
     
     init(presenter: NoteOutput) {
@@ -50,12 +69,20 @@ class NoteViewController: UIViewController, NoteInput {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func saveNote(_ sender:UITapGestureRecognizer) {
+        print("Она тронула меня, тронула!")
+        let note = NoteStruct(noteDate: Date.init(),
+                              noteText: noteView.text ?? "",
+                              notePlant: nil,
+                              noteTags: nil)
+        presenter.saveNote(note: note)
+     }
 }
 
 extension NoteViewController {
     
     func getNote(note: NoteStruct?) {
-        //self.tags =
         self.noteView.text = note?.noteText
     }
 }
@@ -70,6 +97,9 @@ extension NoteViewController {
         scrollView.addSubview(tagInscription)
         scrollView.addSubview(collectionView)
         scrollView.alwaysBounceVertical = true
+        scrollView.addSubview(saveButton)
+        
+        saveButton.addGestureRecognizer(saveGestureRecognizer)
         
         scrollView.snp.makeConstraints { maker in
             maker.left
@@ -85,6 +115,13 @@ extension NoteViewController {
                 .equalToSuperview()
             maker.bottom
                 .equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        saveButton.snp.makeConstraints { maker in
+            maker.top.equalToSuperview()
+            maker.right
+                .equalTo(view)
+                .inset(25)
         }
         
         noteView.snp.makeConstraints { maker in

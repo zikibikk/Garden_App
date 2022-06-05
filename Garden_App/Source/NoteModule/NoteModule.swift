@@ -13,4 +13,5 @@ protocol NoteInput: AnyObject {
 
 protocol NoteOutput: AnyObject {
     func viewDidLoad()
+    func saveNote(note: NoteStruct)
 }
