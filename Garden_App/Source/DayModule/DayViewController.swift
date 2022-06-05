@@ -21,8 +21,13 @@ class DayViewController: UIViewController, DayInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialize()
         presenter.viewDidLoad()
+        initialize()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.viewWillAppear()
+        super.viewWillAppear(animated)
     }
     
     init(presenter: DayOutput) {
@@ -55,6 +60,20 @@ extension DayViewController {
             self.noteView = view
             print("note exists")
         }
+    }
+    
+    func updateNote(note: NoteStruct?) {
+        
+        if let note = note {
+            let view = GreenView()
+            view.text = note.noteText
+            self.noteView = view
+            print("note exists")
+        } else {
+            self.noteView = AddNoteView()
+        }
+        
+        initialize()
     }
 }
 

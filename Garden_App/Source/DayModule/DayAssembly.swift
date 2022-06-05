@@ -11,11 +11,16 @@ import UIKit
 enum DayAssembly {
     static func assemble() -> UIViewController {
         
+        
         let router = DayRouter()
         let adviceService = AdviceService()
-        let notesService = NotesService()
+        let coreDataService = CoreDataService()
         let dateService = DateService()
-        let reminderService = ReminderService()
+        
+        let noteRepository = SimpleNoteRepository(coreDataService: coreDataService)
+        let reminderRepository = ReminderRepository(coreDataService: coreDataService)
+        let notesService = NotesService(repository: noteRepository, dateService: dateService)
+        let reminderService = ReminderService(repository: reminderRepository)
         
         let presenter = DayPresenterN(router: router, adviceService: adviceService, notesService: notesService, dateService: dateService, reminderService: reminderService)
         let dayView = DayViewController(presenter: presenter)

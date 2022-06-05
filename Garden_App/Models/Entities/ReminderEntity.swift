@@ -9,17 +9,28 @@
 import Foundation
 import CoreData
 
+@objc(ReminderEntity)
+public class ReminderEntity: NSManagedObject {
+
+}
 
 extension ReminderEntity {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ReminderEntity> {
+    @nonobjc public class func remindFetchRequest() -> NSFetchRequest<ReminderEntity> {
         return NSFetchRequest<ReminderEntity>(entityName: "ReminderEntity")
     }
 
+    @NSManaged public var id: Int32
     @NSManaged public var reminderText: String
     @NSManaged public var reminderDate: Date
     @NSManaged public var remindersPlants: Set<PlantEntity>?
 
+    
+    func setUp(reminder: ReminderStruct) {
+        self.id = reminder.id
+        self.reminderText = reminder.reminderText
+        self.reminderDate = reminder.reminderDate
+    }
 }
 
 // MARK: Generated accessors for reminderPlants
