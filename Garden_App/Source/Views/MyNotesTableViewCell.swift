@@ -8,20 +8,17 @@
 import Foundation
 import UIKit
 
-extension DateFormatter {
-    convenience init(dateFormat: String) {
-        self.init()
-        self.dateFormat = dateFormat
-    }
+protocol MyNotesCellDelegate: AnyObject {
+    func myNotesCell(_ cell: MyNotesTableViewCell, didSelect note: String, by date: Date)
 }
 
 class MyNotesTableViewCell: UITableViewCell {
-    
+    weak var delegate: MyNotesCellDelegate?
     private lazy var noteTextLabel = UILabel()
     private lazy var noteDateLabel = UILabel()
-    private lazy var noteImageView = UIImageView(image: (UIImage(named: "bubbleNote")))
+    private lazy var noteBubbleButton = UIButton()
     
-    private var dateF = DateFormatter(dateFormat: "dd.MM.yy")
+    private let dateService = DateService()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -46,23 +43,24 @@ class MyNotesTableViewCell: UITableViewCell {
     }
     
     private func configureBubbleNote() {
-        contentView.addSubview(noteImageView)
+        contentView.addSubview(noteBubbleButton)
         contentView.addSubview(noteTextLabel)
         
-        noteImageView.snp.makeConstraints { make in
+        noteBubbleButton.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(27)
             make.top.equalToSuperview().inset(50)
             make.width.equalTo(270)
             make.height.equalTo(80)
         }
-        noteImageView.image = noteImageView.image?.withRenderingMode(.alwaysTemplate)
-        noteImageView.tintColor = .deepGreen
+        noteBubbleButton.addTarget(self, action: #selector(noteTapped), for: .touchUpInside)
+        noteBubbleButton.setImage(UIImage(named: "bubbleNote")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        noteBubbleButton.tintColor = .deepGreen
         
         noteTextLabel.snp.makeConstraints { make in
-            make.top.bottom.right.equalTo(noteImageView).inset(14)
-            make.left.equalTo(noteImageView).inset(25)
+            make.top.bottom.right.equalTo(noteBubbleButton).inset(14)
+            make.left.equalTo(noteBubbleButton).inset(25)
         }
-        noteTextLabel.font = .bubbleNote
+        noteTextLabel.font = .text
         noteTextLabel.backgroundColor = .clear
         noteTextLabel.textColor = .white
         noteTextLabel.numberOfLines = 2
@@ -70,6 +68,10 @@ class MyNotesTableViewCell: UITableViewCell {
     
     func setData(data: NoteModel) {
         noteTextLabel.text = data.noteText
-        noteDateLabel.text = dateF.string(from: data.noteDate)
+        noteDateLabel.text = dateService.getDecimalDate(date: data.noteDate)
+    }
+    
+    @objc func noteTapped() {
+        delegate?.myNotesCell(self, didSelect: noteTextLabel.text!, by: Date(dateString: noteDateLabel.text!))
     }
 }
