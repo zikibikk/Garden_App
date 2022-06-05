@@ -9,7 +9,7 @@ import Foundation
 
 protocol IReminderRepository {
     func saveReminder(reminder: ReminderStruct)
-    func getReminders() -> [ReminderStruct]
+    func getReminders() -> [ReminderStruct]?
 }
 
 class ReminderRepository: IReminderRepository {
@@ -31,7 +31,7 @@ class ReminderRepository: IReminderRepository {
         }
     }
     
-    func getReminders() -> [ReminderStruct] {
+    func getReminders() -> [ReminderStruct]? {
         var reminders: [ReminderStruct] = []
         let fetchRequest = ReminderEntity.remindFetchRequest()
         

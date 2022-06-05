@@ -24,8 +24,6 @@ class NotePresenter: NoteOutput {
     }
     
     func saveNote(note: NoteStruct) {
-        if note.noteText != "" {
-            notesService.saveNote(note: note)
-        } else { notesService.deleteNoteById(id: note.id) }
+        notesService.saveNote(note: note)
     }
 }

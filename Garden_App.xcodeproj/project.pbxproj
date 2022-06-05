@@ -26,6 +26,7 @@
 		7C47DD2B27F4495A0087F5D7 /* NoteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */; };
 		7C4F4EBA2804C41600547B95 /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F4EB92804C41600547B95 /* AddReminderView.swift */; };
 		7C5B1A0F2814C45F000C9999 /* PreviousDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5B1A0E2814C45F000C9999 /* PreviousDayViewController.swift */; };
+		7C6A667F284D1C3B00AAA577 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A667E284D1C3B00AAA577 /* ReminderCell.swift */; };
 		7C8111A42847BCEC0033B343 /* DayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8111A32847BCEC0033B343 /* DayRouter.swift */; };
 		7C8111A62847BD100033B343 /* DayModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8111A52847BD100033B343 /* DayModule.swift */; };
 		7C8111A82847BF290033B343 /* DayPresenterN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8111A72847BF290033B343 /* DayPresenterN.swift */; };
@@ -36,6 +37,10 @@
 		7C8111B6284824CC0033B343 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8111B5284824CC0033B343 /* ReminderService.swift */; };
 		7C901AB5284C324600794FDB /* PlantRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C901AB4284C324600794FDB /* PlantRepository.swift */; };
 		7C901AB7284C899B00794FDB /* ReminderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C901AB6284C899B00794FDB /* ReminderRepository.swift */; };
+		7C901AB9284CE44100794FDB /* AdviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C901AB8284CE44100794FDB /* AdviceCell.swift */; };
+		7C901ABB284CE81C00794FDB /* AddNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C901ABA284CE81C00794FDB /* AddNoteCell.swift */; };
+		7C901ABD284CEF0400794FDB /* AddReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C901ABC284CEF0400794FDB /* AddReminderCell.swift */; };
+		7C901AC0284D0AA600794FDB /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C901ABF284D0AA600794FDB /* NoteCell.swift */; };
 		7CB2305527F74D1300528A48 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2305427F74D1300528A48 /* DayViewController.swift */; };
 		7CB2306127F7728800528A48 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2306027F7728800528A48 /* Roboto-Bold.ttf */; };
 		7CB2306327F7A21B00528A48 /* RobotoFlex.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */; };
@@ -88,6 +93,7 @@
 		7C47DD2A27F4495A0087F5D7 /* NoteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStruct.swift; sourceTree = "<group>"; };
 		7C4F4EB92804C41600547B95 /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
 		7C5B1A0E2814C45F000C9999 /* PreviousDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousDayViewController.swift; sourceTree = "<group>"; };
+		7C6A667E284D1C3B00AAA577 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		7C8111A32847BCEC0033B343 /* DayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRouter.swift; sourceTree = "<group>"; };
 		7C8111A52847BD100033B343 /* DayModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModule.swift; sourceTree = "<group>"; };
 		7C8111A72847BF290033B343 /* DayPresenterN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPresenterN.swift; sourceTree = "<group>"; };
@@ -98,6 +104,10 @@
 		7C8111B5284824CC0033B343 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		7C901AB4284C324600794FDB /* PlantRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRepository.swift; sourceTree = "<group>"; };
 		7C901AB6284C899B00794FDB /* ReminderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRepository.swift; sourceTree = "<group>"; };
+		7C901AB8284CE44100794FDB /* AdviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceCell.swift; sourceTree = "<group>"; };
+		7C901ABA284CE81C00794FDB /* AddNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteCell.swift; sourceTree = "<group>"; };
+		7C901ABC284CEF0400794FDB /* AddReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderCell.swift; sourceTree = "<group>"; };
+		7C901ABF284D0AA600794FDB /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		7CB2305427F74D1300528A48 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		7CB2306027F7728800528A48 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		7CB2306227F7A21B00528A48 /* RobotoFlex.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RobotoFlex.ttf; sourceTree = "<group>"; };
@@ -207,11 +217,12 @@
 		7C8111A22847BBFD0033B343 /* DayModule */ = {
 			isa = PBXGroup;
 			children = (
-				7CB2305427F74D1300528A48 /* DayViewController.swift */,
-				7C8111A32847BCEC0033B343 /* DayRouter.swift */,
+				7C901ABE284D085A00794FDB /* Cells */,
 				7C8111A52847BD100033B343 /* DayModule.swift */,
-				7C8111A72847BF290033B343 /* DayPresenterN.swift */,
 				7C8111B2284811300033B343 /* DayAssembly.swift */,
+				7C8111A32847BCEC0033B343 /* DayRouter.swift */,
+				7C8111A72847BF290033B343 /* DayPresenterN.swift */,
+				7CB2305427F74D1300528A48 /* DayViewController.swift */,
 			);
 			path = DayModule;
 			sourceTree = "<group>";
@@ -232,6 +243,18 @@
 				7C32E4622810511A00FAA811 /* AddReminderController.swift */,
 			);
 			path = ReminderModule;
+			sourceTree = "<group>";
+		};
+		7C901ABE284D085A00794FDB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7C901AB8284CE44100794FDB /* AdviceCell.swift */,
+				7C901ABA284CE81C00794FDB /* AddNoteCell.swift */,
+				7C901ABC284CEF0400794FDB /* AddReminderCell.swift */,
+				7C901ABF284D0AA600794FDB /* NoteCell.swift */,
+				7C6A667E284D1C3B00AAA577 /* ReminderCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		7CB2305E27F7721C00528A48 /* Fonts */ = {
@@ -496,6 +519,8 @@
 			files = (
 				C79E3F76284A5F8A002468D4 /* CalendarAssembly.swift in Sources */,
 				C7D0B4512827010C00AA4AE3 /* MyGardenViewController.swift in Sources */,
+				7C901AC0284D0AA600794FDB /* NoteCell.swift in Sources */,
+				7C6A667F284D1C3B00AAA577 /* ReminderCell.swift in Sources */,
 				7C8111AF2847D2460033B343 /* NotePresenter.swift in Sources */,
 				C7E866CC27F869E300F9784C /* CalendarViewController.swift in Sources */,
 				7C30CFE32815FE2D006F592A /* CollectionViewCell.swift in Sources */,
@@ -513,6 +538,7 @@
 				7C47DD1C27F3ABC00087F5D7 /* ReminderEntity.swift in Sources */,
 				7C5B1A0F2814C45F000C9999 /* PreviousDayViewController.swift in Sources */,
 				7C391C6727FF93160041AD83 /* CoreDataService.swift in Sources */,
+				7C901ABD284CEF0400794FDB /* AddReminderCell.swift in Sources */,
 				7C47DD1527F39E0A0087F5D7 /* NoteEntity.swift in Sources */,
 				7C47DD1127F39E0A0087F5D7 /* TagEntity.swift in Sources */,
 				C70D60602809DC0800D90071 /* CalendarTableViewCell.swift in Sources */,
@@ -544,7 +570,9 @@
 				7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */,
 				C7DF4115281685FD00193C5C /* Fonts.swift in Sources */,
 				7C8111A62847BD100033B343 /* DayModule.swift in Sources */,
+				7C901ABB284CE81C00794FDB /* AddNoteCell.swift in Sources */,
 				7C47DD2527F449240087F5D7 /* ReminderStruct.swift in Sources */,
+				7C901AB9284CE44100794FDB /* AdviceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

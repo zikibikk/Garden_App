@@ -29,12 +29,7 @@ class DayPresenterN: DayOutput {
 extension DayPresenterN {
     
     func viewDidLoad() {
-        let currentDateTS = Date.init()
-        let note = notesService.getNoteByDate(date: currentDateTS)
         
-        view?.getInfo(advice: adviceService.getAdvice(),
-                      title: dateService.getDate(date: currentDateTS),
-                      note: note)
     }
     
     func showNoteScreen() {
@@ -48,8 +43,29 @@ extension DayPresenterN {
     func viewWillAppear() {
         let currentDateTS = Date.init()
         let note = notesService.getNoteByDate(date: currentDateTS)
+        var noteModel: DayModel
+        let text = note?.noteText
         
-        view?.updateNote(note: note)
+        if text != nil && text != "" {
+            noteModel = .note(text: text!)
+        } else {
+            noteModel = .addNote
+        }
+        
+        var models: [DayModel] = []
+        models.append(.advice(advice: adviceService.getAdvice()))
+        models.append(noteModel)
+        models.append(.addReminder)
+        
+        if let reminders = reminderService.getRemindersByDate(date: currentDateTS) {
+            for reminder in reminders {
+                models.append(.reminder(date: dateService.getTime(date: reminder.reminderDate),
+                                        newTxt: reminder.reminderText))
+            }
+        }
+        
+        view?.show(title: dateService.getDate(date: currentDateTS), models: models)
+        
         print("note recieved")
     }
     

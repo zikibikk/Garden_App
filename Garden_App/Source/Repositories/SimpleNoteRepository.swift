@@ -14,6 +14,7 @@ protocol ISimpleNoteRepository {
     func addTag(note: NoteStruct, tag: TagStruct)
     func updateNote(id: Int32, text: String)
     func deleteNote(id: Int32)
+    func cearRepository()
 }
 
 class SimpleNoteRepository: ISimpleNoteRepository {
@@ -68,6 +69,22 @@ class SimpleNoteRepository: ISimpleNoteRepository {
         return result
     }
     
+    private func getNoteEntityById(id: Int32) -> NoteEntity {
+        var result = NoteEntity()
+        coreDataService.viewContext.perform { [weak self] in
+            let fetchRequest = NoteEntity.noteFetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %i", id as Int32)
+            
+            do {
+                guard let noteEntity = try self?.coreDataService.viewContext.fetch(fetchRequest).first else { return }
+                result = noteEntity
+            } catch let error {
+                print("Error: \(error)")
+            }
+        }
+        return result
+    }
+    
     func getNotes() -> [NoteStruct]? {
         var notes: [NoteStruct] = []
         let fetchRequest = NoteEntity.noteFetchRequest()
@@ -101,7 +118,19 @@ class SimpleNoteRepository: ISimpleNoteRepository {
     }
     
     func updateNote(id: Int32, text: String) {
-        getNoteById(id: id)
+        coreDataService.viewContext.perform { [weak self] in
+            guard let context = self?.coreDataService.viewContext else { return }
+            let fetchRequest = NoteEntity.noteFetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %i", id as Int32)
+            
+            do {
+                guard let noteEntity = try self?.coreDataService.viewContext.fetch(fetchRequest).first else {return }
+                noteEntity.noteText = text
+                try context.save()
+            } catch let error {
+                print("Error: \(error)")
+            }
+        }
     }
     
     func deleteNote(id: Int32) {
@@ -114,6 +143,23 @@ class SimpleNoteRepository: ISimpleNoteRepository {
                 guard let noteEntity = try self?.coreDataService.viewContext.fetch(fetchRequest).first else { return }
                 context.delete(noteEntity)
                 try context.save()
+            } catch let error {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    func cearRepository() {
+        coreDataService.viewContext.perform { [weak self] in
+            guard let context = self?.coreDataService.viewContext else { return }
+            let fetchRequest = NoteEntity.noteFetchRequest()
+        
+            do {
+                guard let entities = try self?.coreDataService.viewContext.fetch(fetchRequest) else { return }
+                for entity in entities {
+                    context.delete(entity)
+                    try context.save()
+                }
             } catch let error {
                 print("Error: \(error)")
             }

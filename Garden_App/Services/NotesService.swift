@@ -12,6 +12,7 @@ protocol INotesService: AnyObject {
     func getNoteByDate(date: Date) -> NoteStruct?
     func getAllNotes() -> [NoteStruct]?
     func addTag(note: NoteStruct, tag: TagStruct)
+    func updateNote(id: Int32, text: String)
     func deleteNoteById(id: Int32)
     func deleteNote(note: NoteStruct)
 }
@@ -33,7 +34,6 @@ extension NotesService: INotesService {
     
     func saveNote(note: NoteStruct) {
         repository.saveNote(note: note)
-        repository.getNoteById(id: note.id)
     }
     
     func getNoteByDate(date: Date) -> NoteStruct? {
@@ -55,6 +55,10 @@ extension NotesService: INotesService {
     
     func addTag(note: NoteStruct, tag: TagStruct) {
         repository.addTag(note: note, tag: tag)
+    }
+    
+    func updateNote(id: Int32, text: String) {
+        repository.updateNote(id: id, text: text)
     }
     
     func deleteNoteById(id: Int32) {

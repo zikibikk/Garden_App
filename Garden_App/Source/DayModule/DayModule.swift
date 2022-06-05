@@ -8,8 +8,7 @@
 import Foundation
 
 protocol DayInput: AnyObject {
-    func getInfo(advice: String, title: String, note: NoteStruct?)
-    func updateNote(note: NoteStruct?)
+    func show(title: String, models: [DayModel])
 }
 
 protocol DayOutput: AnyObject {
