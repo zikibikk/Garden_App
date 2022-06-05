@@ -10,10 +10,12 @@ import UIKit
 
 enum MyNotesAssembly {
     static func assemble() -> UIViewController {
-        let myNotesVC = MyNotesViewController()
+        let router = MyNotesRouter()
+        let myNotesVC = MyNotesViewController(router: router)
         let myNotesNavVC = UINavigationController()
         myNotesNavVC.navigationBar.tintColor = .black
         myNotesNavVC.viewControllers = [myNotesVC]
+        router.view = myNotesVC
         return myNotesNavVC
     }
 }
