@@ -14,16 +14,22 @@ struct PlantStruct: Hashable {
     
     let id: Int32
     let plantName: String
+    let plantDate: Date
+    let wateringDate: Date
     var plantTags: Set<TagStruct>?
     var plantsReminders: Set<ReminderStruct>?
     var plantsNotes: Set<NoteStruct>?
     
     init(id: Int = Int.random(in: 1...1_000_000),
          plantName: String,
+         plantDare: Date,
+         wateringDate: Date,
          plantTags: Set<TagStruct>?,
          plantsNotes: Set<NoteStruct>?) {
         self.id = Int32(id)
         self.plantName = plantName
+        self.plantDate = plantDare
+        self.wateringDate = wateringDate
         self.plantTags =  plantTags
         self.plantsNotes = plantsNotes
     }
@@ -31,6 +37,8 @@ struct PlantStruct: Hashable {
     init(plantEntity: PlantEntity) {
         self.id = plantEntity.id
         self.plantName = plantEntity.plantName
+        self.plantDate = plantEntity.plantDate
+        self.wateringDate = plantEntity.wateringDate
         self.plantTags = setOfTags(tagsEntities: plantEntity.plantTags)
         self.plantsNotes = setOfNotes(notesEntities: plantEntity.plantNotes)
     }

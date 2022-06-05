@@ -69,22 +69,6 @@ class SimpleNoteRepository: ISimpleNoteRepository {
         return result
     }
     
-    private func getNoteEntityById(id: Int32) -> NoteEntity {
-        var result = NoteEntity()
-        coreDataService.viewContext.perform { [weak self] in
-            let fetchRequest = NoteEntity.noteFetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %i", id as Int32)
-            
-            do {
-                guard let noteEntity = try self?.coreDataService.viewContext.fetch(fetchRequest).first else { return }
-                result = noteEntity
-            } catch let error {
-                print("Error: \(error)")
-            }
-        }
-        return result
-    }
-    
     func getNotes() -> [NoteStruct]? {
         var notes: [NoteStruct] = []
         let fetchRequest = NoteEntity.noteFetchRequest()
