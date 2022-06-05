@@ -66,7 +66,7 @@ class MyNotesTableViewCell: UITableViewCell {
         noteTextLabel.numberOfLines = 2
     }
     
-    func setData(data: NoteModel) {
+    func setData(data: NoteStruct) {
         noteTextLabel.text = data.noteText
         noteDateLabel.text = dateService.getDecimalDate(date: data.noteDate)
     }

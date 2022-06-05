@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
-class CalendarRouter {
+class CalendarRouter: ICalendarRouter {
     weak var view: UIViewController?
     
-    func openDayVC(title: String) {
-        let vc = PreviousDayViewController()
-        vc.title = title
+    func openDayVC(router: INoteRouter, date: Date, notesService: INotesService, remidersService: IReminderService) {
+        let presenter = PreviousDayPresenter(router: router, date: date, notesService: notesService, remindersService: remidersService)
+        let vc = PreviousDayViewController(presenter: presenter)
+        presenter.view = vc
+        
         view?.navigationController?.pushViewController(vc, animated: true)
     }
 }

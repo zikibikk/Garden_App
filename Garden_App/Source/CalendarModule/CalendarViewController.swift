@@ -13,14 +13,14 @@ class CalendarViewController: UIViewController {
     private lazy var tableView = UITableView()
     private let paginator = CalendarPaginationService()
     private let dateService = DateService()
-    private let router: CalendarRouter
+    private let presenter: CalendarOtput
     private var months = [Date]()
     private let date = Date()
     private let calendar = Calendar.current
     private var currentMonth = Int()
     
-    init(router: CalendarRouter) {
-        self.router = router
+    init(presenter: CalendarOtput) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -71,8 +71,7 @@ extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension CalendarViewController: CalendarCellDelegate {
     func calendarCell(_ cell: CalendarTableViewCell, didSelect date: Date) {
-        let title = dateService.getDate(date: date)
-        router.openDayVC(title: title)
+        presenter.viewDidSelect(date: date)
     }
 }
 
