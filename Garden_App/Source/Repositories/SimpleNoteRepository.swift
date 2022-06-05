@@ -10,10 +10,9 @@ import Foundation
 protocol ISimpleNoteRepository {
     func saveNote(note: NoteStruct)
     func getNotes() -> [NoteStruct]?
-    func getNoteById(id: Int32) -> NoteStruct
     func addTag(note: NoteStruct, tag: TagStruct)
-    func updateNote(id: Int32, text: String)
-    func deleteNote(id: Int32)
+    func updateNote(note: NoteStruct, newText: String)
+    func deleteNote(note: NoteStruct)
     func cearRepository()
 }
 
@@ -53,22 +52,6 @@ class SimpleNoteRepository: ISimpleNoteRepository {
         }
     }
     
-    func getNoteById(id: Int32) -> NoteStruct {
-        var result: NoteStruct = NoteStruct(noteEntity: NoteEntity())
-        coreDataService.viewContext.perform { [weak self] in
-            let fetchRequest = NoteEntity.noteFetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %i", id as Int32)
-            
-            do {
-                guard let noteEntity = try self?.coreDataService.viewContext.fetch(fetchRequest).first else { return }
-                result = NoteStruct(noteEntity: noteEntity)
-            } catch let error {
-                print("Error: \(error)")
-            }
-        }
-        return result
-    }
-    
     func getNotes() -> [NoteStruct]? {
         var notes: [NoteStruct] = []
         let fetchRequest = NoteEntity.noteFetchRequest()
@@ -101,32 +84,42 @@ class SimpleNoteRepository: ISimpleNoteRepository {
         }
     }
     
-    func updateNote(id: Int32, text: String) {
+    func updateNote(note: NoteStruct, newText: String) {
         coreDataService.viewContext.perform { [weak self] in
             guard let context = self?.coreDataService.viewContext else { return }
             let fetchRequest = NoteEntity.noteFetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %i", id as Int32)
-            
+        
             do {
-                guard let noteEntity = try self?.coreDataService.viewContext.fetch(fetchRequest).first else {return }
-                noteEntity.noteText = text
-                try context.save()
+                guard let entities = try self?.coreDataService.viewContext.fetch(fetchRequest)
+                else {
+                    self?.saveNote(note: note)
+                    return
+                }
+                for entity in entities {
+                    if (entity.id == note.id) {
+                        entity.noteText = newText
+                        try context.save()
+                    }
+                }
             } catch let error {
                 print("Error: \(error)")
             }
         }
     }
     
-    func deleteNote(id: Int32) {
+    func deleteNote(note: NoteStruct) {
         coreDataService.viewContext.perform { [weak self] in
             guard let context = self?.coreDataService.viewContext else { return }
             let fetchRequest = NoteEntity.noteFetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %i", id as Int32)
-            
+        
             do {
-                guard let noteEntity = try self?.coreDataService.viewContext.fetch(fetchRequest).first else { return }
-                context.delete(noteEntity)
-                try context.save()
+                guard let entities = try self?.coreDataService.viewContext.fetch(fetchRequest) else { return }
+                for entity in entities {
+                    if (entity.id == note.id) {
+                        context.delete(entity)
+                        try context.save()
+                    }
+                }
             } catch let error {
                 print("Error: \(error)")
             }
