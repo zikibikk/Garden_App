@@ -7,9 +7,10 @@
 
 import Foundation
 
-protocol PlantViewInput: AnyObject {
-    func getPlantInfo(plant: PlantStruct)
+protocol PlantInput: AnyObject {
+    func getPlant(plant: PlantStruct)
 }
-protocol PlantViewOutput: AnyObject {
+protocol PlantOutput: AnyObject {
     func viewDidLoad()
+    func savePlant(plant: PlantStruct)
 }

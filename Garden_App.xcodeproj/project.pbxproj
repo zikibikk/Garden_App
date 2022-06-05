@@ -59,7 +59,16 @@
 		C79E3F8A284B7359002468D4 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F89284B7359002468D4 /* PlantViewController.swift */; };
 		C79E3F8C284B8102002468D4 /* PlantPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F8B284B8102002468D4 /* PlantPresenter.swift */; };
 		C79E3F8E284BB0B0002468D4 /* MyNotesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F8D284BB0B0002468D4 /* MyNotesRouter.swift */; };
-		C79E3F94284BD6E7002468D4 /* PlantDoubleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F93284BD6E7002468D4 /* PlantDoubleView.swift */; };
+		C79E3F94284BD6E7002468D4 /* PlantReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F93284BD6E7002468D4 /* PlantReminderView.swift */; };
+		C79E3F96284CDC7B002468D4 /* MyNotesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F95284CDC7B002468D4 /* MyNotesPresenter.swift */; };
+		C79E3F98284CDC97002468D4 /* MyNotesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F97284CDC97002468D4 /* MyNotesModule.swift */; };
+		C79E3F9A284CEF25002468D4 /* PlantNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F99284CEF25002468D4 /* PlantNoteView.swift */; };
+		C79E3F9D284D2E76002468D4 /* PreviousDayModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F9C284D2E76002468D4 /* PreviousDayModule.swift */; };
+		C79E3F9F284D30AB002468D4 /* PreviousDayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3F9E284D30AB002468D4 /* PreviousDayPresenter.swift */; };
+		C79E3FA1284D3710002468D4 /* CalendarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3FA0284D3710002468D4 /* CalendarPresenter.swift */; };
+		C79E3FA3284D3719002468D4 /* CalendarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3FA2284D3719002468D4 /* CalendarModule.swift */; };
+		C79E3FA5284D3AED002468D4 /* PreviousDayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3FA4284D3AED002468D4 /* PreviousDayRouter.swift */; };
+		C79E3FA7284D5A81002468D4 /* DailyRemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79E3FA6284D5A81002468D4 /* DailyRemindersTableViewCell.swift */; };
 		C7D0B4512827010C00AA4AE3 /* MyGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D0B4502827010C00AA4AE3 /* MyGardenViewController.swift */; };
 		C7D0B455282BC6AD00AA4AE3 /* MyNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D0B454282BC6AD00AA4AE3 /* MyNotesViewController.swift */; };
 		C7D0B457282BCA0300AA4AE3 /* MyNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D0B456282BCA0300AA4AE3 /* MyNotesTableViewCell.swift */; };
@@ -129,7 +138,16 @@
 		C79E3F89284B7359002468D4 /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		C79E3F8B284B8102002468D4 /* PlantPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPresenter.swift; sourceTree = "<group>"; };
 		C79E3F8D284BB0B0002468D4 /* MyNotesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesRouter.swift; sourceTree = "<group>"; };
-		C79E3F93284BD6E7002468D4 /* PlantDoubleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDoubleView.swift; sourceTree = "<group>"; };
+		C79E3F93284BD6E7002468D4 /* PlantReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantReminderView.swift; sourceTree = "<group>"; };
+		C79E3F95284CDC7B002468D4 /* MyNotesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesPresenter.swift; sourceTree = "<group>"; };
+		C79E3F97284CDC97002468D4 /* MyNotesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesModule.swift; sourceTree = "<group>"; };
+		C79E3F99284CEF25002468D4 /* PlantNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantNoteView.swift; sourceTree = "<group>"; };
+		C79E3F9C284D2E76002468D4 /* PreviousDayModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousDayModule.swift; sourceTree = "<group>"; };
+		C79E3F9E284D30AB002468D4 /* PreviousDayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousDayPresenter.swift; sourceTree = "<group>"; };
+		C79E3FA0284D3710002468D4 /* CalendarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPresenter.swift; sourceTree = "<group>"; };
+		C79E3FA2284D3719002468D4 /* CalendarModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModule.swift; sourceTree = "<group>"; };
+		C79E3FA4284D3AED002468D4 /* PreviousDayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousDayRouter.swift; sourceTree = "<group>"; };
+		C79E3FA6284D5A81002468D4 /* DailyRemindersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRemindersTableViewCell.swift; sourceTree = "<group>"; };
 		C7D0B4502827010C00AA4AE3 /* MyGardenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGardenViewController.swift; sourceTree = "<group>"; };
 		C7D0B454282BC6AD00AA4AE3 /* MyNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesViewController.swift; sourceTree = "<group>"; };
 		C7D0B456282BCA0300AA4AE3 /* MyNotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotesTableViewCell.swift; sourceTree = "<group>"; };
@@ -208,7 +226,6 @@
 		7C47DD2F27F74B320087F5D7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				7C5B1A0E2814C45F000C9999 /* PreviousDayViewController.swift */,
 				7CF7C42C2835240200CBAA9A /* AddTagController.swift */,
 			);
 			path = Screens;
@@ -257,6 +274,7 @@
 		7CB2305F27F7722B00528A48 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C79E3F9B284D2E58002468D4 /* PreviousDayModule */,
 				C79E3F86284B673E002468D4 /* PlantModule */,
 				7CEC83A7284AD68D00A06C1D /* Repositories */,
 				C79E3F81284AAF02002468D4 /* MyNotesModule */,
@@ -338,7 +356,9 @@
 				C7DF41162816864600193C5C /* GreenView.swift */,
 				C7DF411C281692C100193C5C /* MyGardenTableViewCell.swift */,
 				C7D0B456282BCA0300AA4AE3 /* MyNotesTableViewCell.swift */,
-				C79E3F93284BD6E7002468D4 /* PlantDoubleView.swift */,
+				C79E3F93284BD6E7002468D4 /* PlantReminderView.swift */,
+				C79E3F99284CEF25002468D4 /* PlantNoteView.swift */,
+				C79E3FA6284D5A81002468D4 /* DailyRemindersTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,6 +387,8 @@
 				C7E866CB27F869E300F9784C /* CalendarViewController.swift */,
 				C79E3F75284A5F8A002468D4 /* CalendarAssembly.swift */,
 				C79E3F77284A61A6002468D4 /* CalendarRouter.swift */,
+				C79E3FA0284D3710002468D4 /* CalendarPresenter.swift */,
+				C79E3FA2284D3719002468D4 /* CalendarModule.swift */,
 			);
 			path = CalendarModule;
 			sourceTree = "<group>";
@@ -386,6 +408,8 @@
 				C7D0B454282BC6AD00AA4AE3 /* MyNotesViewController.swift */,
 				C79E3F82284AAFDD002468D4 /* MyNotesAssembly.swift */,
 				C79E3F8D284BB0B0002468D4 /* MyNotesRouter.swift */,
+				C79E3F95284CDC7B002468D4 /* MyNotesPresenter.swift */,
+				C79E3F97284CDC97002468D4 /* MyNotesModule.swift */,
 			);
 			path = MyNotesModule;
 			sourceTree = "<group>";
@@ -398,6 +422,17 @@
 				C79E3F8B284B8102002468D4 /* PlantPresenter.swift */,
 			);
 			path = PlantModule;
+			sourceTree = "<group>";
+		};
+		C79E3F9B284D2E58002468D4 /* PreviousDayModule */ = {
+			isa = PBXGroup;
+			children = (
+				7C5B1A0E2814C45F000C9999 /* PreviousDayViewController.swift */,
+				C79E3F9C284D2E76002468D4 /* PreviousDayModule.swift */,
+				C79E3F9E284D30AB002468D4 /* PreviousDayPresenter.swift */,
+				C79E3FA4284D3AED002468D4 /* PreviousDayRouter.swift */,
+			);
+			path = PreviousDayModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,15 +552,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79E3F9F284D30AB002468D4 /* PreviousDayPresenter.swift in Sources */,
 				C79E3F76284A5F8A002468D4 /* CalendarAssembly.swift in Sources */,
 				C7D0B4512827010C00AA4AE3 /* MyGardenViewController.swift in Sources */,
 				7C8111AF2847D2460033B343 /* NotePresenter.swift in Sources */,
-				7C47DD1227F39E0A0087F5D7 /* PlantEntity+CoreDataClass.swift in Sources */,
 				C79E3F88284B676A002468D4 /* PlantModule.swift in Sources */,
 				C7E866CC27F869E300F9784C /* CalendarViewController.swift in Sources */,
 				7C30CFE32815FE2D006F592A /* CollectionViewCell.swift in Sources */,
 				7C30CFE12815F2B9006F592A /* TagView.swift in Sources */,
 				7CC212F127CBED0800DCF978 /* Garden_App.xcdatamodeld in Sources */,
+				C79E3FA7284D5A81002468D4 /* DailyRemindersTableViewCell.swift in Sources */,
+				C79E3FA3284D3719002468D4 /* CalendarModule.swift in Sources */,
 				7C8111A82847BF290033B343 /* DayPresenterN.swift in Sources */,
 				7C8111A42847BCEC0033B343 /* DayRouter.swift in Sources */,
 				7CEC83AB284BB82400A06C1D /* SimpleNoteRepository.swift in Sources */,
@@ -547,8 +584,11 @@
 				7C32E4632810511A00FAA811 /* AddReminderController.swift in Sources */,
 				7C8111AC2847C5DB0033B343 /* DateService.swift in Sources */,
 				7CC212E727CBED0800DCF978 /* AppDelegate.swift in Sources */,
+				C79E3F98284CDC97002468D4 /* MyNotesModule.swift in Sources */,
 				C79E3F78284A61A6002468D4 /* CalendarRouter.swift in Sources */,
+				C79E3F9D284D2E76002468D4 /* PreviousDayModule.swift in Sources */,
 				C70D608C281629A200D90071 /* CalendarPaginationService.swift in Sources */,
+				C79E3FA1284D3710002468D4 /* CalendarPresenter.swift in Sources */,
 				C7DF411D281692C100193C5C /* MyGardenTableViewCell.swift in Sources */,
 				C7D0B457282BCA0300AA4AE3 /* MyNotesTableViewCell.swift in Sources */,
 				7C47DD2927F4494F0087F5D7 /* PlantStruct.swift in Sources */,
@@ -557,7 +597,9 @@
 				C7D0B455282BC6AD00AA4AE3 /* MyNotesViewController.swift in Sources */,
 				7C47DD2727F4493F0087F5D7 /* TagStruct.swift in Sources */,
 				7C901AB7284C899B00794FDB /* ReminderRepository.swift in Sources */,
+				C79E3F96284CDC7B002468D4 /* MyNotesPresenter.swift in Sources */,
 				C7DF41192816877E00193C5C /* Colors.swift in Sources */,
+				C79E3FA5284D3AED002468D4 /* PreviousDayRouter.swift in Sources */,
 				7C30CFDF2815EA99006F592A /* EditableGreenView.swift in Sources */,
 				7CB2306A27FB60E500528A48 /* AddNoteView.swift in Sources */,
 				7C391C6927FF955E0041AD83 /* AdviceService.swift in Sources */,
@@ -571,7 +613,8 @@
 				7C8111B3284811300033B343 /* DayAssembly.swift in Sources */,
 				7CC212E927CBED0800DCF978 /* SceneDelegate.swift in Sources */,
 				C7DF4115281685FD00193C5C /* Fonts.swift in Sources */,
-				C79E3F94284BD6E7002468D4 /* PlantDoubleView.swift in Sources */,
+				C79E3F94284BD6E7002468D4 /* PlantReminderView.swift in Sources */,
+				C79E3F9A284CEF25002468D4 /* PlantNoteView.swift in Sources */,
 				7C8111A62847BD100033B343 /* DayModule.swift in Sources */,
 				7C47DD2527F449240087F5D7 /* ReminderStruct.swift in Sources */,
 			);

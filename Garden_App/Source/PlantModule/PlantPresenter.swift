@@ -8,11 +8,14 @@
 import Foundation
 import UIKit
 
-final class PlantPresenter: PlantViewOutput {
-    
-    weak var view: PlantViewInput?
+final class PlantPresenter: PlantOutput {
+    weak var view: PlantInput?
     
     func viewDidLoad() {
-        //view?.getPlantInfo(plant: <#T##PlantStruct#>)
+        //view?.getPlant(plant: <#T##PlantStruct#>)
+    }
+    
+    func savePlant(plant: PlantStruct) {
+        
     }
 }

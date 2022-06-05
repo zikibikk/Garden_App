@@ -8,12 +8,21 @@
 import SnapKit
 
 class PreviousDayViewController: UIViewController {
-    
+    private let reminders: [ReminderStruct] = []
+    private let presenter: PreviousDayOutput
+    private let dateService = DateService()
     private lazy var verticalView: UIStackView = {
         let hv = UIStackView()
         hv.axis = .vertical
         hv.spacing = 30
         return hv
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
+        return tableView
     }()
     
     lazy var dateLabel: UILabel = {
@@ -46,7 +55,8 @@ class PreviousDayViewController: UIViewController {
         return label
     }()
     
-    init() {
+    init(presenter: PreviousDayOutput) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -57,6 +67,7 @@ class PreviousDayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        presenter.viewDidLoad()
     }
 }
 
@@ -64,7 +75,6 @@ extension PreviousDayViewController {
     func initialize () {
         view.addSubview(verticalView)
         view.backgroundColor = .white
-        //presenter.initialize()
         verticalView.addArrangedSubview(dateLabel)
         verticalView.addArrangedSubview(adviceView)
         verticalView.addArrangedSubview(noteStatus)
@@ -78,5 +88,30 @@ extension PreviousDayViewController {
                 .inset(Constraints.side)
             maker.top.equalToSuperview().inset(60)
         }
+    }
+}
+
+extension PreviousDayViewController: PreviousDayInput {
+    func getPreviousDay(date: Date, note: NoteStruct?, reminders: [ReminderStruct]) {
+        self.title = dateService.getDate(date: date)
+        self.noteView.text = note?.noteText
+        if note?.noteText == nil {
+            noteView.text = "                Заметки на этот день нет"
+        }
+        
+        if reminders.count != 0 {
+            reminderStatus.text = "Напоминания"
+        }
+    }
+}
+
+extension PreviousDayViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        reminders.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath) 
+        return cell
     }
 }

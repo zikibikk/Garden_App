@@ -8,20 +8,15 @@
 import Foundation
 import UIKit
 
-class MyNotesRouter {
+class MyNotesRouter: INotesRouter {
     weak var view: UIViewController?
     
-    func openNoteVC(date: Date) {
-        let coreData = CoreDataService()
-        let noteService = NotesService(
-            repository: SimpleNoteRepository(coreDataService: coreData),
-            dateService: DateService()
-        )
-        let presenter = NotePresenter(noteDate: date, notesService: noteService)
+    func openNoteVC(date: Date, notesService: INotesService) {
+        let presenter = NotePresenter(noteDate: date, notesService: notesService)
         let vc = NoteViewController(presenter: presenter)
         presenter.view = vc
 
         view?.navigationController?.pushViewController(vc, animated: true)
-        print("ssfhjhfsshj")
+        print("пытаюсь открыть..")
     }
 }

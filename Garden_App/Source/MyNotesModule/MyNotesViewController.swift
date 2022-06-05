@@ -14,7 +14,7 @@ struct NoteModel {
 }
 
 class MyNotesViewController: UIViewController {
-    private let router: MyNotesRouter
+    private let presenter: MyNotesOutput
     private lazy var searchController = UISearchController(searchResultsController: nil)
     
     private var isSearchBarEmpty: Bool {
@@ -25,24 +25,9 @@ class MyNotesViewController: UIViewController {
       return searchController.isActive && !isSearchBarEmpty
     }
     
-    private var models = [NoteModel(noteDate: Date(dateString: "30.4.22"),
-                                    noteText: "hhhghgeauheobfoboihbijbijtijbjihtuhtuaergygarbhrfahbkfvth"),
-                          NoteModel(noteDate: Date(dateString: "1.5.22"),
-                                    noteText: "rjshufvhuguihgthuieavouhafviojklnmbgnklbgnjleihutegiuhhyh"),
-                          NoteModel(noteDate: Date(dateString: "10.5.22"),
-                                    noteText: "rjfvhfhnfvbavfhfshhahhhfhbvknvkgmklgkuirueryetgbcndfvr"),
-                          NoteModel(noteDate: Date(dateString: "1.5.22"),
-                                    noteText: "rjshufvhuguihgthuieavouhafviojklnmbgnklbgnjleihutegiuhhyh"),
-                          NoteModel(noteDate: Date(dateString: "1.5.22"),
-                                    noteText: "rjshufvhuguihgthuieavouhafviojklnmbgnklbgnjleihutegiuhhyh"),
-                          NoteModel(noteDate: Date(dateString: "1.5.22"),
-                                    noteText: "rjshufvhuguihgthuieavouhafviojklnmbgnklbgnjleihutegiuhhyh"),
-                          NoteModel(noteDate: Date(dateString: "1.5.22"),
-                                    noteText: "rjshufvhuguihgthuieavouhafviojklnmbgnklbgnjleihutegiuhhyh"),
-                          NoteModel(noteDate: Date(dateString: "1.5.22"),
-                                    noteText: "rjshufvhuguihgthuieavouhafviojklnmbgnklbgnjleihutegiuhhyh")]
+    private var notes: [NoteStruct] = []
     
-    private var filteredNotes: [NoteModel] = []
+    private var filteredNotes: [NoteStruct] = []
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -51,8 +36,8 @@ class MyNotesViewController: UIViewController {
         return tableView
     }()
     
-    init(router: MyNotesRouter) {
-        self.router = router
+    init(presenter: MyNotesOutput) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -65,6 +50,7 @@ class MyNotesViewController: UIViewController {
         configureNavigationItem()
         configureTableView()
         configureSearchController()
+        presenter.viewDidLoad()
     }
 
     private func configureTableView() {
@@ -93,7 +79,7 @@ class MyNotesViewController: UIViewController {
     
     private func filterContentForSearchText(searchText: String) {
         lazy var decimalCharacters = CharacterSet.decimalDigits
-        filteredNotes = models.filter { (note: NoteModel) -> Bool in
+        filteredNotes = notes.filter { (note: NoteStruct) -> Bool in
                 return note.noteText.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
@@ -105,9 +91,16 @@ class MyNotesViewController: UIViewController {
     }
 }
 
+extension MyNotesViewController: MyNotesInput {
+    func getNotes(notes: Array<NoteStruct>) {
+        self.notes = notes
+        tableView.reloadData()
+    }
+}
+
 extension MyNotesViewController: MyNotesCellDelegate {
     func myNotesCell(_ cell: MyNotesTableViewCell, didSelect note: String, by date: Date) {
-        router.openNoteVC(date: date)
+        presenter.viewDidSelect(date: date)
     }
 }
 
@@ -116,14 +109,14 @@ extension MyNotesViewController: UITableViewDataSource {
         if isFiltering {
            return filteredNotes.count
          }
-        return models.count
+        return notes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(MyNotesTableViewCell.self)", for: indexPath) as! MyNotesTableViewCell
         if isFiltering {
             cell.setData(data: filteredNotes[indexPath.row])
         } else {
-            cell.setData(data: models[indexPath.row])
+            cell.setData(data: notes[indexPath.row])
         }
         cell.delegate = self
         return cell

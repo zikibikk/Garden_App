@@ -23,7 +23,7 @@ class MyGardenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationItem()
+        configureNavigationBar()
         configureTableView()
     }
     
@@ -38,9 +38,7 @@ class MyGardenViewController: UIViewController {
         tableView.tableHeaderView = UIView.init(frame: CGRect(x: 1, y: 50, width: 0, height: 20))
     }
     
-    private func configureNavigationItem() {
-        navigationItem.largeTitleDisplayMode = .always
-        navigationItem.title = "Мой сад"
+    private func configureNavigationBar() {
         addButton.setImage(UIImage(named: "addIcon"), for: .normal)
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         navigationController?.navigationBar.addSubview(addButton)

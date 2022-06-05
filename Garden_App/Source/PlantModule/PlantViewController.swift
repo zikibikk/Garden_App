@@ -9,31 +9,38 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol PlantViewSizeDelegate: AnyObject {
+    func plantViewContentSize(_ view: UIView)
+}
+
 class PlantViewController: UIViewController {
     //private let presenter: PlantViewOutput
-    private var lastWorkTextField: UITextField = {
-        let textField = UITextField()
-        textField.text = "Настроить"
-        textField.textColor = .gray
-        textField.font = .tag
-        return textField
-    }()
-    
-    private var lastWateringTextField: UITextField = {
-        let textField = UITextField()
-        textField.text = "Настроить"
-        textField.textColor = .gray
-        textField.font = .tag
-        return textField
-    }()
+    weak var delegate: PlantViewSizeDelegate?
+    private let scrollView = UIScrollView()
     private let rombAccessoryOneImage = UIImageView (image: UIImage(named: "rombAccessory"))
     private let rombAccessoryTwoImage = UIImageView(image: UIImage(named: "rombAccessory"))
-    private let reminderView = PlantDoubleView()
-    private let noteView = PlantDoubleView()
+    private let reminderView = PlantReminderView()
+    private let noteView = PlantNoteView()
     private let addNoteButton = UIButton()
     private let addReminderButton = UIButton()
     private var tags: [TagView]?
     private lazy var dateService = DateService()
+    
+    private var lastWorkTextField: UITextField = {
+            let textField = UITextField()
+            textField.text = "Добавьте"
+            textField.textColor = .gray
+            textField.font = .tag
+            return textField
+        }()
+        
+        private var lastWateringTextField: UITextField = {
+            let textField = UITextField()
+            textField.text = "Добавьте"
+            textField.textColor = .gray
+            textField.font = .tag
+            return textField
+        }()
     
     private let datePickerForLastWork: UIDatePicker = {
         let datePicker = UIDatePicker(frame: CGRect(x: 10, y: 50, width: 50, height: 50))
@@ -87,6 +94,17 @@ class PlantViewController: UIViewController {
         return label
     }()
     
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: 25, height: 125)
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.delegate = self
+        cv.dataSource = self
+        return cv
+    }()
+    
 //    init() {
 //        self.presenter = presenter
 //        super.init(nibName: nil, bundle: nil)
@@ -98,27 +116,27 @@ class PlantViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViews()
         configureInformationView()
         configureDatePicking()
         configureShadowsForViews()
-        configureNoteAndReminderViews()
         configureViewInscriptions()
         configureTags()
     }
     
     private func configureInformationView() {
         view.backgroundColor = .white
-        view.addSubview(lastWorkTextField)
-        view.addSubview(lastWateringTextField)
-        view.addSubview(rombAccessoryOneImage)
-        view.addSubview(rombAccessoryTwoImage)
-        view.addSubview(lastWorkLabel)
-        view.addSubview(lastWateringLabel)
+        scrollView.addSubview(lastWorkTextField)
+        scrollView.addSubview(lastWateringTextField)
+        scrollView.addSubview(rombAccessoryOneImage)
+        scrollView.addSubview(rombAccessoryTwoImage)
+        scrollView.addSubview(lastWorkLabel)
+        scrollView.addSubview(lastWateringLabel)
         lastWorkTextField.delegate = self
         lastWateringTextField.delegate = self
         
         lastWorkTextField.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(164)
+            make.top.equalToSuperview().inset(30)
             make.left.equalToSuperview().inset(38)
             make.height.equalTo(41)
             make.width.equalTo(75)
@@ -133,7 +151,7 @@ class PlantViewController: UIViewController {
         
         rombAccessoryOneImage.snp.makeConstraints { make in
             make.leading.equalTo(lastWorkTextField.snp_trailingMargin).inset(-35)
-            make.top.equalToSuperview().inset(177)
+            make.top.equalToSuperview().inset(43)
         }
         
         rombAccessoryTwoImage.snp.makeConstraints { make in
@@ -143,7 +161,7 @@ class PlantViewController: UIViewController {
         
         lastWorkLabel.snp.makeConstraints { make in
             make.leading.equalTo(rombAccessoryOneImage.snp_trailingMargin).inset(-15)
-            make.top.equalToSuperview().inset(174)
+            make.top.equalToSuperview().inset(40)
         }
         
         lastWateringLabel.snp.makeConstraints { make in
@@ -157,20 +175,25 @@ class PlantViewController: UIViewController {
         datePickerForLastWatering.addTarget(self, action: #selector(secondDateChoosen), for: .valueChanged)
     }
     
-    private func configureNoteAndReminderViews() {
-        view.addSubview(reminderView)
-        view.addSubview(noteView)
+    private func configureViews() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(reminderView)
+        scrollView.addSubview(noteView)
+        
+        scrollView.snp.makeConstraints { $0.edges.equalToSuperview() }
         
         reminderView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(308)
-            make.left.right.equalToSuperview().inset(26)
+            make.top.equalToSuperview().inset(160)
+            make.left.equalToSuperview().inset(26)
             make.height.equalTo(90)
+            make.width.equalTo(362)
         }
         
         noteView.snp.makeConstraints { make in
             make.top.equalTo(reminderView.snp_bottomMargin).inset(-7)
-            make.left.right.equalToSuperview().inset(26)
+            make.left.equalToSuperview().inset(26)
             make.height.equalTo(90)
+            make.width.equalTo(362)
         }
         
         reminderView.layer.cornerRadius = 13
@@ -195,10 +218,10 @@ class PlantViewController: UIViewController {
     }
     
     private func configureViewInscriptions() {
-        view.addSubview(reminderLabel)
-        view.addSubview(noteLabel)
-        view.addSubview(addNoteButton)
-        view.addSubview(addReminderButton)
+        scrollView.addSubview(reminderLabel)
+        scrollView.addSubview(noteLabel)
+        scrollView.addSubview(addNoteButton)
+        scrollView.addSubview(addReminderButton)
         
         addNoteButton.setImage(UIImage(named: "addIcon")?.withRenderingMode(.alwaysTemplate), for: .normal)
         addNoteButton.tintColor = .deepGreen
@@ -229,11 +252,18 @@ class PlantViewController: UIViewController {
     }
     
     private func configureTags() {
-        view.addSubview(tagInscription)
+        scrollView.addSubview(tagInscription)
+        scrollView.addSubview(collectionView)
         
         tagInscription.snp.makeConstraints { make in
             make.top.equalTo(noteView.snp_bottomMargin).inset(-50)
             make.left.equalToSuperview().inset(30)
+        }
+        
+        collectionView.snp.makeConstraints { maker in
+            maker.top.equalTo(tagInscription.snp_bottomMargin).inset(-10)
+            maker.left.right.equalToSuperview().inset(22)
+            maker.width.equalToSuperview().inset(44)
         }
     }
     
@@ -255,7 +285,7 @@ class PlantViewController: UIViewController {
 extension PlantViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if lastWorkTextField.isEditing {
-            view.addSubview(datePickerForLastWork)
+            scrollView.addSubview(datePickerForLastWork)
             datePickerForLastWork.snp.makeConstraints { make in
                 make.left.equalTo(lastWorkTextField.snp_leftMargin).inset(-10)
                 make.top.equalTo(lastWorkTextField.snp_bottomMargin).inset(-10)
@@ -263,7 +293,7 @@ extension PlantViewController: UITextFieldDelegate {
         }
         
         if lastWateringTextField.isEditing {
-            view.addSubview(datePickerForLastWatering)
+            scrollView.addSubview(datePickerForLastWatering)
             datePickerForLastWatering.snp.makeConstraints { make in
                 make.left.equalTo(lastWateringTextField.snp_leftMargin).inset(-10)
                 make.top.equalTo(lastWateringTextField.snp_bottomMargin).inset(-10)
@@ -281,8 +311,24 @@ extension PlantViewController: UITextFieldDelegate {
     }
 }
 
-extension PlantViewController: PlantViewInput {
-    func getPlantInfo(plant: PlantStruct) {
+extension PlantViewController: PlantInput {
+    func getPlant(plant: PlantStruct) {
         self.title = plant.plantName
+        delegate?.plantViewContentSize(reminderView)
+        delegate?.plantViewContentSize(noteView)
+    }
+}
+
+extension PlantViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        tags?.count ?? 0
+    }
+}
+
+extension PlantViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
+        cell.addSubview(tags?[indexPath.row] ?? UIView())
+        return cell
     }
 }
