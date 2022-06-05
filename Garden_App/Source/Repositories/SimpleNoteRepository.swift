@@ -13,7 +13,7 @@ protocol ISimpleNoteRepository {
     func addTag(note: NoteStruct, tag: TagStruct)
     func updateNote(note: NoteStruct, newText: String)
     func deleteNote(note: NoteStruct)
-    func cearRepository()
+    func clearRepository()
 }
 
 class SimpleNoteRepository: ISimpleNoteRepository {
@@ -126,7 +126,7 @@ class SimpleNoteRepository: ISimpleNoteRepository {
         }
     }
     
-    func cearRepository() {
+    func clearRepository() {
         coreDataService.viewContext.perform { [weak self] in
             guard let context = self?.coreDataService.viewContext else { return }
             let fetchRequest = NoteEntity.noteFetchRequest()

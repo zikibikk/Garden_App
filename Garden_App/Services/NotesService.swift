@@ -57,8 +57,12 @@ extension NotesService: INotesService {
     }
     
     func updateNote(note: NoteStruct, newText: String) {
-        repository.updateNote(note: note, newText: newText)
+        if let note = getNoteByDate(date: note.noteDate) {
+            repository.deleteNote(note: note)
+        }
+        if note.noteText != "" {
+            repository.saveNote(note: note)
+        }
         print(repository.getNotes()?.count)
     }
-    
 }
