@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NotePresenter: NoteOutput {
     
@@ -22,5 +23,9 @@ class NotePresenter: NoteOutput {
         view?.getNote(note: notesService.getNoteByDate(date: noteDate))
     }
     
-    
+    func saveNote(note: NoteStruct) {
+        if note.noteText != "" {
+            notesService.saveNote(note: note)
+        } else { notesService.deleteNoteById(id: note.id) }
+    }
 }

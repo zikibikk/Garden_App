@@ -9,7 +9,7 @@ import SnapKit
 class GreenView: UIView {
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = 5
         label.font = .text
         label.textColor = .white
         label.textAlignment = .left

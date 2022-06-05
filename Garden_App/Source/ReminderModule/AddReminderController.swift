@@ -103,7 +103,7 @@ extension AddReminderController {
 extension AddReminderController {
     @objc func addReminder(_ sender:UITapGestureRecognizer) {
         textField.endEditing(true)
-        let reminder = ReminderStruct(reminderText: textField.text ?? "", reminderDate: datePicker.date, remindersPlants: nil)
+        let reminder = ReminderStruct(reminderText: textField.text ?? "", reminderDate: datePicker.date)
         reminderService.addReminder(reminder: reminder)
         print(reminder.reminderText, " ", reminder.reminderDate)
         router?.closeReminderVC()
