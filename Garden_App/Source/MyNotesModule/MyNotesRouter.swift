@@ -12,7 +12,15 @@ class MyNotesRouter {
     weak var view: UIViewController?
     
     func openNoteVC(date: Date) {
-        let vc = NoteViewController(presenter: NotePresenter(noteDate: date, notesService: NotesService()))
+        let coreData = CoreDataService()
+        let noteService = NotesService(
+            repository: SimpleNoteRepository(coreDataService: coreData),
+            dateService: DateService()
+        )
+        let presenter = NotePresenter(noteDate: date, notesService: noteService)
+        let vc = NoteViewController(presenter: presenter)
+        presenter.view = vc
+
         view?.navigationController?.pushViewController(vc, animated: true)
         print("ssfhjhfsshj")
     }
