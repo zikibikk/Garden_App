@@ -48,17 +48,18 @@ class NoteViewController: UIViewController, NoteInput {
     private lazy var saveGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(saveNote(_:)))
     
     override func viewDidLoad() {
-        initialize()
         super.viewDidLoad()
+        initialize()
         presenter.viewDidLoad()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        presenter.saveNote(note: NoteStruct(noteDate: Date.init(),
-                                            noteText: noteView.text ?? "",
-                                            notePlant: nil,
-                                            noteTags: nil))
         super.viewWillDisappear(animated)
+        let note = NoteStruct(noteDate: Date.init(),
+                              noteText: noteView.text ?? "",
+                              notePlant: nil,
+                              noteTags: nil)
+        presenter.saveNote(note: note)
     }
     
     init(presenter: NoteOutput) {
@@ -127,7 +128,6 @@ extension NoteViewController {
         noteView.snp.makeConstraints { maker in
             maker.top.equalToSuperview()
             maker.left
-                .right
                 .equalToSuperview()
             maker.height.equalTo(300)
             maker.width.equalToSuperview()
@@ -140,7 +140,6 @@ extension NoteViewController {
         collectionView.snp.makeConstraints { maker in
             maker.top.equalTo(noteView.snp.bottom).offset(85)
             maker.left
-                .right
                 .equalToSuperview()
                 .inset(22)
             maker.width.equalToSuperview()

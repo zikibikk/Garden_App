@@ -11,6 +11,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="plantDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="plantName" attributeType="String"/>
+        <attribute name="wateringDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="plantNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NoteEntity" inverseName="notesPlant" inverseEntity="NoteEntity"/>
         <relationship name="plantsReminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReminderEntity" inverseName="remindersPlants" inverseEntity="ReminderEntity"/>
         <relationship name="plantTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="tagPlant" inverseEntity="TagEntity"/>
@@ -30,7 +31,7 @@
     </entity>
     <elements>
         <element name="NoteEntity" positionX="-462.42578125" positionY="-128.046875" width="128" height="118"/>
-        <element name="PlantEntity" positionX="-41.8125" positionY="-145.64453125" width="128" height="133"/>
+        <element name="PlantEntity" positionX="-41.8125" positionY="-145.64453125" width="128" height="134"/>
         <element name="ReminderEntity" positionX="-47.26171875" positionY="133.8125" width="128" height="103"/>
         <element name="TagEntity" positionX="-336.48828125" positionY="158.203125" width="128" height="118"/>
     </elements>

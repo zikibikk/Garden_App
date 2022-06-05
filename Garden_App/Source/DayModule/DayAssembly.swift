@@ -20,7 +20,7 @@ enum DayAssembly {
         let noteRepository = SimpleNoteRepository(coreDataService: coreDataService)
         let reminderRepository = ReminderRepository(coreDataService: coreDataService)
         let notesService = NotesService(repository: noteRepository, dateService: dateService)
-        let reminderService = ReminderService(repository: reminderRepository)
+        let reminderService = ReminderService(repository: reminderRepository, dateService: dateService)
         
         let presenter = DayPresenterN(router: router, adviceService: adviceService, notesService: notesService, dateService: dateService, reminderService: reminderService)
         let dayView = DayViewController(presenter: presenter)

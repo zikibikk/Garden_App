@@ -5,30 +5,36 @@
 //  Created by Alina Bikkinina on 01.04.2022.
 //
 
+
 import SnapKit
 import UIKit
 
+enum DayModel {
+    case addNote
+    case addReminder
+    case advice(advice: String)
+    case note(text: String)
+    case reminder(date: String, newTxt: String)
+}
+
 class DayViewController: UIViewController, DayInput {
     
-    private lazy var infoView = GreenView()
-    private var presenter: DayOutput
-    private var isSelected = false
-    private lazy var noteView: UIView = AddNoteView()
-    private lazy var scrollView = UIScrollView()
-    private lazy var addReminderButton = AddReminderView()
-    private lazy var noteGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNote(_:)))
-    private lazy var reminderGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addReminder(_:)))
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        presenter.viewDidLoad()
-        initialize()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        presenter.viewWillAppear()
-        super.viewWillAppear(animated)
-    }
+    private let presenter: DayOutput
+    private var dayModels: [DayModel] = []
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .white
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
+        tableView.register(AdviceCell.self, forCellReuseIdentifier: "\(AdviceCell.self)")
+        tableView.register(AddNoteCell.self, forCellReuseIdentifier: "\(AddNoteCell.self)")
+        tableView.register(AddReminderCell.self, forCellReuseIdentifier: "\(AddReminderCell.self)")
+        tableView.register(NoteCell.self, forCellReuseIdentifier: "\(NoteCell.self)")
+        tableView.register(ReminderCell.self, forCellReuseIdentifier: "\(ReminderCell.self)")
+        tableView.separatorStyle = .none
+        return tableView
+    }()
     
     init(presenter: DayOutput) {
         self.presenter = presenter
@@ -39,41 +45,28 @@ class DayViewController: UIViewController, DayInput {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func addNote(_ sender:UITapGestureRecognizer) {
-        presenter.showNoteScreen()
-     }
+    override func loadView() {
+        self.view = tableView
+    }
     
-    @objc func addReminder(_ sender:UITapGestureRecognizer) {
-        presenter.showReminderScreen()
-     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initialize()
+        presenter.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear()
+    }
 }
 
 extension DayViewController {
     
-    func getInfo(advice: String, title: String, note: NoteStruct?) {
+    func show(title: String, models: [DayModel]) {
         self.title = title
-        infoView.text = advice
-        
-        if let note = note {
-            let view = GreenView()
-            view.text = note.noteText
-            self.noteView = view
-            print("note exists")
-        }
-    }
-    
-    func updateNote(note: NoteStruct?) {
-        
-        if let note = note {
-            let view = GreenView()
-            view.text = note.noteText
-            self.noteView = view
-            print("note exists")
-        } else {
-            self.noteView = AddNoteView()
-        }
-        
-        initialize()
+        self.dayModels = models
+        tableView.reloadData()
     }
 }
 
@@ -82,55 +75,51 @@ extension DayViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.isNavigationBarHidden = false
         self.navigationController?.title = ""
+    }
+}
 
-        scrollView.alwaysBounceVertical = true
-        
-        view.backgroundColor = .white
-        view.addSubview(scrollView)
-        scrollView.addSubview(infoView)
-        scrollView.addSubview(noteView)
-        scrollView.addSubview(addReminderButton)
-        
-        noteView.addGestureRecognizer(noteGestureRecognizer)
-        addReminderButton.addGestureRecognizer(reminderGestureRecognizer)
-        
-        scrollView.snp.makeConstraints { maker in
-            maker.left
-                .equalToSuperview()
-                .inset(Constraints.side)
-            maker.right
-                .equalTo(view.safeAreaLayoutGuide.snp.right)
-                .inset(Constraints.side)
-            maker.width
-                .equalTo(view.safeAreaLayoutGuide.snp.width)
-                .inset(Constraints.side)
-            maker.top
-                .equalToSuperview()
-            maker.bottom
-                .equalTo(view.safeAreaLayoutGuide.snp.bottom)
+extension DayViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        dayModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let curModel = dayModels[indexPath.row]
+        switch curModel {
+        case.advice(let advice):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(AdviceCell.self)", for: indexPath) as! AdviceCell
+            cell.updateText(newTxt: advice)
+            return cell
+        case.addNote:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(AddNoteCell.self)", for: indexPath) as! AddNoteCell
+            return cell
+        case.addReminder:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(AddReminderCell.self)", for: indexPath) as! AddReminderCell
+            return cell
+        case .note(let text):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(NoteCell.self)", for: indexPath) as! NoteCell
+            cell.setText(newTxt: text)
+            return cell
+        case .reminder(let date, let text):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ReminderCell.self)", for: indexPath) as! ReminderCell
+            cell.setText(date: date, newTxt: text)
+            return cell
         }
-        
-        infoView.snp.makeConstraints { maker in
-            maker.right
-                .left
-                .equalToSuperview()
-            maker.top.equalToSuperview()
-        }
-        
-        noteView.snp.makeConstraints { maker in
-            maker.right
-                .left
-                .equalToSuperview()
-            maker.width.equalToSuperview()
-            maker.top.equalTo(infoView.snp.bottom).offset(35)
-        }
-        
-        addReminderButton.snp.makeConstraints { maker in
-            maker.right
-                .left
-                .equalToSuperview()
-            maker.width.equalToSuperview()
-            maker.top.equalTo(noteView.snp.bottom).offset(15)
+    }
+}
+
+extension DayViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = dayModels[indexPath.row]
+        switch model {
+        case .addNote:
+            presenter.showNoteScreen()
+        case .note:
+            presenter.showNoteScreen()
+        case .addReminder:
+            presenter.showReminderScreen()
+        default:
+            break
         }
     }
 }
