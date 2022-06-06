@@ -17,7 +17,6 @@ class MyNotesTableViewCell: UITableViewCell {
     private lazy var noteTextLabel = UILabel()
     private lazy var noteDateLabel = UILabel()
     private lazy var noteBubbleButton = UIButton()
-    
     private let dateService = DateService()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

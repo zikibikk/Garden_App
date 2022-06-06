@@ -30,7 +30,7 @@ class MyGardenTableViewCell: UITableViewCell {
         }
     }
     
-    func setData(data: String) {
-        plantLabel.text = data
+    func setData(data: PlantStruct) {
+        plantLabel.text = data.plantName
     }
 }

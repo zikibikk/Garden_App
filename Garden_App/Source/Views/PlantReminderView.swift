@@ -14,6 +14,7 @@ class PlantReminderView: UIView {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
+        tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 13, bottom: 0, right: 13)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         return tableView
     }()
@@ -32,13 +33,14 @@ class PlantReminderView: UIView {
     private func configureTableView() {
         addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(20)
+            make.right.left.bottom.equalToSuperview().inset(0)
         }
     }
 }
 
-extension PlantReminderView: PlantInput {
-    func getPlant(plant: PlantStruct) {
+extension PlantReminderView: PlantInputForReminderView {
+    func getPlantReminders(plant: PlantStruct) {
         self.reminders = plant.plantsReminders.map {
             Array($0)
         } ?? []
@@ -62,6 +64,8 @@ extension PlantReminderView: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(UITableViewCell.self)") else { return UITableViewCell() }
         let reminder = reminders[indexPath.row]
         cell.textLabel?.text = reminder.reminderText
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .deepGreen
         return cell
     }
 }

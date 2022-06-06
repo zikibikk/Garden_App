@@ -10,12 +10,31 @@ import UIKit
 
 final class PlantPresenter: PlantOutput {
     weak var view: PlantInput?
+    private let plant: PlantStruct
+    private let router: IDayRouter
+    private let notesService: INotesService
+    private let reminderService: IReminderService
     
-    func viewDidLoad() {
-        //view?.getPlant(plant: <#T##PlantStruct#>)
+    init(plant: PlantStruct, router: IDayRouter, notesService: INotesService, reminderService: IReminderService) {
+        self.plant = plant
+        self.router = router
+        self.notesService = notesService
+        self.reminderService = reminderService
     }
     
-    func savePlant(plant: PlantStruct) {
-        
+    func viewDidLoad() {
+        view?.getPlant(plant: plant)
+    }
+    
+    func showReminderScreen() {
+        router.openReminderVC(reminderService: reminderService)
+    }
+    
+    func showCreateNoteScreen() {
+        router.openNoteVC(noteDate: Date.init(), notesService: notesService)
+    }
+    
+    func viewDidSelect(date: Date) {
+        router.openNoteVC(noteDate: date, notesService: notesService)
     }
 }

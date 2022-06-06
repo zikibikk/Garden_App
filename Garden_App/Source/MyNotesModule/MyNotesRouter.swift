@@ -17,6 +17,5 @@ class MyNotesRouter: INotesRouter {
         presenter.view = vc
 
         view?.navigationController?.pushViewController(vc, animated: true)
-        print("пытаюсь открыть..")
     }
 }

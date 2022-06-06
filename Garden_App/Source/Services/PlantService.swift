@@ -9,7 +9,7 @@ import Foundation
 
 protocol IPlantService {
     func savePlant(plant: PlantStruct)
-    func getPlants(plant: PlantStruct) -> [PlantStruct]?
+    func getPlants() -> [PlantStruct]?
     func addNote(plant: PlantStruct, note: NoteStruct)
     func addReminder(plant: PlantStruct, reminder: ReminderStruct)
     func addTag(plant: PlantStruct, tag: TagStruct)
@@ -27,7 +27,7 @@ class PlantService: IPlantService {
         repository.savePlant(plant: plant)
     }
     
-    func getPlants(plant: PlantStruct) -> [PlantStruct]? {
+    func getPlants() -> [PlantStruct]? {
         return repository.getPlants()
     }
     

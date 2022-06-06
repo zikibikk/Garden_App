@@ -21,7 +21,7 @@ class PreviousDayViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
+        tableView.register(DailyRemindersTableViewCell.self, forCellReuseIdentifier: "\(DailyRemindersTableViewCell.self)")
         return tableView
     }()
     
@@ -80,6 +80,16 @@ extension PreviousDayViewController {
         verticalView.addArrangedSubview(noteStatus)
         verticalView.addArrangedSubview(noteView)
         verticalView.addArrangedSubview(reminderStatus)
+        view.addSubview(tableView)
+    
+        tableView.separatorColor = .lightGreen
+        tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 13, bottom: 0, right: 13)
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(verticalView.snp_bottomMargin).inset(-20)
+            make.left.right.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(10)
+        }
         
         verticalView.snp.makeConstraints { maker in
             maker.right
@@ -111,7 +121,8 @@ extension PreviousDayViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DailyRemindersTableViewCell", for: indexPath) as! DailyRemindersTableViewCell
+        cell.setData(data: reminders[indexPath.row])
         return cell
     }
 }
