@@ -15,7 +15,7 @@ enum CalendarAssembly {
         let dateService = DateService()
         let coreDataService = CoreDataService()
         let reminderRepository = ReminderRepository(coreDataService: coreDataService)
-        let remindersService = ReminderService(repository: reminderRepository)
+        let remindersService = ReminderService(repository: reminderRepository, dateService: dateService)
         let noteRepository = SimpleNoteRepository(coreDataService: coreDataService)
         let notesService = NotesService(repository: noteRepository, dateService: dateService)
         let presenter = CalendarPresenter(router: router, noteRouter: noteRouter, notesService: notesService, remindersService: remindersService)

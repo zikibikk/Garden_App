@@ -14,7 +14,7 @@ protocol PlantViewSizeDelegate: AnyObject {
 }
 
 class PlantViewController: UIViewController {
-    //private let presenter: PlantViewOutput
+    private let presenter: PlantOutput
     weak var delegate: PlantViewSizeDelegate?
     private let scrollView = UIScrollView()
     private let rombAccessoryOneImage = UIImageView (image: UIImage(named: "rombAccessory"))
@@ -105,14 +105,14 @@ class PlantViewController: UIViewController {
         return cv
     }()
     
-//    init() {
-//        self.presenter = presenter
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(presenter: PlantOutput) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,10 +120,16 @@ class PlantViewController: UIViewController {
         configureInformationView()
         configureDatePicking()
         configureShadowsForViews()
-        configureViewInscriptions()
+        configureViewDetails()
         configureTags()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //обновление контента
+    }
+    
+    //MARK: Configuration
     private func configureInformationView() {
         view.backgroundColor = .white
         scrollView.addSubview(lastWorkTextField)
@@ -195,11 +201,14 @@ class PlantViewController: UIViewController {
             make.height.equalTo(90)
             make.width.equalTo(362)
         }
+        delegate?.plantViewContentSize(reminderView)
+        delegate?.plantViewContentSize(noteView)
         
         reminderView.layer.cornerRadius = 13
         reminderView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         reminderView.backgroundColor = .white
         
+        noteView.delegate = self
         noteView.layer.cornerRadius = 13
         noteView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         noteView.backgroundColor = .lightGreen
@@ -217,7 +226,7 @@ class PlantViewController: UIViewController {
         noteView.layer.shadowOffset = CGSize(width: 0, height: 5)
     }
     
-    private func configureViewInscriptions() {
+    private func configureViewDetails() {
         scrollView.addSubview(reminderLabel)
         scrollView.addSubview(noteLabel)
         scrollView.addSubview(addNoteButton)
@@ -225,8 +234,10 @@ class PlantViewController: UIViewController {
         
         addNoteButton.setImage(UIImage(named: "addIcon")?.withRenderingMode(.alwaysTemplate), for: .normal)
         addNoteButton.tintColor = .deepGreen
+        addNoteButton.addTarget(self, action: #selector(noteAddButtonTapped), for: .touchUpInside)
         addReminderButton.setImage(UIImage(named: "addIcon")?.withRenderingMode(.alwaysTemplate), for: .normal)
         addReminderButton.tintColor = .gray
+        addReminderButton.addTarget(self, action: #selector(reminderAddButtonTapped), for: .touchUpInside)
         
         reminderLabel.snp.makeConstraints { make in
             make.top.equalTo(reminderView.snp_topMargin).inset(-3)
@@ -267,6 +278,7 @@ class PlantViewController: UIViewController {
         }
     }
     
+    // MARK: Objc funcs
     @objc func dateChoosen() {
         lastWorkTextField.text = dateService.getDecimalDate(date: datePickerForLastWork.date)
         lastWorkTextField.font = .date
@@ -280,8 +292,17 @@ class PlantViewController: UIViewController {
         lastWateringTextField.textColor = .black
         self.view.endEditing(true)
     }
+    
+    @objc func reminderAddButtonTapped() {
+        presenter.showReminderScreen()
+    }
+    
+    @objc func noteAddButtonTapped() {
+        presenter.showCreateNoteScreen()
+    }
 }
 
+// MARK: UITextFieldDelegate
 extension PlantViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if lastWorkTextField.isEditing {
@@ -311,14 +332,16 @@ extension PlantViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: PlantInput
 extension PlantViewController: PlantInput {
     func getPlant(plant: PlantStruct) {
         self.title = plant.plantName
-        delegate?.plantViewContentSize(reminderView)
-        delegate?.plantViewContentSize(noteView)
+        lastWorkTextField.text = dateService.getDecimalDate(date: plant.workDate)
+        lastWateringTextField.text = dateService.getDecimalDate(date: plant.wateringDate)
     }
 }
 
+// MARK: UICollectionViewExtensions
 extension PlantViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         tags?.count ?? 0
@@ -330,5 +353,12 @@ extension PlantViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
         cell.addSubview(tags?[indexPath.row] ?? UIView())
         return cell
+    }
+}
+
+//MARK: CellDelegates
+extension PlantViewController: ViewDelegate {
+    func view(_ view: UIView, didSelectCellBy date: Date) {
+        presenter.viewDidSelect(date: date)
     }
 }

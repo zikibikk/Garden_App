@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MyNotesInput: AnyObject {
-    func getNotes(notes: Array<NoteStruct>)
+    func getNotes(notes: [NoteStruct])
 }
 
 protocol MyNotesOutput: AnyObject {
