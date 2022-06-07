@@ -29,8 +29,8 @@ class MyGardenPresenter: MyGardenOutput {
         view?.getPlants(plants: plantService.getPlants() ?? [])
     }
     
-    func viewDidSelect(plant: PlantStruct) {
-        router.openPlantVC(plant: plant, router: dayRouter, notesService: notesService, reminderService: remindersService)
+    func viewDidSelect(plantName: String) {
+        router.openPlantVC(plant: plantService.getPlantByName(name: plantName)!, router: dayRouter, notesService: notesService, reminderService: remindersService, plantService: plantService)
     }
     
     func savePlant(plant: PlantStruct) {

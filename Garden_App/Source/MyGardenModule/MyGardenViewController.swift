@@ -19,7 +19,11 @@ class MyGardenViewController: UIViewController {
     }()
     
     private lazy var addButton = UIButton()
-    private var plants: [PlantStruct] = [] 
+    private var plants: [PlantStruct] = [PlantStruct(plantName: "Роза Хай йеллоу мэйджик", workDate: Date(dateString: "30.05.22"), wateringDate: Date(dateString: "30.04.22"), plantTags: nil, plantsNotes: nil),
+                                         PlantStruct(plantName: "Лук", workDate: Date(dateString: "1.06.22"), wateringDate: Date(dateString: "5.06.22"), plantTags: nil, plantsNotes: nil),
+                                         PlantStruct(plantName: "Картофель", workDate: Date(dateString: "25.05.22"), wateringDate: Date(dateString: "1.06.22"), plantTags: nil, plantsNotes: nil),
+                                         PlantStruct(plantName: "Ежевика", workDate: Date(dateString: "3.06.22"), wateringDate: Date(dateString: "31.05.22"), plantTags: nil, plantsNotes: nil),
+                                         PlantStruct(plantName: "Алыча", workDate: Date(dateString: "27.05.22"), wateringDate: Date(dateString: "26.05.22"), plantTags: nil, plantsNotes: nil)]
     private var textField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Напишите название растения"
@@ -46,6 +50,11 @@ class MyGardenViewController: UIViewController {
         configureNavigationBar()
         configureTableView()
         configureInputView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //presenter.viewDidLoad()
     }
     
     private func configureTableView() {
@@ -78,8 +87,6 @@ class MyGardenViewController: UIViewController {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
-        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tapGesture)
         
         toolbar.items = [flexibleSpace, doneButton]
         toolbar.sizeToFit()
@@ -98,14 +105,18 @@ class MyGardenViewController: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        view.addSubview(textField)
-        textField.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(150)
-            make.right.equalToSuperview().inset(30)
-            make.width.equalTo(265)
-            make.height.equalTo(50)
-        }
-        textField.becomeFirstResponder()
+//        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+//        view.addGestureRecognizer(tapGesture)
+//        view.addSubview(textField)
+//        textField.snp.makeConstraints { make in
+//            make.top.equalToSuperview().inset(150)
+//            make.right.equalToSuperview().inset(30)
+//            make.width.equalTo(265)
+//            make.height.equalTo(50)
+//        }
+//        textField.becomeFirstResponder()
+        let vc = PlantViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -155,13 +166,14 @@ extension MyGardenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let plant = plants[indexPath.row]
-        presenter.viewDidSelect(plant: plant)
+        presenter.viewDidSelect(plantName: plant.plantName)
     }
 }
 
 extension MyGardenViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.removeFromSuperview()
+        view.gestureRecognizers?.removeAll()
     }
 }
 

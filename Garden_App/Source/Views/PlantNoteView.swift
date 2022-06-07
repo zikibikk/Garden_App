@@ -25,7 +25,10 @@ class PlantNoteView: UIView {
         return tableView
     }()
     
-    private var notes: [NoteStruct] = []
+    private var notes: [NoteStruct] = [NoteStruct(noteDate: Date(dateString: "29.05.22"), noteText: "Заказала ежевику! Очень жду", notePlant: nil, noteTags:                                    nil),
+                                       NoteStruct(noteDate: Date(dateString: "1.06.22"), noteText: "Посылка пришла на почту, завтра поеду забирать", notePlant: nil, noteTags: nil),
+                                       NoteStruct(noteDate: Date(dateString: "3.06.22"), noteText: "На посте даже не было очереди, забрала и довольная", notePlant: nil, noteTags: nil),
+                                       NoteStruct(noteDate: Date(dateString: "6.06.22"), noteText: "Распаковала: корни гнилые, ствол внутри сухой. Заказала ежевику, аполучила - дрова", notePlant: nil, noteTags: nil)]
     
     override init(frame: CGRect){
         super.init(frame: frame)

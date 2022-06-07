@@ -122,7 +122,7 @@ extension NoteViewController {
             maker.top.equalToSuperview()
             maker.right
                 .equalTo(view)
-                .inset(25)
+                .inset(30)
         }
         
         noteView.snp.makeConstraints { maker in

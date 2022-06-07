@@ -18,12 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [DayAssembly.assemble(), CalendarAssembly.assemble(), MyGardenAsssembly.assemble(), MyNotesAssembly.assemble()]
         tabBarController.tabBar.tintColor = .black
-        
-//        UITabBarItem(title: nil, image: <#T##UIImage?#>, selectedImage: <#T##UIImage?#>)
+
         guard let items = tabBarController.tabBar.items else { return false }
         
-        items[0].image = UIImage(systemName: "scribble.variable")
+        items[0].image = UIImage(systemName: "sparkle")
         items[1].image = UIImage(systemName: "calendar")
+        items[2].image = UIImage(systemName: "leaf.fill")
+        items[3].image = UIImage(systemName: "square.and.pencil")
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()  

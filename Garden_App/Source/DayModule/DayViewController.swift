@@ -31,7 +31,7 @@ class DayViewController: UIViewController, DayInput {
         tableView.register(AddNoteCell.self, forCellReuseIdentifier: "\(AddNoteCell.self)")
         tableView.register(AddReminderCell.self, forCellReuseIdentifier: "\(AddReminderCell.self)")
         tableView.register(NoteCell.self, forCellReuseIdentifier: "\(NoteCell.self)")
-        tableView.register(ReminderCell.self, forCellReuseIdentifier: "\(ReminderCell.self)")
+        tableView.register(DailyRemindersTableViewCell.self, forCellReuseIdentifier: "\(DailyRemindersTableViewCell.self)")
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -64,7 +64,7 @@ class DayViewController: UIViewController, DayInput {
 extension DayViewController {
     
     func show(title: String, models: [DayModel]) {
-        self.title = title
+        self.navigationItem.title = title
         self.dayModels = models
         tableView.reloadData()
     }
@@ -74,7 +74,6 @@ extension DayViewController {
     private func initialize() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.isNavigationBarHidden = false
-        self.navigationController?.title = ""
     }
 }
 
@@ -101,7 +100,7 @@ extension DayViewController: UITableViewDataSource {
             cell.setText(newTxt: text)
             return cell
         case .reminder(let date, let text):
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ReminderCell.self)", for: indexPath) as! ReminderCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(DailyRemindersTableViewCell.self)", for: indexPath) as! DailyRemindersTableViewCell
             cell.setText(date: date, newTxt: text)
             return cell
         }

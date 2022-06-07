@@ -22,7 +22,7 @@ class PreviousDayPresenter: PreviousDayOutput {
     }
     
     func viewDidLoad() {
-        view?.getPreviousDay(date: date, note: notesService.getNoteByDate(date: date), reminders: [])
+        view?.getPreviousDay(date: date, note: notesService.getNoteByDate(date: date), reminders: remindersService.getRemindersByDate(date: date) ?? [])
     }
     
     func viewDidSelect() {

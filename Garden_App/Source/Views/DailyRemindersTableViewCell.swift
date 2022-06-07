@@ -58,4 +58,9 @@ class DailyRemindersTableViewCell: UITableViewCell {
         timeLabel.text = dateService.getTime(date: data.reminderDate)
         reminderlabel.text = data.reminderText
     }
+    
+    func setText(date: String, newTxt: String) {
+        timeLabel.text = date
+        reminderlabel.text = newTxt
+    }
 }

@@ -25,7 +25,10 @@ class MyNotesViewController: UIViewController {
       return searchController.isActive && !isSearchBarEmpty
     }
     
-    private var notes: [NoteStruct] = []
+    private var notes: [NoteStruct] = [NoteStruct(noteDate: Date(dateString: "29.05.22"), noteText: "Обработала почву азонтыми удобрениями и нитроаммофоской. Cпустя 5 лет упорного труда, глинянная почва наконец-то приобретает качества чернозема ", notePlant: nil, noteTags:                                    nil),
+                                       NoteStruct(noteDate: Date(dateString: "1.06.22"), noteText: "Лето в городе - это ужасно, ретируюсь на дачу", notePlant: nil, noteTags: nil),
+                                       NoteStruct(noteDate: Date(dateString: "3.06.22"), noteText: "Код от Wi-Fi 14633553", notePlant: nil, noteTags: nil),
+                                       NoteStruct(noteDate: Date(dateString: "6.06.22"), noteText: "Cегодня копала грядки и сажала цветы под драм-энд-бейс, энергии хватило на три часа а не как обычно", notePlant: nil, noteTags: nil)]
     
     private var filteredNotes: [NoteStruct] = []
 
@@ -50,6 +53,10 @@ class MyNotesViewController: UIViewController {
         configureNavigationItem()
         configureTableView()
         configureSearchController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         presenter.viewDidLoad()
     }
 
@@ -72,7 +79,6 @@ class MyNotesViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Введите текст или тег"
-        searchController.isActive = false
         searchController.searchBar.isHidden = true
         definesPresentationContext = true
     }
@@ -92,7 +98,7 @@ class MyNotesViewController: UIViewController {
 }
 
 extension MyNotesViewController: MyNotesInput {
-    func getNotes(notes: Array<NoteStruct>) {
+    func getNotes(notes: [NoteStruct]) {
         self.notes = notes
         tableView.reloadData()
     }
@@ -108,7 +114,7 @@ extension MyNotesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
            return filteredNotes.count
-         }
+        }
         return notes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

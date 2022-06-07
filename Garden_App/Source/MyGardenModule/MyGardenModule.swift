@@ -13,10 +13,10 @@ protocol MyGardenInput: AnyObject {
 
 protocol MyGardenOutput: AnyObject {
     func viewDidLoad()
-    func viewDidSelect(plant: PlantStruct)
+    func viewDidSelect(plantName: String)
     func savePlant(plant: PlantStruct)
 }
 
 protocol IGardenRouter {
-    func openPlantVC(plant: PlantStruct, router: IDayRouter, notesService: INotesService, reminderService: IReminderService)
+    func openPlantVC(plant: PlantStruct, router: IDayRouter, notesService: INotesService, reminderService: IReminderService, plantService: IPlantService)
 }

@@ -8,7 +8,7 @@
 import SnapKit
 
 class PreviousDayViewController: UIViewController {
-    private let reminders: [ReminderStruct] = []
+    private var reminders: [ReminderStruct] = []
     private let presenter: PreviousDayOutput
     private let dateService = DateService()
     private lazy var verticalView: UIStackView = {
@@ -81,7 +81,8 @@ extension PreviousDayViewController {
         verticalView.addArrangedSubview(noteView)
         verticalView.addArrangedSubview(reminderStatus)
         view.addSubview(tableView)
-    
+        
+        navigationController!.navigationBar.tintColor = .black
         tableView.separatorColor = .lightGreen
         tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 13, bottom: 0, right: 13)
         
@@ -105,6 +106,7 @@ extension PreviousDayViewController: PreviousDayInput {
     func getPreviousDay(date: Date, note: NoteStruct?, reminders: [ReminderStruct]) {
         self.title = dateService.getDate(date: date)
         self.noteView.text = note?.noteText
+        self.reminders = reminders
         if note?.noteText == nil {
             noteView.text = "                Заметки на этот день нет"
         }
@@ -112,6 +114,7 @@ extension PreviousDayViewController: PreviousDayInput {
         if reminders.count != 0 {
             reminderStatus.text = "Напоминания"
         }
+        adviceView.text = "Наиболее благоприятный день месяца для всех работ в огороде, в цветнике и в саду."
     }
 }
 

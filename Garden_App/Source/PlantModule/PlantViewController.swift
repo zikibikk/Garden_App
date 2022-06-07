@@ -14,7 +14,7 @@ protocol PlantViewSizeDelegate: AnyObject {
 }
 
 class PlantViewController: UIViewController {
-    private let presenter: PlantOutput
+    //private let presenter: PlantOutput
     weak var delegate: PlantViewSizeDelegate?
     private let scrollView = UIScrollView()
     private let rombAccessoryOneImage = UIImageView (image: UIImage(named: "rombAccessory"))
@@ -105,14 +105,14 @@ class PlantViewController: UIViewController {
         return cv
     }()
     
-    init(presenter: PlantOutput) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init(presenter: PlantOutput) {
+//        self.presenter = presenter
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,14 +122,26 @@ class PlantViewController: UIViewController {
         configureShadowsForViews()
         configureViewDetails()
         configureTags()
+        shameConfiguration()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //обновление контента
+        //presenter.viewDidLoad()
     }
     
     //MARK: Configuration
+    private func shameConfiguration() {
+        self.title = "Алыча"
+        lastWorkTextField.text = dateService.getDecimalDate(date: Date(dateString: "27.05.22"))
+        lastWateringTextField.text = dateService.getDecimalDate(date: Date(dateString: "26.05.22"))
+        lastWorkTextField.font = .date
+        lastWorkTextField.textColor = .black
+        lastWateringTextField.font = .date
+        lastWorkTextField.textColor = .black
+        navigationController!.navigationBar.tintColor = .black
+    }
+    
     private func configureInformationView() {
         view.backgroundColor = .white
         scrollView.addSubview(lastWorkTextField)
@@ -187,18 +199,18 @@ class PlantViewController: UIViewController {
         scrollView.addSubview(noteView)
         
         scrollView.snp.makeConstraints { $0.edges.equalToSuperview() }
-        
+        // MARK: height changed
         reminderView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(160)
             make.left.equalToSuperview().inset(26)
-            make.height.equalTo(90)
+            make.height.equalTo(150)
             make.width.equalTo(362)
         }
         
         noteView.snp.makeConstraints { make in
             make.top.equalTo(reminderView.snp_bottomMargin).inset(-7)
             make.left.equalToSuperview().inset(26)
-            make.height.equalTo(90)
+            make.height.equalTo(195)
             make.width.equalTo(362)
         }
         delegate?.plantViewContentSize(reminderView)
@@ -294,11 +306,11 @@ class PlantViewController: UIViewController {
     }
     
     @objc func reminderAddButtonTapped() {
-        presenter.showReminderScreen()
+        //presenter.showReminderScreen()
     }
     
     @objc func noteAddButtonTapped() {
-        presenter.showCreateNoteScreen()
+        //presenter.showCreateNoteScreen()
     }
 }
 
@@ -336,8 +348,17 @@ extension PlantViewController: UITextFieldDelegate {
 extension PlantViewController: PlantInput {
     func getPlant(plant: PlantStruct) {
         self.title = plant.plantName
-        lastWorkTextField.text = dateService.getDecimalDate(date: plant.workDate)
-        lastWateringTextField.text = dateService.getDecimalDate(date: plant.wateringDate)
+        if plant.workDate != Date.init() {
+            lastWorkTextField.text = dateService.getDecimalDate(date: plant.workDate)
+            lastWorkTextField.font = .date
+            lastWorkTextField.textColor = .black
+        }
+        
+        if plant.wateringDate != Date.init() {
+            lastWateringTextField.text = dateService.getDecimalDate(date: plant.wateringDate)
+            lastWateringTextField.font = .date
+            lastWorkTextField.textColor = .black
+        }
     }
 }
 
@@ -359,6 +380,6 @@ extension PlantViewController: UICollectionViewDataSource {
 //MARK: CellDelegates
 extension PlantViewController: ViewDelegate {
     func view(_ view: UIView, didSelectCellBy date: Date) {
-        presenter.viewDidSelect(date: date)
+        //presenter.viewDidSelect(date: date)
     }
 }

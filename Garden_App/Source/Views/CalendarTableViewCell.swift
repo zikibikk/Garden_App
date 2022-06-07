@@ -78,6 +78,7 @@ class CalendarTableViewCell: UITableViewCell {
 
 extension CalendarTableViewCell: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        calendar.deselect(date)
         delegate?.calendarCell(self, didSelect: date)
     }
 }

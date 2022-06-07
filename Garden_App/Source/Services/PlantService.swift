@@ -10,6 +10,7 @@ import Foundation
 protocol IPlantService {
     func savePlant(plant: PlantStruct)
     func getPlants() -> [PlantStruct]?
+    func getPlantByName(name: String) -> PlantStruct?
     func addNote(plant: PlantStruct, note: NoteStruct)
     func addReminder(plant: PlantStruct, reminder: ReminderStruct)
     func addTag(plant: PlantStruct, tag: TagStruct)
@@ -29,6 +30,16 @@ class PlantService: IPlantService {
     
     func getPlants() -> [PlantStruct]? {
         return repository.getPlants()
+    }
+    
+    func getPlantByName(name: String) -> PlantStruct? {
+        guard let plants = repository.getPlants() else { return nil }
+        for plant in plants {
+            if(plant.plantName == name){
+                return plant
+            }
+        }
+        return nil
     }
     
     func addNote(plant: PlantStruct, note: NoteStruct) {

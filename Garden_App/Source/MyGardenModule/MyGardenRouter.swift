@@ -11,10 +11,10 @@ import UIKit
 class MyGardenRouter: IGardenRouter {
     weak var view: UIViewController?
     
-    func openPlantVC(plant: PlantStruct, router: IDayRouter, notesService: INotesService, reminderService: IReminderService) {
-        let presenter = PlantPresenter(plant: plant, router: router, notesService: notesService, reminderService: reminderService)
-        let vc = PlantViewController(presenter: presenter)
+    func openPlantVC(plant: PlantStruct, router: IDayRouter, notesService: INotesService, reminderService: IReminderService, plantService: IPlantService) {
+        let presenter = PlantPresenter(plant: plant, router: router, notesService: notesService, reminderService: reminderService, plantService: plantService)
+        //let vc = PlantViewController(presenter: presenter)
         
-        view?.navigationController?.pushViewController(vc, animated: true)
+        //view?.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -14,12 +14,16 @@ class PlantReminderView: UIView {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
+        tableView.allowsSelection = false
         tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 13, bottom: 0, right: 13)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         return tableView
     }()
     
-    private var reminders: [ReminderStruct] = []
+    private let dateService = DateService()
+    private var reminders: [ReminderStruct] = [ReminderStruct(reminderText: "мульчирование", reminderDate: Date(dateString: "10.06.22")),
+                                               ReminderStruct(reminderText: "обрезка", reminderDate: Date(dateString: "19.6.22")),
+                                               ReminderStruct(reminderText: "убрать листья", reminderDate: Date(dateString: "25.6.22"))]
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -63,7 +67,7 @@ extension PlantReminderView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(UITableViewCell.self)") else { return UITableViewCell() }
         let reminder = reminders[indexPath.row]
-        cell.textLabel?.text = reminder.reminderText
+        cell.textLabel?.text = "\(dateService.getDate(date: reminder.reminderDate))   \(reminder.reminderText)"
         cell.backgroundColor = .clear
         cell.textLabel?.textColor = .deepGreen
         return cell

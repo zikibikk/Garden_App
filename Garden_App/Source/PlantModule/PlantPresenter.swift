@@ -14,16 +14,18 @@ final class PlantPresenter: PlantOutput {
     private let router: IDayRouter
     private let notesService: INotesService
     private let reminderService: IReminderService
+    private let plantService: IPlantService
     
-    init(plant: PlantStruct, router: IDayRouter, notesService: INotesService, reminderService: IReminderService) {
+    init(plant: PlantStruct, router: IDayRouter, notesService: INotesService, reminderService: IReminderService, plantService: IPlantService) {
         self.plant = plant
         self.router = router
         self.notesService = notesService
         self.reminderService = reminderService
+        self.plantService = plantService
     }
     
     func viewDidLoad() {
-        view?.getPlant(plant: plant)
+        view?.getPlant(plant: plantService.getPlantByName(name: plant.plantName)!)
     }
     
     func showReminderScreen() {
