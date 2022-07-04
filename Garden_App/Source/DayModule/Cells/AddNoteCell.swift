@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: (r.akhmadeev) Супер
 class AddNoteCell: UITableViewCell {
     
     private lazy var view = AddNoteView()

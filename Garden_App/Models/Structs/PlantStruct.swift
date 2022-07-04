@@ -7,6 +7,7 @@
 
 import Foundation
 struct PlantStruct: Hashable {
+    // TODO: (r.akhmadeev) функции помещаем под свойства
     static func == (lhs: PlantStruct, rhs: PlantStruct) -> Bool {
         return lhs.plantTags == rhs.plantTags && lhs.plantsNotes == rhs.plantsNotes
         && lhs.plantsReminders==rhs.plantsReminders

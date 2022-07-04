@@ -11,6 +11,7 @@ class MyNotesPresenter: MyNotesOutput {
     weak var view: MyNotesInput?
     private let router: INotesRouter
     private let notesService: INotesService
+    // TODO: (r.akhmadeev) Зачем это тут если не используется?
     private let coreDataService: CoreDataService
     
     init(router: INotesRouter, notesService: INotesService, coreDataService: CoreDataService) {

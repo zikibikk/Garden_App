@@ -16,7 +16,8 @@ class MyGardenPresenter: MyGardenOutput {
     private let remindersService: IReminderService
     private let router: IGardenRouter
     private let plantService: IPlantService
-    
+
+    // TODO: (r.akhmadeev) notesService, remindersService не используются внутри этого модуля. Удалить
     init(dayRouter: IDayRouter, notesService: INotesService, remindersService: IReminderService, plantService: IPlantService, router: IGardenRouter) {
         self.dayRouter = dayRouter
         self.notesService = notesService

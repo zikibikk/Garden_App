@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: (r.akhmadeev) Старнное название
 class DayPresenterN: DayOutput {
 
     weak var view: DayInput?
@@ -27,7 +28,7 @@ class DayPresenterN: DayOutput {
 }
 
 extension DayPresenterN {
-    
+    // TODO: (r.akhmadeev) если функция пустая, то лучше так: func viewDidLoad() {}
     func viewDidLoad() {
         
     }
@@ -45,7 +46,7 @@ extension DayPresenterN {
         let note = notesService.getNoteByDate(date: currentDateTS)
         var noteModel: DayModel
         let text = note?.noteText
-        
+        // TODO: Заменить text != "" на !text.isEmpty
         if text != nil && text != "" {
             noteModel = .note(text: text!)
         } else {

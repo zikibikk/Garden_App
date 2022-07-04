@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// TODO: (r.akhmadeev) Расхождение в названиях класса и протокола
 class PreviousDayRouter: INoteRouter {
     weak var view: UIViewController?
     

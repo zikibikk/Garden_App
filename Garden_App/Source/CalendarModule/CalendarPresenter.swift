@@ -8,6 +8,7 @@
 import Foundation
 
 class CalendarPresenter: CalendarOtput {
+    // TODO: (r.akhmadeev) в модуле должен быть всего 1 роутер
     private let router: ICalendarRouter
     private let noteRouter: INoteRouter
     private let notesService: INotesService

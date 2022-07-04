@@ -17,6 +17,8 @@ protocol MyGardenOutput: AnyObject {
     func savePlant(plant: PlantStruct)
 }
 
+// TODO: (r.akhmadeev) IMyGardenRouter
 protocol IGardenRouter {
+    // TODO: (r.akhmadeev) router и сервисы передавать не надо
     func openPlantVC(plant: PlantStruct, router: IDayRouter, notesService: INotesService, reminderService: IReminderService)
 }

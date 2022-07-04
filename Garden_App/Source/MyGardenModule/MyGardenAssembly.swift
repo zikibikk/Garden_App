@@ -28,6 +28,7 @@ enum MyGardenAsssembly {
         myGardenVC.navigationItem.title = "Мой сад"
         myGardenNavVC.isNavigationBarHidden = false
         myGardenNavVC.navigationBar.prefersLargeTitles = true
+        // TODO: (r.akhmadeev) цвета лучше выносить в константы
         myGardenNavVC.navigationBar.barTintColor = UIColor(red: 231/255, green: 240/255, blue: 231/255, alpha: 5)
         myGardenNavVC.viewControllers = [myGardenVC]
         

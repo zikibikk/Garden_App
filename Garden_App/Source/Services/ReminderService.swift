@@ -9,6 +9,7 @@ import Foundation
 
 protocol IReminderService {
     func addReminder(reminder: ReminderStruct)
+    // TODO: (r.akhmadeev) тут опционал не нужен. Если не получается найти модельки, то можно возвращать пустой массив
     func getRemindersByDate(date: Date) -> [ReminderStruct]?
 }
 

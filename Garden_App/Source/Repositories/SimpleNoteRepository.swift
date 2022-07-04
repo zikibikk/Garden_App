@@ -48,7 +48,10 @@ class SimpleNoteRepository: ISimpleNoteRepository {
             }
             
             do { try context.save() }
-            catch let error { print("Error: \(error)") }
+            // TODO: (r.akhmadeev) let error не нужен. Вот так правильно:
+            catch {
+                print("Error: \(error)")
+            }
         }
     }
     

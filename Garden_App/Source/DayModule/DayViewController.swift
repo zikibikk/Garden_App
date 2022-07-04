@@ -72,6 +72,8 @@ extension DayViewController {
 
 extension DayViewController {
     private func initialize() {
+        // TODO: (r.akhmadeev) Не всегда получается, но все же лучше не изменять navigationController напрямую из модуля
+        // потому что эти изменения будут применяться и на других экранах, где используется этот же navController
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.isNavigationBarHidden = false
         self.navigationController?.title = ""
@@ -85,6 +87,7 @@ extension DayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let curModel = dayModels[indexPath.row]
+        // TODO: (r.akhmadeev) Красиво
         switch curModel {
         case.advice(let advice):
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(AdviceCell.self)", for: indexPath) as! AdviceCell

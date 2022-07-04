@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [DayAssembly.assemble(), CalendarAssembly.assemble(), MyGardenAsssembly.assemble(), MyNotesAssembly.assemble()]
         tabBarController.tabBar.tintColor = .black
-        
+
+        // TODO: (r.akhmadeev) Удалить неиспользуемый комент
 //        UITabBarItem(title: nil, image: <#T##UIImage?#>, selectedImage: <#T##UIImage?#>)
+        // TODO: (r.akhmadeev) Плохая практика, желательно по-другому обработать, не возвращая false
         guard let items = tabBarController.tabBar.items else { return false }
         
         items[0].image = UIImage(systemName: "scribble.variable")
