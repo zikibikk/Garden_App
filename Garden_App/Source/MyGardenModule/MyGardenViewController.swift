@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 class MyGardenViewController: UIViewController {
+    // TODO: (r.akhmadeev) заменить на let
     private var presenter: MyGardenOutput
+    // TODO: (r.akhmadeev) Если lazy свойство содержит несколько строк, то лучше делать отступ сверху как у фунций
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.delegate = self
@@ -64,7 +66,7 @@ class MyGardenViewController: UIViewController {
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         navigationController?.navigationBar.addSubview(addButton)
         let targetView = self.navigationController?.navigationBar
-
+        // TODO: (r.akhmadeev) У вас же SnapKit есть
         let trailingContraint = NSLayoutConstraint(item: addButton, attribute:
                 .trailingMargin, relatedBy: .equal, toItem: targetView,
                                  attribute: .trailingMargin, multiplier: 1.0, constant: -16)
@@ -96,7 +98,8 @@ class MyGardenViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    
+    // TODO: (r.akhmadeev) Констрейнты будут создаваться каждый раз при нажатии кнопки.
+    // Лучше один раз их создать и больше не трогать
     @objc func addButtonTapped() {
         view.addSubview(textField)
         textField.snp.makeConstraints { make in

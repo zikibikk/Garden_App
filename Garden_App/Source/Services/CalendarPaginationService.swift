@@ -10,7 +10,7 @@ import Foundation
 class CalendarPaginationService {
     private var howManyMore = 0
     private var howManyLess = 1
-    func fetchNextMonths() -> [Date] {
+    func fetchNextMonths() -> [Date] { // TODO: (r.akhmadeev) Отступ
         var nextYearsMonths = [Date]()
         var dateComponents = DateComponents()
         

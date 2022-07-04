@@ -8,6 +8,7 @@
 import SnapKit
 
 class PreviousDayViewController: UIViewController {
+    // TODO: (r.akhmadeev) Смысл от массива, если он пустой и неизменяемый? - В tableView всегда будут отсутствовать ячейки
     private let reminders: [ReminderStruct] = []
     private let presenter: PreviousDayOutput
     private let dateService = DateService()
@@ -24,15 +25,16 @@ class PreviousDayViewController: UIViewController {
         tableView.register(DailyRemindersTableViewCell.self, forCellReuseIdentifier: "\(DailyRemindersTableViewCell.self)")
         return tableView
     }()
-    
+    // TODO: (r.akhmadeev) private
     lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .title
         return label
     }()
-    
+    // TODO: (r.akhmadeev) private
     lazy var adviceView = GreenView()
+    // TODO: (r.akhmadeev) private
     lazy var noteStatus: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -40,13 +42,13 @@ class PreviousDayViewController: UIViewController {
         label.text = "Заметка"
         return label
     }()
-    
+    // TODO: (r.akhmadeev) private
     lazy var noteView: GreenView = {
         let gv = GreenView()
         gv.makeLightBackground()
         return gv
     }()
-    
+    // TODO: (r.akhmadeev) private
     lazy var reminderStatus: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -72,6 +74,8 @@ class PreviousDayViewController: UIViewController {
 }
 
 extension PreviousDayViewController {
+    // TODO: (r.akhmadeev) private
+    // TODO: (r.akhmadeev) `initialize` - то, что происходит при init(). Здесь же идет конфигурация вью, поэтому лучше переименовать
     func initialize () {
         view.addSubview(verticalView)
         view.backgroundColor = .white
@@ -103,12 +107,15 @@ extension PreviousDayViewController {
 
 extension PreviousDayViewController: PreviousDayInput {
     func getPreviousDay(date: Date, note: NoteStruct?, reminders: [ReminderStruct]) {
+        // TODO: (r.akhmadeev) dateService вынести в presenter
         self.title = dateService.getDate(date: date)
         self.noteView.text = note?.noteText
         if note?.noteText == nil {
+            // TODO: (r.akhmadeev) Что такое? Если нужны отступы, то можно констрейнт для лейбла настроить
             noteView.text = "                Заметки на этот день нет"
         }
-        
+
+        // TODO: (r.akhmadeev) Лучше воспользоваться !reminders.isEmpty
         if reminders.count != 0 {
             reminderStatus.text = "Напоминания"
         }

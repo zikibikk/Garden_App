@@ -26,7 +26,8 @@ class EditableGreenView: UIView {
         view.backgroundColor = .lightGreen
         return view
     }()
-    
+
+    // TODO: (r.akhmadeev) Сначала get {}, потом set {}
     var text: String? {
         set { textView.text = newValue }
         get { return textView.text }

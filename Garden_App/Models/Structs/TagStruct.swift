@@ -7,6 +7,7 @@
 
 import Foundation
 struct TagStruct: Hashable {
+    // TODO: (r.akhmadeev) функции помещаем под свойства
     static func == (lhs: TagStruct, rhs: TagStruct) -> Bool {
         return (lhs.id == rhs.id) && (lhs.tagPlant == rhs.tagPlant) && (lhs.tagNote == rhs.tagNote) && (lhs.tagColor == rhs.tagColor) && (lhs.tagText == rhs.tagText)
     }

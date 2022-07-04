@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 extension Date {
     init(dateString: String) {
         let dateStringFormatter = DateFormatter()
@@ -17,6 +18,12 @@ extension Date {
     }
 }
 
+// TODO: (r.akhmadeev) Согласно документации, создание нового DateFormatter
+// - дорогая операция (сильно нагружает систему)
+// В этом файле он создается каждый раз, когда вам нужно получить какие-то строки
+// Лучше сохранять их в виде свойства внутри класса и переиспользовать.
+
+// TODO: (r.akhmadeev) Для каждого вида типа dateFormat создать отдельный DateFormatter
 class DateService {
     
     func getTime(date: Date) -> String {

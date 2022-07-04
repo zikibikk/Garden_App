@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// TODO: (r.akhmadeev) Красивая копипаста 😁
 //Always mixColor: .white to display random pastel
 class ColorService {
     func generateRandomPastelColor(withMixedColor mixColor: UIColor?) -> UIColor {

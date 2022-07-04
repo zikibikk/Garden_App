@@ -33,7 +33,7 @@ class CalendarViewController: UIViewController {
         configureStartMonths()
         configureView()
     }
-    
+
     override func viewDidLayoutSubviews() {
         tableView.scrollToRow(at: IndexPath.init(row: currentMonth + 11, section: 0), at: .top, animated: true)
     }

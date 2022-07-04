@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import FittedSheets
 
+// TODO: (r.akhmadeev) Лучше объединить 2 протокола в 1 и назвать IPlantRouter/PlantRouterProtocol/PlantRoutable и тд
 class PlantRouter: IDayRouter, IReminderRouter {
     weak var view: UIViewController?
     

@@ -10,7 +10,7 @@ import UIKit
 class NoteViewController: UIViewController, NoteInput {
     
     private let presenter: NoteOutput
-    
+    // TODO: (r.akhmadeev) вместо опционала лучше юзать пустой по умолчанию массив
     private var tags: [TagView]?
     
     private lazy var scrollView = UIScrollView()
@@ -157,6 +157,7 @@ extension NoteViewController: UICollectionViewDelegate {
 extension NoteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
+        // TODO: (r.akhmadeev) вот этой чехарды с `??` можно избежать, если массив будет не опциональным
         cell.addSubview(tags?[indexPath.row] ?? UIView())
         return cell
     }

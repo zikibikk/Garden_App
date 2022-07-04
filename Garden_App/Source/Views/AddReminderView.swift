@@ -27,7 +27,7 @@ class AddReminderView: UIView {
         view.backgroundColor = .lightGreen
         return view
     }()
-    
+    // TODO: (r.akhmadeev) Для чего?
     private var isPressed = false
     
     override init(frame: CGRect) {

@@ -13,6 +13,7 @@ protocol PlantViewSizeDelegate: AnyObject {
     func plantViewContentSize(_ view: UIView)
 }
 
+// TODO: (r.akhmadeev) Класс получился огромным. Лучше вынести всю верстку и все мелкие view в отдельную PlantView
 class PlantViewController: UIViewController {
     private let presenter: PlantOutput
     weak var delegate: PlantViewSizeDelegate?
@@ -33,7 +34,7 @@ class PlantViewController: UIViewController {
             textField.font = .tag
             return textField
         }()
-        
+        // TODO: (r.akhmadeev) отступ съехал поехала
         private var lastWateringTextField: UITextField = {
             let textField = UITextField()
             textField.text = "Добавьте"
@@ -123,7 +124,8 @@ class PlantViewController: UIViewController {
         configureViewDetails()
         configureTags()
     }
-    
+
+    // TODO: (r.akhmadeev) удалить, если нет внутри логики
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //обновление контента

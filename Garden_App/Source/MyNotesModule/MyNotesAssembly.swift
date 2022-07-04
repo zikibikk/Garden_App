@@ -25,6 +25,7 @@ enum MyNotesAssembly {
         
         presenter.view = myNotesVC
         router.view = myNotesVC
+        // TODO: (r.akhmadeev) MyNotesAssembly должен возврашать вью контроллер, а не нав контролле
         return myNotesNavVC
     }
 }

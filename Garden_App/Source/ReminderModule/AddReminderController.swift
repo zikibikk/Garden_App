@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 
 class AddReminderController: UIViewController {
-    
+    // TODO: (r.akhmadeev) weak не нужен
     weak var router: IReminderRouter?
     
     private let reminderService: IReminderService
@@ -57,7 +57,8 @@ class AddReminderController: UIViewController {
         hv.spacing = 12
         return hv
     }()
-    
+    // TODO: (r.akhmadeev) Нет смысла держать ссылку на рекогнайзер, если потом его не используете
+    // лучше создать его в методе setup() положить во вью и забыть
     private lazy var reminderGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addReminder(_:)))
     
     override func viewDidLoad() {
@@ -76,6 +77,7 @@ class AddReminderController: UIViewController {
 }
 
 extension AddReminderController {
+    // TODO: (r.akhmadeev) лучше назвать setupView/setupSubviews
     func setup() {
         self.view.backgroundColor = .white
         self.view.addSubview(verticalView)
@@ -95,6 +97,8 @@ extension AddReminderController {
         verticalView.addArrangedSubview(textField)
         verticalView.addArrangedSubview(datePicker)
         verticalView.addArrangedSubview(addButton)
+        // TODO: (r.akhmadeev) Для кнопки не нужен GestureRecognizer, она сама умеет отлавливать нажатия
+        // Делается через `addButton.addTarget(...)`
         addButton.addGestureRecognizer(reminderGestureRecognizer)
         self.view.snp.makeConstraints({$0.bottom.equalTo(verticalView).offset(25)})
     }
@@ -105,6 +109,8 @@ extension AddReminderController {
         textField.endEditing(true)
         let reminder = ReminderStruct(reminderText: textField.text ?? "", reminderDate: datePicker.date)
         reminderService.addReminder(reminder: reminder)
+        // TODO: (r.akhmadeev) Если код в мастер ветке, то принты стоит удалять. Если очень нужно читать логи, то
+        // лучше выносить это в отдельный Logger, где потом можно будет 1 строчкой отключить сразу все принты в проекте
         print(reminder.reminderText, " ", reminder.reminderDate)
         router?.closeReminderVC()
     }

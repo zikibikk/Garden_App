@@ -8,6 +8,7 @@
 import SnapKit
 import UIKit
 
+// TODO: (r.akhmadeev) Не используется нигде. Удалить
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

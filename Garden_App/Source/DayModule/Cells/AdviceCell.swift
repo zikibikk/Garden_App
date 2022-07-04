@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: (r.akhmadeev) Красиво и четко) 
 class AdviceCell: UITableViewCell {
 
     private lazy var greenView = GreenView()

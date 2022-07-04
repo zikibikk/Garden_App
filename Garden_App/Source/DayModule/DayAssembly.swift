@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 enum DayAssembly {
+    // TODO: (r.akhmadeev) Лишние отступы сверху
     static func assemble() -> UIViewController {
         
         

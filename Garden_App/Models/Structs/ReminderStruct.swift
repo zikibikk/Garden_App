@@ -10,6 +10,7 @@ struct ReminderStruct: Hashable {
     let id: Int32
     let reminderText: String
     let reminderDate: Date
+    // TODO: (r.akhmadeev) опционал не нужен. Можно нормально инитить с пустым значением
     var remindersPlants: Set<PlantEntity>?
     
     init(id: Int = Int.random(in: 1...1_000_000),

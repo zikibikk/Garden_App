@@ -38,6 +38,8 @@ class CoreDataService {
     }
     
     func getAllReminders() -> [ReminderStruct] {
+        // TODO: (r.akhmadeev) Этот мок не должен быть в настоящем CoreDataService
+        // Создайте отдельный CoreDataServiceMock, и мокайте любые его методы
         return [.init(reminderText: "Посадить Клён", reminderDate: Date(timeIntervalSince1970: 1659689576)),
                 .init(reminderText: "Полить клубнику", reminderDate: Date(timeIntervalSince1970: 1662367976))]
     }

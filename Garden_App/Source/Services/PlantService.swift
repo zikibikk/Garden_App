@@ -9,6 +9,7 @@ import Foundation
 
 protocol IPlantService {
     func savePlant(plant: PlantStruct)
+    // TODO: (r.akhmadeev) тут опционал не нужен. Если не получается найти модельки, то можно возвращать пустой массив
     func getPlants() -> [PlantStruct]?
     func addNote(plant: PlantStruct, note: NoteStruct)
     func addReminder(plant: PlantStruct, reminder: ReminderStruct)

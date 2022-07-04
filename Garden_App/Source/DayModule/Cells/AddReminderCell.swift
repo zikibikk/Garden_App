@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: (r.akhmadeev) Огонь!
 class AddReminderCell: UITableViewCell {
     
     private lazy var view = AddReminderView()
